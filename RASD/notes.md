@@ -35,3 +35,14 @@
 | G5 | Agevolare la gestione dei daily plan degli agronomists |  
  
 ## 2
+
+2.1 - Product perspective
+- Scenarios
+- Domain Model
+
+2.2 - Product functions
+- Requirements
+
+2.3 - User characteristics
+
+2.4 - Domain assumptions, dependencies and constraints
