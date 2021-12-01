@@ -75,7 +75,10 @@ problems to the agriculture that are getting bigger every year: its effect is pr
 4\%-26\% loss by the end of the century in the Indian agricuture sector.\\
 To tackle the situation, Telangana's state, which is the 11th biggest state in India, has decided to develop a 
 platform to implement anticipatory, data-driven models to strengthen the policies in farming, with the ultimate
-goal of increasing the output of the agriculture sector.
+goal of increasing the output of the agriculture sector.\\
+This is the idea behind DREAM (Data-dRiven prEdictive fArMing), a platform where Telangana's
+Policy Makers, farmers and agronomists cooperate in order to enhance agriculture performances and facilitate the 
+management of help requests, visits to farms and general communications betweens the actors in this scenario.
 \subsection{Purpose}
 The purpose of this document is to present a detailed description of the DREAM
  (Data-dRiven PrEdictive FArMing) platform. It will explain the purpose and features of 
@@ -83,8 +86,26 @@ The purpose of this document is to present a detailed description of the DREAM
   under which it must operate. This document is intended for software users and also 
   potential developers. The description will be offered by using models, providing scenarios and 
   their relative use cases, analyzing most important functional and non-functional requirements.
+\subsection{Scope} %qui inserirei overview of the function of the system and the reasons for its development, goals and success criteria
+The DREAM platform is intended for use by Telengana's policy makers, farmers and agronomists.\\
+DREAM allows Telangana's policy makers, through the use of data provided by farmers regarding goods 
+production, to extrapolate significative information and obtain a general view of the food production of the entire region. 
+In this way, they will be given a platform to model and monitor the region's food system, facilitating the study and the 
+realization of an adequate and well-performing long-term production strategy. The platform will provide policy makers the possibility 
+to easily monitor farmers' performance and manage agronomists' interventions whenever and wherever needed. 
+Furthermore, they will be able to identify those farmers whose production has been particularly good or bad,
+in order to reward the best performing farmers with incentives and to provide help to the farmers in need.\\ 
+DREAM's goal is also to provide useful resources and tools to local farmers, who will be given a platform to facilitate 
+the farmer-to-farmer and farmer-to-policy maker communication. Via DREAM, farmers will be able to participate to forum
+discussions, easily create help requests and obtain sensitive information such as accurate weather forecasts and personalized 
+suggestions regarding goods and agriculture routines.\\
+For what concerns the local agronomists, DREAM facilitates the daily visit controls scheduling and regulates it accordingly
+to farmer needs, increasing the visits whether a farmer performance is significantly lower than the average.\\
+In this document, the agronomist perspective won't be analyzed in detail, but it will be considered only marginally and in those
+cases where there is a significant interaction between agronomists and the other actors.
 \subsubsection{Goals}
     \begin{center}
+        \vspace{0.5cm}
         \begin{tabular}{|c c|} 
         \hline
         Goal & Description \\ 
@@ -101,21 +122,9 @@ The purpose of this document is to present a detailed description of the DREAM
         \hline
         \end{tabular}
     \end{center}
-\subsection{Scope} %qui inserirei overview of the function of the system and the reasons for its development, goals and success criteria
-The DREAM platform is intended for use by Telengana's policy makers and farmers. 
-The reason that policy makers need this platform is that through the use of information 
-provided by farmers on the type and quantity of goods produced, aggregated, and combined with 
-information about land use, such as the amount of water used for irrigation or soil moisture, 
-it will be possible to extrapolate data capable of modeling the food system of the entire region, 
-giving the possibility to consult aggregate data to facilitate the study of an adequate, 
-performing and long-term production strategy.\\
-Thanks to this platform, farmers will be able to exploit Telengana's technological infrastructure 
-to improve their production activity. They will receive personalized advice and news about 
-their area of work and will be able to request personalized assistance from agronomists and 
-compare themselves with other farmers in the area. To receive these benefits, farmers will be 
-required to consistently enter information about their products and the problems they have to face.
 \subsubsection{World and Machine Phenomena}
 \begin{center}
+    \vspace{0.5cm}
     \begin{tabular}{|c c|} 
     \hline
     World Phenomena & Description \\ 
@@ -131,17 +140,53 @@ required to consistently enter information about their products and the problems
     WP5 & Control visits to farmers \\ 
     \hline
     \end{tabular}
+    \vspace{0.5cm}\\
+    \begin{tabular}{|c c c|} 
+        \hline
+        Shared Phenomena & Description & Controlled By\\ 
+        \hline\hline
+        SP1 & Insertion of crop collection data & W \\ 
+        \hline
+        SP2 & Visualization of weather forecasts & M \\ 
+        \hline
+        SP3 & Visualization of suggestions & M \\ 
+        \hline
+        SP4 & Sending of notifications by TPMs & W \\ 
+        \hline
+        SP5 & Receiving of notifications by farmers & M \\ 
+        \hline
+        SP6 & Sending help requests & W \\ 
+        \hline
+        SP7 & Contribution to a forum discussion & W \\ 
+        \hline
+        SP8 & Visualization of crop collection data & M \\ 
+        \hline
+        SP9 & Interview request & W \\ 
+        \hline
+        SP10 & Agronomist visit request & W \\ 
+        \hline
+        SP11 & Login/registration on the platform & W \\ 
+        \hline
+        \end{tabular}
 \end{center}
 \subsection{Definitions, Acronyms, Abbreviations}
 \subsection{Revision history}
 \subsection{Reference Documents}
 \subsection{Document Structure}
 \newpage
-\section{Hypothesis}
-The database is implemented under the following hypothesis:
+\section{Overall Description}
+\subsection{Product Perspective}
+\subsubsection{Scenarios}
 \begin{itemize}
-    \item Hypothesis 1
-    \item Hypothesis 2
-    \item Et cetera
+    \item \textit{Insertion of crop collection data into the system.}\\ 
+    Rajesh is a Telangana's local farmer. Every morning he wakes up, does a little and poor breakfast and goes to work in the fields.
+    Although being a very humble and physically demanding work, agriculture has always been a priority in Rajesh life: nothing gives him
+    more satisfaction than seeing the results of his hard work and when he goes to sleep at night, even though he is tired from the long day of work,
+    he falls asleep with a smile on his mouth thinking about his crop happily growing in the night. When the crop is ready to be collected, the atmosphere
+    is electric in Rajesh's farm: if the crop is good and particularly abundant, all the workers have a big dinner, finely prepared by Rajesh and his wife,
+    followed by a long party night where everybody sings and dances. The day after the celebration, Rajesh wakes up with a tremendous hangover, and proceeds
+    to login into the DREAM platform. Once he has logged in, he proceeeds to insert into the system the data regarding the collected crop.
+    He would have preferred to sleep a few more hours, and only by looking at the computer's screen he gets a big headache, but he carries on, because he
+    remembers that tomorrow will be another happy day in the fields of Telangana.
 \end{itemize}
 \end{document}
