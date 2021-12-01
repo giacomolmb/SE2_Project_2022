@@ -110,11 +110,9 @@ cases where there is a significant interaction between agronomists and the other
         \hline
         Goal & Description \\ 
         \hline\hline
-        G1 & Allow farmers to receive assistance \\ 
+        G1 & Allow Telangana's Policy Makers to monitor local agriculture\\ 
         \hline
-        G2 & Allow Telangana's Policy Makers to monitor local agriculture\\ 
-        \hline
-        G3 & Send incentives and various benefits to the best local farmers\\ 
+        G2 & Allow farmers to receive assistance or incentives based on their performance\\ 
         \hline
         G4 & Create a farmer's network to promote collaboration and mutual aid \\ 
         \hline
@@ -176,6 +174,50 @@ cases where there is a significant interaction between agronomists and the other
 \newpage
 \section{Overall Description}
 \subsection{Product Perspective}
+The system will be implemented from scratch, completely replacing the legacy system.
+The system will make use of some already existing functionalities, such as in weather forecasting where there is 
+already an existing platform for collecting and visualizing data (https://www.tsdps.telangana.gov.in/aws.jsp).
+\subsubsection{Class diagram}
+\subsubsection{State diagrams}
+\subsection{Product functions}
+This section will summarize the main functionalities of the system.
+\subsubsection{Agriculture monitoring}
+The system will provide Telangana Policy Makers a platform to monitor and manage the local 
+agriculture system. Policy makers will be able to visualize relevant data about goods produced by farmers
+and will be able to evaluate their performance based on various parameters. The data will be both inserted manually by farmers
+(e.g. data regarding the quantity of goods produced) and automatically collected from sensors (e.g. data regarding weather conditions,
+soil humidity and irrigation). The system will automatically process the data to provide policy makers a human-friendly
+interface where relevant information will be displayed. The UI will display to TPMs both information obtained through data 
+aggregation regarding the overall state of local's agriculture and individual information about farmers performance.
+In this way, TPMs will be able to identify farmers whose performance has been particularly good or bad and act on them.
+\subsubsection{Farmer's assistance}
+The system will provide Telangana's local farmers an easy-to-use platform to obtain relevant information and to favor the interaction with TPMs and other farmers.
+Farmers will be able to visualize accurate weather forecasts and personalized suggestions regarding the whole goods production process. They will also be able to 
+participate in forum discussions with other farmers, favoring collaboration and exchange of knowledge useful to the collectivity.
+DREAM will also provide to farmers an easy way to create help requests and send them to TPMs, in order to facilitate and speed-up the support process and favour
+interventions where needed. 
+Through DREAM, farmers' performance will be monitored by policy makers, and they will be provided assistance if needed. Also, high-performing farmers will be rewarded
+with incentives such as prizes, insurances and invitations to excellence programmes.
+\subsubsection{Goods production data insertion and analysis}
+In order to monitor and visualize information about the local agricuture system, local farmers participating to the DREAM project 
+will be requested to provide the system data regarding their production. Goods production data will then be analyzed and will provide TPMs 
+useful informations. 
+The collected data will regard:
+\begin{itemize}
+    \item Quantity of goods produced;
+    \item Quantity of products used during the process (e.g. fertilizers);
+    \item Quantity of water used in irrigation;
+    \item Weather conditions;
+    \item Soil humidity
+\end{itemize}
+The system will then process the collected data, calculating parameters used to evaluate farmers' performance. These parameters include:
+\begin{itemize}
+    \item Amount of water used based on weather conditions;
+    \item Resilience to bad weather;
+    \item Ambiental impact of used products;
+    \item Crop rotation;
+    \item and more %e tanti altri ancora! Scoprili tutti!
+\end{itemize}
 \subsubsection{Scenarios}
 \begin{itemize}
     \item \textit{Insertion of crop collection data into the system.}\\ 
