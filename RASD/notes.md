@@ -60,5 +60,3 @@
 | D8 | I sensori di rilevazione dell'umidità del terreno vengono installati dal governo in maniera tale da coprire tutta l'area di interesse |
 | D9 | Il sistema di weather forecasting è già implementato e funzionante |
 | D10 | I PM effettuano data-driven decisions |
-
-# #SUCASONNY2021
