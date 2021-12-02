@@ -46,3 +46,19 @@
 2.3 - User characteristics
 
 2.4 - Domain assumptions, dependencies and constraints
+
+### Assumptions
+| ID | Assumptions | 
+|:----------------------:|:------------------------------------|
+| D1 | Ogni PM ha una e UNA SOLA area di competenza |  
+| D2 | Ogni trimestre sono selezionati 10 agricoltori in base a degli indici definiti dal governo| 
+| D3 | I farmer inseriscono sempre e in modo corretto i dati relativi al raccolto | 
+| D4 | Il contadino che partecipa a DREAM, deve disporre di un dispostivo in grado di connettersi alla piattaforma | 
+| D5 | Ad ogni contadino vengono forniti tutti i sensori necessari per il rilevamento dell'acqua utlizzata nell'irrigazione | 
+| D6 | I sensori del farmer vengono installati direttamente nella centralina del sistema di irrigazione |
+| D7 | I sensori dell'irrigazione inviano automaticamente i dati relativi al consumo di acqua al momento della compilazione del report |
+| D8 | I sensori di rilevazione dell'umidità del terreno vengono installati dal governo in maniera tale da coprire tutta l'area di interesse |
+| D9 | Il sistema di weather forecasting è già implementato e funzionante |
+| D10 | I PM effettuano data-driven decisions |
+
+# #SUCASONNY2021
