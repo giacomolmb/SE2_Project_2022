@@ -260,8 +260,18 @@ The system will then process the collected data, calculating parameters used to 
       all winners, Guepequesh will notify the system to proceed with the closing of the quarter. In the following days, 
       following the interviews, the PM will enter all data related to the best practices followed by the farmer in the system, 
       and they will be forwarded to all farmers in the area who grow the same type of product. 
-      \item \textit{Farmers request for help and suggestions by agronomists and other farmers}\\
-      Marrakesh
+      \item \textit{Farmers request for help and suggestions by other farmers}\\
+      Marrakesh is a young farmer from Telengana. He has recently decided to strike out on his own in the world of agriculture 
+      and knows that he will face many challenges. During a normal day's work, Marrakesh notices that even several hours after irrigation, 
+      his soil remains very wet and even puddles form. He had never encountered this problem before and decides to rely on the 
+      farmers' forum provided by the DREAM platform to which he is subscribed. Marrakesh logs in and goes to the "Problems and Help Requests" 
+      section of the forum, creates a new thread and prepares to fill in the required fields for the submission of the request. 
+      The young farmer enters a short title, his working area, the type of shoot with which he encountered the problem and an accurate description 
+      of the problem he had. All farmers receive a notification on the platform that a new application has been entered, the notification includes 
+      the title and type of sprout so that a farmer can immediately determine if he or she considers themselves competent in the field or not. 
+      In particular, an experienced farmer named Rastykilo pauses to read the full description of the problem and enters a very accurate 
+      response to the problem. All of the farmers who read the response enter positive feedback, and Marrakesh, the next day, feels confident 
+      in following Rastykilo's advice, given the many positive feedbacks.
       \item \textit{Identify those farmers who need to be helped as they are performing particularly badly}
       % va inserito? sarebbe molto simile all'awarding ma al posto di premiare li insulta e poi li aiuta
 \end{itemize}
@@ -309,15 +319,33 @@ Domain assumptions define the world in which DREAM works.
     \item[] \textbf{DA11} Each farmer has an automated irrigation system with a control unit.
     \item[] \textbf{DA12} Each irrigation control unit supports the sensors provided by DREAM.
     \item[] \textbf{DA13} Data provided by the irrigation sensors is always correct.
+    \item[] \textbf{DA14} The units of measurement used will always be consistent. 
 \end{itemize}
 \newpage
 \section{Specific Requirements}
 \subsection{External Interface Requirements}
 \subsubsection{User Interfaces}
 \subsubsection{Hardware Interfaces}
+% https://iopscience.iop.org/article/10.1088/1742-6596/1339/1/012012/meta se citiamo anche degli articoli accademici è una bella flexata
+Different types of hardware interfaces will be required to ensure that the entire infrastructure functions properly.\\
+Farmers and PMs will need to have computers connected to the internet and capable of supporting DREAM's dedicated web app.\\
+All sensors will have to use IoT technologies, in fact they will necessarily have to be connected to a Wi-Fi module and programmed to create data and send it to the DREAM server. 
 \subsubsection{Software Interfaces}
+The system will use the external API of the Telengana governmental weather service to collect and transmit data of interest to farmers, depending on their area.\\
+The system doesn't provide any API to external application because of the privacy of the farmers.
 \subsubsection{Communication Interfaces}
+% qui non saprei cosa scrivere
 \subsection{Functional Requirements}
 \subsubsection{Requirements}
 \subsubsection{Goal Mapping on Requirements}
+\subsection{Performance Requirements}
+Since the system does not need immediate responsiveness, the latency between components can also be in the order of seconds (e.g. 1 to 20 sec).\\
+The amount of data produced by IoT sensors is significantly high, the system is expected to be able to process and classify all the data, thus having high storage capacities.\\
+To meet these requirements, the system is expected to be distributed in nature and have a Cloud infrastructure to rely on.
+\subsection{Software System Attributes}
+\subsubsection{Reliability}
+\subsubsection{Availability}
+\subsubsection{Security}
+\subsubsection{Maintainability}
+\subsubsection{Portability}
 \end{document}
