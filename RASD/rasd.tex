@@ -227,6 +227,13 @@ The system will then process the collected data, calculating parameters used to 
 \end{itemize}
 \subsubsection{Scenarios}
 \begin{itemize}
+    \item \textit{Registration to the DREAM platform}\\ 
+    Santosh is a Telangana's local farmer. He receives a letter from the Ministry of Agriculture, Food and Forestry of Telangana containing information
+    about the DREAM project. Santosh thinks that he could benefit from the participation to the programme, so he follows the instructions of the letter and
+    sends a application to participate to the DREAM project via e-mail to the Ministry. A few days letter his application is accepted and a policy maker sends him
+    via e-mail further instructions: he will be provided with credentials to login into the system and an operator will visit his farm to install sensors to monitor
+    irrigation. In the meantime the policy maker inserts into the DREAM database the information about Santosh. When Santosh receives the login credentials, he is 
+    ready to access to the system and start participating to the project.
     \item \textit{Insertion of crop collection data into the system.}\\ 
     % specificare anche che il farmer inserisce i problemi che ha affrontato
     Rajesh is a Telangana's local farmer. Every morning he wakes up, does a little and poor breakfast and goes to work in the fields.
@@ -287,4 +294,20 @@ to have basic computers with low performances.
 DREAM will implement a pre-existing weather forecasting system, which will be integrated via APIs. Failures in the 
 system above will not affect the overall functioning of DREAM but will result in wrong forecasts or in the unavailability of the feature.
 \subsection{Domain assumptions}
+Domain assumptions define the world in which DREAM works. 
+\begin{itemize}
+    \item[] \textbf{DA1} Each policy maker has one and one only area to monitor.
+    \item[] \textbf{DA2} Terrains cannot be shared: each terrain is associate with one and only farmer. 
+    \item[] \textbf{DA3} Farmers have a device able to access the platform. 
+    \item[] \textbf{DA4} Farmers always insert correct data in the system.
+    \item[] \textbf{DA5} Farmers participating to the programme actively use the platform.
+    \item[] \textbf{DA6} Farmers' possessions are already registered at the local Ministry.
+    \item[] \textbf{DA7} Policy makers' decisions are solely data-driven and are not affected by personal opinions.
+    \item[] \textbf{DA8} Humidity soil sensors are already installed and cover the entire geographical area.
+    \item[] \textbf{DA9} Each farmer's terrain humidity data is provided by one and only sensor, associated accordingly to geographical distance from the center of the terrain.
+    \item[] \textbf{DA10} Data provided by humidity soil sensors is always correct.
+    \item[] \textbf{DA11} Each farmer has an automated irrigation system with a control unit.
+    \item[] \textbf{DA12} Each irrigation control unit supports the sensors provided by DREAM.
+    \item[] \textbf{DA13} Data provided by the irrigation sensors is always correct.
+\end{itemize}
 \end{document}

@@ -51,7 +51,7 @@
 | ID | Assumptions | 
 |:----------------------:|:------------------------------------|
 | D1 | Ogni PM ha una e UNA SOLA area di competenza |  
-| D2 | Ogni trimestre sono selezionati 10 agricoltori in base a degli indici definiti dal governo| 
+| D2 | Ogni trimestre sono selezionati 10 agricoltori in base a degli indici definiti dal governo NON È D.A.| 
 | D3 | I farmer inseriscono sempre e in modo corretto i dati relativi al raccolto | 
 | D4 | Il contadino che partecipa a DREAM, deve disporre di un dispostivo in grado di connettersi alla piattaforma | 
 | D5 | Ad ogni contadino vengono forniti tutti i sensori necessari per il rilevamento dell'acqua utlizzata nell'irrigazione | 
