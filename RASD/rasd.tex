@@ -343,9 +343,16 @@ Since the system does not need immediate responsiveness, the latency between com
 The amount of data produced by IoT sensors is significantly high, the system is expected to be able to process and classify all the data, thus having high storage capacities.\\
 To meet these requirements, the system is expected to be distributed in nature and have a Cloud infrastructure to rely on.
 \subsection{Software System Attributes}
-\subsubsection{Reliability}
 \subsubsection{Availability}
+The target is to achieve an improved level of resilience with semi-automated recovery and to be taken offline for maintenance in agreed windows.
+System relies on people that use it during the working hours, moreover, it is not needed to provide very high availability because the system is not strictly related with emergency situations.
+According to these assumptions, the system should provide an Availability of 99.5\% 
+\subsubsection{Reliability}
+The operations performed must be executed as intended as frequently as possible, in fact the probability that the data displayed is correct must be 
+very high, so as not to compromise the evaluations performed by the actors in the system. To meet these requirements, the reliability of the system must 
+not be less than 99.97\%.
 \subsubsection{Security}
 \subsubsection{Maintainability}
 \subsubsection{Portability}
 \end{document}
+ 
