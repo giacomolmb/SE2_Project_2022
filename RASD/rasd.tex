@@ -346,7 +346,7 @@ The system doesn't provide any API to external application because of the privac
 \subsection{Performance Requirements}
 Since the system does not need immediate responsiveness, the latency between components can also be in the order of seconds (e.g. 1 to 20 sec).\\
 The amount of data produced by IoT sensors is significantly high, the system is expected to be able to process and classify all the data, thus having high storage capacities.\\
-To meet these requirements, the system is expected to be distributed in nature and have a Cloud infrastructure to rely on.
+\textcolor{red}{To meet these requirements, the system is expected to be distributed in nature and have a Cloud infrastructure to rely on. \%forse non va inserito qua\%}
 \subsection{Software System Attributes}
 \subsubsection{Availability}
 The target is to achieve an improved level of resilience with semi-automated recovery and to be taken offline for maintenance in agreed windows.
@@ -357,7 +357,13 @@ The operations performed must be executed as intended as frequently as possible,
 very high, so as not to compromise the evaluations performed by the actors in the system. To meet these requirements, the reliability of the system must 
 not be less than 99.97\%.
 \subsubsection{Security}
+The data entered into the platform needs to be protected as it contains confidential information about telengana farmers. A secure communication channel and encryption of messages will be necessary.\\
+Operations will always need to be authorized with an authentication mechanism, specifically the PM login mechanism must be 2FA (two-factor authentication).
 \subsubsection{Maintainability}
+The infrastructure needs thorough documentation of the code base to ensure that the underlying logic can be quickly understood by maintenance personnel.\\
+Through the use of design patterns and best practices in the implementation, it will be easier to ensure future additions.
 \subsubsection{Portability}
+The client application, including the front-end and user interface, must be supported by Windows and Mac operating systems. \\
+A mobile version of the client application is not planned.
 \end{document}
  
