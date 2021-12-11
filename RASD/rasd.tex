@@ -351,11 +351,29 @@ The amount of data produced by IoT sensors is significantly high, the system is 
 \subsubsection{Availability}
 The target is to achieve an improved level of resilience with semi-automated recovery and to be taken offline for maintenance in agreed windows.
 System relies on people that use it during the working hours, moreover, it is not needed to provide very high availability because the system is not strictly related with emergency situations.
-According to these assumptions, the system should provide an Availability of 99.5\% 
+According to these assumptions, the system should provide an Availability of 99.5\%.
+\begin{center}
+    \begin{tabular}{|c c c|} 
+    \hline
+    Availability \% & Downtime per year & Downtime per month\\ 
+    \hline
+    99.5\%  & 1.83 days & 3.6 hours\\ 
+    \hline
+    \end{tabular}
+\end{center}
 \subsubsection{Reliability}
 The operations performed must be executed as intended as frequently as possible, in fact the probability that the data displayed is correct must be 
 very high, so as not to compromise the evaluations performed by the actors in the system. To meet these requirements, the reliability of the system must 
 not be less than 99.97\%.
+\begin{center}
+    \begin{tabular}{|c c c|} 
+    \hline
+    Reliability \% & Downtime per year & Downtime per month\\ 
+    \hline
+    99.97\%  & 2.63 hours & 13.14 minutes\\ 
+    \hline
+    \end{tabular}
+\end{center}
 \subsubsection{Security}
 The data entered into the platform needs to be protected as it contains confidential information about telengana farmers. A secure communication channel and encryption of messages will be necessary.\\
 Operations will always need to be authorized with an authentication mechanism, specifically the PM login mechanism must be 2FA (two-factor authentication).
