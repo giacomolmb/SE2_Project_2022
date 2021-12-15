@@ -115,11 +115,11 @@ cases where there is a significant interaction between agronomists and the other
         \hline\hline
         G1 & Allow Telangana's Policy Makers to monitor local agriculture\\ 
         \hline
-        G2 & Allow farmers to receive assistance or incentives based on their performance\\ 
+        G2 & Allow farmers to receive assistance or rewards based on their performance\\ 
+        \hline
+        G3 & Allow farmers to request and receive help \\
         \hline
         G4 & Create a farmer's network to promote collaboration and mutual aid \\ 
-        \hline
-        G5 & Facilitate the management of agronomists's schedules \\ 
         \hline
         \end{tabular}
     \end{center}
@@ -389,7 +389,8 @@ All sensors will have to use IoT technologies, in fact they will necessarily hav
 The system will use the external API of the Telengana governmental weather service to collect and transmit data of interest to farmers, depending on their area.\\
 The system doesn't provide any API to external application because of the privacy of the farmers.
 \subsubsection{Communication Interfaces}
-% qui non saprei cosa scrivere
+All the communications between end-devices and the central system are made via internet using the HTTPS protocol.
+The communications between clients and sensors are made via a publish-subscribe communication protocol, namely MQTT.
 \subsection{Functional Requirements}
 \subsubsection{Requirements}
 \begin{enumerate}[label=\textbf{R\arabic*}]
@@ -402,8 +403,8 @@ The system doesn't provide any API to external application because of the privac
     \item \label{req:farmerReport1} The system shall allow farmers to fill reports with data about goods production.
     \item \label{req:farmerReport2} The system shall allow farmers to fill reports with data about auxiliary products used for goods production.
     \item \label{req:farmerReport3} The system shall allow farmers to fill reports with problems faced during goods production.
-    \item \label{req:farmerReport3} The system shall retrieve data from sensors and attach it to reports.
-    \item \label{req:farmerReport4} The system shall retrieve data from weather stations and attach it to reports.
+    \item \label{req:farmerReport4} The system shall retrieve data from sensors and attach it to reports.
+    \item \label{req:farmerReport5} The system shall retrieve data from weather stations and attach it to reports.
     \item \label{req:farmerWeather} The system shall allow farmers to visualize weather forecasts.
     \item \label{req:farmerSensors} The system shall allow farmers to visualize data retrieved from humidity and irrigation sensors.
     \item \label{req:farmerForum} The system shall allow farmers to create and contribute to forum discussions.
