@@ -3,6 +3,8 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{subcaption}
+\usepackage{longtable}
+\usepackage{booktabs}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -279,7 +281,12 @@ The system will then process the collected data, calculating parameters used to 
       response to the problem. All of the farmers who read the response enter positive feedback, and Marrakesh, the next day, feels confident 
       in following Rastykilo's advice, given the many positive feedbacks.
       \item \textit{Identify those farmers who need to be helped as they are performing particularly badly}
-      % va inserito? sarebbe molto simile all'awarding ma al posto di premiare li insulta e poi li aiuta
+      Om Ashgabash is a Telangana Policy maker. At the end of the trimester, he checks as usual the performances of farmers. He notices that Vidit Parkamush, a local
+      farmer of his area of competence, has produced goods for a significantly lower amount than the other farmers over the same periods. He then decides that Vidit might
+      need some help in order to perform better in the next period. To help him, first of all he schedules a call with Vidit to understand his situation and evaluate which
+      actions might be needed. Once understood the situation, Om decides first of all to provide Vidit some useful suggestions related to his goods production. Then, he adds
+      to the local control visits schedule additional visits to Vidit's farm in order to keep under better control his situation for the next months. Vidit is also added to the
+      monitoring list, where policy makers can easily check the performances of farmers in difficulty.
 \end{itemize}
 \subsection{User Characteristics}
 In this section the different types of users of the system will be analyzed. DREAM has three categories of users:
@@ -331,6 +338,7 @@ Domain assumptions define the world in which DREAM works.
 \section{Specific Requirements}
 \subsection{External Interface Requirements}
 \subsubsection{User Interfaces}
+<<<<<<< HEAD
     \begin{figure}[h]
     \includegraphics[width=14cm]{farmer_homepage.png} 
     \caption{Homepage of farmer's web application} 
@@ -340,6 +348,49 @@ Domain assumptions define the world in which DREAM works.
     \includegraphics[width=14cm]{report.png}  
     \caption{Farmer report form page}
     \end{figure}
+=======
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.45]{ui/login.png}
+    \caption{Login page}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.30]{ui/pm_farmers.png}
+    \caption{PM Dashboard - Farmers page}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.40]{ui/pm_forecasts.png}
+    \caption{PM Dashboard - Forecasts page}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.40]{ui/pm_helprequests.png}
+    \caption{PM Dashboard - Help Requests page}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.40]{ui/pm_forum.png}
+    \caption{PM Dashboard - Forum page}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.40]{ui/pm_farmerdetail.png}
+    \caption{PM Dashboard - Farmer detail page}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.40]{ui/pm_helpdetail.png}
+    \caption{PM Dashboard - Help request detail page}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.15]{ui/f_homepage.png}
+    \caption{Farmer Dashboard - Homepage}
+\end{figure}
+\newpage
+>>>>>>> ea0fd6c85585fe8962c35c23b7a458c6e79a328a
 \subsubsection{Hardware Interfaces}
 % https://iopscience.iop.org/article/10.1088/1742-6596/1339/1/012012/meta se citiamo anche degli articoli accademici è una bella flexata
 Different types of hardware interfaces will be required to ensure that the entire infrastructure functions properly.\\
@@ -353,6 +404,130 @@ The system doesn't provide any API to external application because of the privac
 \subsection{Functional Requirements}
 \subsubsection{Requirements}
 \subsubsection{Goal Mapping on Requirements}
+\newpage
+\subsubsection{Use Cases}
+\begin{enumerate}
+    \item \textbf{Farmer Registration} 
+        \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
+            \toprule
+            \textbf{Name} & \textbf{Farmer Registration} \\
+            \midrule
+            \textbf{Actors} & Farmer, Policy Maker \\
+            \midrule
+            \textbf{Entry conditions} & The system has started \\
+            \midrule
+            \textbf{Flow of events} & 
+            \begin{enumerate}
+                \item The policy maker sends an invite via e-mail to the farmer
+                \item The farmer accepts the invite 
+                \item The policy maker creates a new profile and inserts the farmer data
+                \item The system generates the credentials for the farmer login
+                \item The farmer receives the credentials via e-mail
+                \item The farmer logs into the platform and completes the registration
+                \item The system saves the farmer data
+            \end{enumerate} \\
+            \midrule
+            \textbf{Exit conditions} & The farmer is registered in the system\\
+            \midrule
+            \textbf{Exceptions} & 
+            \begin{itemize}
+                \item If the farmer does not complete the registration in time, the process is aborted. The farmer can request to repeat the registration by sending an e-mail.
+            \end{itemize} \\
+            \bottomrule
+            \caption{\emph{Farmer Registration} use case description}
+        \end{longtable}
+    \newpage
+    \item \textbf{Insertion of report}
+        \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
+            \toprule
+            \textbf{Name} & \textbf{Insertion of report} \\
+            \midrule
+            \textbf{Actors} & Farmer\\
+            \midrule
+            \textbf{Entry conditions} & The farmer has collected the crop \\
+            \midrule
+            \textbf{Flow of events} & 
+            \begin{enumerate}
+                \item The farmer inserts the type and quantity of goods produced
+                \item The farmer inserts the type and quantity of support products used
+                \item The farmer application retrieves data from sensors and inserts it into the report
+                \item The farmer sends the report
+                \item The system checks the report
+                \item The system stores the report
+            \end{enumerate} \\
+            \midrule
+            \textbf{Exit conditions} & The report is stored in the system\\
+            \midrule
+            \textbf{Exceptions} & 
+            \begin{itemize}
+                \item If the report contains wrong information, the process is aborted.
+            \end{itemize} \\
+            \bottomrule
+            \caption{\emph{Insertion of report} use case description}
+        \end{longtable}
+    \newpage
+    \item \textbf{Creation and handling of a help request}
+        \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
+            \toprule
+            \textbf{Name} & \textbf{Creation and handling of a help request} \\
+            \midrule
+            \textbf{Actors} & Farmer, Policy Maker\\
+            \midrule
+            \textbf{Entry conditions} & The farmer needs help \\
+            \midrule
+            \textbf{Flow of events} & 
+            \begin{enumerate}
+                \item The farmer compiles the help request form
+                \item The help request is created with \textit{pending} status
+                \item The policy maker takes charge of the help request
+                \item The help request status becomes \textit{open}
+                \item The policy maker evaluates the severity of the help request
+                \item The policy maker takes the necessary actions based on the severity
+                \item The policy maker monitors the farmer's performances in the next period
+                \item If the farmer's performances do not improve, the severity of the request is increased and new actions are taken (\textit{back to (f)})
+                \item If the farmer's performances improve, the help request is closed 
+            \end{enumerate} \\
+            \midrule
+            \textbf{Exit conditions} & The help request status becomes \textit{closed}\\
+            \midrule
+            \textbf{Exceptions} & 
+            \begin{itemize}
+                \item The farmer can close the help request by itself during the process if authority help is no more necessary
+            \end{itemize} \\
+            \bottomrule
+            \caption{\emph{Creation and handling of a help request} use case description}
+        \end{longtable}
+    \newpage
+    \item \textbf{Interview of a good-performing farmer}
+        \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
+            \toprule
+            \textbf{Name} & \textbf{Interview of a good-performing farmer} \\
+            \midrule
+            \textbf{Actors} & Farmer, Policy Maker\\
+            \midrule
+            \textbf{Entry conditions} & The policy maker identifies a good-performing farmer \\
+            \midrule
+            \textbf{Flow of events} & 
+            \begin{enumerate}
+                \item The policy maker sends a request for an interview to the selected farmer
+                \item The farmer responds to the request
+                \item If the response is negative, the process is aborted
+                \item If the response is positive, the policy maker and the farmer agree on a date to do the interview
+                \item On the decided date, an interview via phone is held
+                \item Once the interview is ended, the policy maker inserts into the system the relevant information obtained (e.g. suggestions to other farmers)
+            \end{enumerate} \\
+            \midrule
+            \textbf{Exit conditions} & The interview information is inserted into the system\\
+            \midrule
+            \textbf{Exceptions} & 
+            \begin{itemize}
+                \item If the policy maker and the farmer cannot agree on a date, the process is aborted
+            \end{itemize} \\
+            \bottomrule
+            \caption{\emph{Interview of a good-performing farmer} use case description}
+        \end{longtable}
+    \newpage
+\end{enumerate}
 \subsection{Performance Requirements}
 Since the system does not need immediate responsiveness, the latency between components can also be in the order of seconds (e.g. 1 to 20 sec).\\
 The amount of data produced by IoT sensors is significantly high, the system is expected to be able to process and classify all the data, thus having high storage capacities.\\
@@ -393,5 +568,13 @@ Through the use of design patterns and best practices in the implementation, it 
 \subsubsection{Portability}
 The client application, including the front-end and user interface, must be supported by Windows and Mac operating systems. \\
 A mobile version of the client application is not planned.
+\subsection{Design Constraints}
+\subsubsection{Standards compliance}
+In order to effectively store data into the DBMS and to easily retrieve significant information, the reports created by farmers will have to follow a standard model.
+Particular attention is required when inserting the types of goods and auxiliary products in the report: these will have to be the same across different reports in order
+to facilitate querying and data aggregation. In order to do this, the report form will guide farmers to insert correct data and avoid misalignments with the information stored 
+in the DBMS: the ultimate goal is to prevent errors such as typos when compiling the report form and to avoid the insertion of data which is incoherent with the other reports 
+(for example, product names might be different due to regional standards, hence is necessary to unify different names in order to obtain meaningful queries). 
+%l'ultima frase fa schifo damn
 \end{document}
  
