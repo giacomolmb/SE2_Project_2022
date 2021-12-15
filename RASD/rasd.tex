@@ -182,9 +182,36 @@ The system will be implemented from scratch, completely replacing the legacy sys
 The system will make use of some already existing functionalities, such as in weather forecasting where there is 
 already an existing platform for collecting and visualizing data (https://www.tsdps.telangana.gov.in/aws.jsp).
 \subsubsection{Class diagram}
+The class diagram in \ref{fig:classDiagram} is a high-level representation of the system. The main elements in the diagram are:
+\begin{itemize}
+    \item \textbf{User}: a user of the DREAM platform. More specifically, a user can be:
+    \begin{itemize}
+        \item \textbf{Farmer}
+        \item \textbf{Policy Maker}
+    \end{itemize} 
+    \item \textbf{Help Request}: represents a help request created by a farmer and taken in charge by a policy maker.
+    \item \textbf{Forum}: represents the platform's forum, containing discussions grouped in threads.
+    \item \textbf{Thread}: represents a thread of the forum.
+    \item \textbf{Intervention}: represents an intervention in a forum discussion.
+    \item \textbf{Terrain}: represents an area of property of a farmer destinated to agricultural use.
+    \item \textbf{Sensor}: represents a generic sensor installed in a terrain to retrieve data such as irrigation or soil humidity.
+    \item \textbf{Sensor Data}: high level astraction of the data retrieved by sensors and inserted in reports.
+    \item \textbf{Product}: represents a generic agricultural product. Products can be subdivided in:
+    \begin{itemize}
+        \item \textbf{Agricultural Products}: goods produced by farmers (e.g. vegetables).
+        \item \textbf{Support Products}: auxiliary products used in goods production (e.g. fertilizers).
+    \end{itemize} 
+    \item \textbf{Suggestion}: represents a suggestion related to a product.
+    \item \textbf{Geographical Area}: represents a wide area containing multiple farmer's terrains. The Telangana territory is subdivided into areas to facilitate the workload division between policy makers.
+    \item \textbf{Weather Forecasts}: represents a weather forecast for a specific date. Contains various informations such as weather conditions, sunrise and sunset times, precipitations, etc..
+    \item \textbf{Report}: represents a report containing information about goods production, compiled by farmers at the end of the crop collecting phase.
+    \item \textbf{Trimester}: represents a trimester of a year.
+\end{itemize}
 \begin{figure}[ht!]
+    \centering
     \includegraphics[scale=0.45]{classDiagram.png}
     \caption{Class diagram}
+    \label{fig:classDiagram}
 \end{figure}
 \newpage
 \subsubsection{State diagrams}
