@@ -62,6 +62,10 @@
 | D10 | I PM effettuano data-driven decisions |
 
 
+Use cases:
+Registrazione dei PM
+Login nella piattaforma
+
 References: 
 https://www.fantasynamegenerators.com/hindi-names.php
 

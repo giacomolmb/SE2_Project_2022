@@ -50,7 +50,6 @@
 
 \lstset{style=mystyle}
 
-
 \title{RASD}
 \author{Mauro Famà, Giacomo Lombardo}
 %\date{October 2021}
@@ -121,13 +120,13 @@ cases where there is a significant interaction between agronomists and the other
         \hline
         Goal & Description \\ 
         \hline\hline
-        G1 & Allow Telangana's Policy Makers to monitor local agriculture\\ 
+        G1 \label{goal:g1} & Allow Telangana's Policy Makers to monitor local agriculture\\ 
         \hline
-        G2 & Allow farmers to receive assistance or rewards based on their performance\\ 
+        G2 \label{goal:g2} & Allow farmers to receive assistance or rewards based on their performance\\ 
         \hline
-        G3 & Allow farmers to request and receive help \\
+        G3 \label{goal:g3} & Allow farmers to request and receive help \\
         \hline
-        G4 & Create a farmer's network to promote collaboration and mutual aid \\ 
+        G4 \label{goal:g4} & Create a farmer's network to promote collaboration and mutual aid \\ 
         \hline
         \end{tabular}
     \end{center}
@@ -529,6 +528,34 @@ The communications between clients and sensors are made via a publish-subscribe 
 \newpage
 \subsubsection{Use Cases}
 \begin{enumerate}
+    \item \textbf{Policy maker registration}
+        \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
+            \toprule
+            \textbf{Name} & \textbf{Policy maker registration} \\
+            \midrule
+            \textbf{Actors} & System admin, Policy Maker\\
+            \midrule
+            \textbf{Entry conditions} & The DREAM project has started\\
+            \midrule
+            \textbf{Flow of events} & 
+            \begin{enumerate}
+                \item The system admin logs into the system.
+                \item The system admin creates a new policy maker profile
+                \item The system admin inserts the policy maker data in the newly created profile
+                \item The system automatically generates log in credentials for the policy maker
+                \item The system automatically sends an e-mail to the address associated to the profile containing credentials and instructions to log in
+            \end{enumerate} \\
+            \midrule
+            \textbf{Exit conditions} & The policy maker receives his credentials\\
+            \midrule
+            \textbf{Exceptions} & 
+            \begin{itemize}
+                \item If the policy maker e-mail address is already in use, the process is aborted.
+            \end{itemize} \\
+            \bottomrule
+            \caption{\emph{Policy maker registration} use case description}
+        \end{longtable}
+    \newpage
     \item \textbf{Farmer Registration} 
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
             \toprule
@@ -558,6 +585,32 @@ The communications between clients and sensors are made via a publish-subscribe 
             \bottomrule
             \caption{\emph{Farmer Registration} use case description}
         \end{longtable}
+    \newpage
+    \item \textbf{User login} 
+    \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
+        \toprule
+        \textbf{Name} & \textbf{Farmer Registration} \\
+        \midrule
+        \textbf{Actors} & Farmer, Policy Maker \\
+        \midrule
+        \textbf{Entry conditions} & The platform is running \\
+        \midrule
+        \textbf{Flow of events} & 
+        \begin{enumerate}
+            \item The user goes to the login page
+            \item The user inserts the login credentials
+            \item The user submits the form
+        \end{enumerate} \\
+        \midrule
+        \textbf{Exit conditions} & The user has successfully logged into the platform\\
+        \midrule
+        \textbf{Exceptions} & 
+        \begin{itemize}
+            \item If the login credentials are incorrect, the system notifies the user and the process is aborted.
+        \end{itemize} \\
+        \bottomrule
+        \caption{\emph{Farmer Registration} use case description}
+    \end{longtable}
     \newpage
     \item \textbf{Insertion of report}
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
@@ -672,6 +725,8 @@ The communications between clients and sensors are made via a publish-subscribe 
         \end{longtable}
     \newpage
 \end{enumerate}
+\subsubsection{Traceability matrix}
+\newpage
 \subsection{Performance Requirements}
 Since the system does not need immediate responsiveness, the latency between components can also be in the order of seconds (e.g. 1 to 20 sec).\\
 The amount of data produced by IoT sensors is significantly high, the system is expected to be able to process and classify all the data, thus having high storage capacities.\\
