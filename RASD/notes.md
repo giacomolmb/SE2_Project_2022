@@ -64,3 +64,6 @@
 
 References: 
 https://www.fantasynamegenerators.com/hindi-names.php
+
+
+farmerweather e farmersensors non sono utilizzati, si potrebbe aggiungere un goal del tipo "aumentare la produttività dei farmers"
