@@ -556,5 +556,13 @@ Through the use of design patterns and best practices in the implementation, it 
 \subsubsection{Portability}
 The client application, including the front-end and user interface, must be supported by Windows and Mac operating systems. \\
 A mobile version of the client application is not planned.
+\subsection{Design Constraints}
+\subsubsection{Standards compliance}
+In order to effectively store data into the DBMS and to easily retrieve significant information, the reports created by farmers will have to follow a standard model.
+Particular attention is required when inserting the types of goods and auxiliary products in the report: these will have to be the same across different reports in order
+to facilitate querying and data aggregation. In order to do this, the report form will guide farmers to insert correct data and avoid misalignments with the information stored 
+in the DBMS: the ultimate goal is to prevent errors such as typos when compiling the report form and to avoid the insertion of data which is incoherent with the other reports 
+(for example, product names might be different due to regional standards, hence is necessary to unify different names in order to obtain meaningful queries). 
+%l'ultima frase fa schifo damn
 \end{document}
  
