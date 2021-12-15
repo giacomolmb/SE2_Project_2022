@@ -5,6 +5,7 @@
 \usepackage{subcaption}
 \usepackage{longtable}
 \usepackage{booktabs}
+\usepackage{enumitem}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -391,6 +392,41 @@ The system doesn't provide any API to external application because of the privac
 % qui non saprei cosa scrivere
 \subsection{Functional Requirements}
 \subsubsection{Requirements}
+\begin{enumerate}[label=\textbf{R\arabic*}]
+    \item \label{req:pmReg} The system shall allow system admins to register policy maker.
+    \item \label{req:pmLogin} The system shall allow policy makers to login.
+    \item \label{req:farmerReg1} The system shall allow policy makers to register farmers.
+    \item \label{req:farmerCreds} The system shall provide farmers with credentials to log in.
+    \item \label{req:farmerReg2} The system shall allow farmers to complete their profile information.
+    \item \label{req:farmerLogin} The system shall allow farmers to log into the platform.
+    \item \label{req:farmerReport1} The system shall allow farmers to fill reports with data about goods production.
+    \item \label{req:farmerReport2} The system shall allow farmers to fill reports with data about auxiliary products used for goods production.
+    \item \label{req:farmerReport3} The system shall allow farmers to fill reports with problems faced during goods production.
+    \item \label{req:farmerReport3} The system shall retrieve data from sensors and attach it to reports.
+    \item \label{req:farmerReport4} The system shall retrieve data from weather stations and attach it to reports.
+    \item \label{req:farmerWeather} The system shall allow farmers to visualize weather forecasts.
+    \item \label{req:farmerSensors} The system shall allow farmers to visualize data retrieved from humidity and irrigation sensors.
+    \item \label{req:farmerForum} The system shall allow farmers to create and contribute to forum discussions.
+    \item \label{req:farmerHelp} The system shall allow farmers to create help requests.
+    \item \label{req:farmerSugg} The system shall allow farmers to visualize personalized suggestions about goods and techniques.
+    \item \label{req:pmMonitor} The system shall allow PMs to monitor farmers' performances.
+    \item \label{req:pmParameters} The system shall provide PMs with parameters to evaluate farmers' performances.
+    \item \label{req:pmGrades} The system shall allow PMs to compare and aggregate farmers' performances.
+    \item \label{req:pmFilter1} The system shall allow PMs to filter farmers based on their information.
+    \item \label{req:pmFilter2} The system shall allow PMs to filter farmers based on their performance.
+    \item \label{req:pmSort1} The system shall allow PMs to sort farmers based on their information.
+    \item \label{req:pmSort2} The system shall allow PMs to sort farmers based on their performance.
+    \item \label{req:pmRewards} The system shall allow PMs to reward best performing farmers.
+    \item \label{req:pmWeather} The system shall allow PMs to visualize weather forecasts.
+    \item \label{req:pmHelp1} The system shall allow PMs to visualize help requests.
+    \item \label{req:pmHelp2} The system shall allow PMs to take charge of help requests.
+    \item \label{req:pmHelp3} The system shall allow PMs to visualize farmers who have requested help and their performances.
+    \item \label{req:pmHelp4} The system shall allow PMs to close help requests.
+    \item \label{req:pmInterview} The system shall allow PMs to file reports about farmers interviews.
+    \item \label{req:pmVisits} The system shall allow PMs to re-schedule agronommist's control visit plans.
+    \item \label{req:pmForum} The system shall allow PMs to create and contribute to forum discussions.
+    \item \label{req:pmSuggestions} The system shall allow PMs to create suggestions.
+\end{enumerate}
 \subsubsection{Goal Mapping on Requirements}
 \newpage
 \subsubsection{Use Cases}
@@ -513,6 +549,28 @@ The system doesn't provide any API to external application because of the privac
             \end{itemize} \\
             \bottomrule
             \caption{\emph{Interview of a good-performing farmer} use case description}
+        \end{longtable}
+    \newpage
+    \item \textbf{Rewarding of good-performing farmers}
+        \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
+            \toprule
+            \textbf{Name} & \textbf{Rewarding of good-performing farmers} \\
+            \midrule
+            \textbf{Actors} & Farmer, Policy Maker\\
+            \midrule
+            \textbf{Entry conditions} & The trimester has ended\\
+            \midrule
+            \textbf{Flow of events} & 
+            \begin{enumerate}
+                \item The policy maker visualizes the list of the top 10 performing farmers of the trimester
+                \item The PM sends to each of them a mail notificating that their performances were excellent and containing instructions on how to claim their rewards
+                \item For each farmer, an interview is scheduled (if possible)
+            \end{enumerate} \\
+            \midrule
+            \textbf{Exit conditions} & Every interview is scheduled\\
+            \midrule
+            \bottomrule
+            \caption{\emph{Rewarding of good-performing farmers} use case description}
         \end{longtable}
     \newpage
 \end{enumerate}
