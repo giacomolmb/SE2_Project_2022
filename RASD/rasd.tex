@@ -535,11 +535,14 @@ The communications between clients and sensors are made via a publish-subscribe 
             \midrule
             \textbf{Actors} & System admin, Policy Maker\\
             \midrule
-            \textbf{Entry conditions} & The DREAM project has started\\
+            \textbf{Entry conditions} &
+            \begin{itemize}
+                \item The platform is running
+                \item The system admin has logged into the system
+            \end{itemize}\\
             \midrule
             \textbf{Flow of events} & 
             \begin{enumerate}
-                \item The system admin logs into the system.
                 \item The system admin creates a new policy maker profile
                 \item The system admin inserts the policy maker data in the newly created profile
                 \item The system automatically generates log in credentials for the policy maker
@@ -563,7 +566,11 @@ The communications between clients and sensors are made via a publish-subscribe 
             \midrule
             \textbf{Actors} & Farmer, Policy Maker \\
             \midrule
-            \textbf{Entry conditions} & The system has started \\
+            \textbf{Entry conditions} & 
+            \begin{itemize}
+                \item The platform is running
+                \item The policy maker has logged into the system
+            \end{itemize}\\
             \midrule
             \textbf{Flow of events} & 
             \begin{enumerate}
@@ -619,7 +626,12 @@ The communications between clients and sensors are made via a publish-subscribe 
             \midrule
             \textbf{Actors} & Farmer\\
             \midrule
-            \textbf{Entry conditions} & The farmer has collected the crop \\
+            \textbf{Entry conditions} & 
+            \begin{itemize}
+                \item The platform is running
+                \item The farmer has logged into the system
+                \item The farmer has collected his crop
+            \end{itemize}\\
             \midrule
             \textbf{Flow of events} & 
             \begin{enumerate}
@@ -648,7 +660,13 @@ The communications between clients and sensors are made via a publish-subscribe 
             \midrule
             \textbf{Actors} & Farmer, Policy Maker\\
             \midrule
-            \textbf{Entry conditions} & The farmer needs help \\
+            \textbf{Entry conditions} & 
+            \begin{itemize}
+                \item The platform is running
+                \item The farmer has logged into the system
+                \item The policy maker has logged into the system
+                \item The farmer needs help
+            \end{itemize}\\
             \midrule
             \textbf{Flow of events} & 
             \begin{enumerate}
@@ -680,7 +698,12 @@ The communications between clients and sensors are made via a publish-subscribe 
             \midrule
             \textbf{Actors} & Farmer, Policy Maker\\
             \midrule
-            \textbf{Entry conditions} & The policy maker identifies a good-performing farmer \\
+            \textbf{Entry conditions} & 
+            \begin{itemize}
+                \item The platform is running
+                \item The policy maker has logged into the system
+                \item The policy maker identifies a good-performing farmer
+            \end{itemize}\\
             \midrule
             \textbf{Flow of events} & 
             \begin{enumerate}
@@ -709,7 +732,12 @@ The communications between clients and sensors are made via a publish-subscribe 
             \midrule
             \textbf{Actors} & Farmer, Policy Maker\\
             \midrule
-            \textbf{Entry conditions} & The trimester has ended\\
+            \textbf{Entry conditions} & 
+            \begin{itemize}
+                \item The platform is running
+                \item The policy maker has logged into the system
+                \item The trimester has ended
+            \end{itemize}\\
             \midrule
             \textbf{Flow of events} & 
             \begin{enumerate}
@@ -772,8 +800,5 @@ A mobile version of the client application is not planned.
 In order to effectively store data into the DBMS and to easily retrieve significant information, the reports created by farmers will have to follow a standard model.
 Particular attention is required when inserting the types of goods and auxiliary products in the report: these will have to be the same across different reports in order
 to facilitate querying and data aggregation. In order to do this, the report form will guide farmers to insert correct data and avoid misalignments with the information stored 
-in the DBMS: the ultimate goal is to prevent errors such as typos when compiling the report form and to avoid the insertion of data which is incoherent with the other reports 
-(for example, product names might be different due to regional standards, hence is necessary to unify different names in order to obtain meaningful queries). 
-%l'ultima frase fa schifo damn
+in the DBMS: the ultimate goal is to prevent errors such as typos when compiling the report form and to avoid the insertion of data which is incoherent with the other reports. 
 \end{document}
- 
