@@ -487,6 +487,7 @@ The communications between clients and sensors are made via a publish-subscribe 
             \item \ref{req:pmSort1} The system shall allow PMs to sort farmers based on their information.
             \item \ref{req:pmSort2} The system shall allow PMs to sort farmers based on their performance.
             \item \ref{req:pmWeather} The system shall allow PMs to visualize weather forecasts.
+            \item \textbf{DA1} Each policy maker has one and one only area to monitor.
         \end{description}
     \item \textbf{G2 Allow farmers to receive assistance or rewards based on their performance}
         \begin{description}
@@ -766,10 +767,45 @@ The communications between clients and sensors are made via a publish-subscribe 
             \caption{\emph{Rewarding of good-performing farmers} use case description}
         \end{longtable}
     \newpage
+    \item \textbf{Creation of a forum discussion} 
+        \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
+            \toprule
+            \textbf{Name} & \textbf{Creation of a forum discussion} \\
+            \midrule
+            \textbf{Actors} & Farmer, Policy Maker \\
+            \midrule
+            \textbf{Entry conditions} & 
+            \begin{itemize}
+                \item The platform is running
+                \item The policy maker has logged into the system
+                \item The farmer has logged into the system
+            \end{itemize}\\
+            \midrule
+            \textbf{Flow of events} & 
+            \begin{enumerate}
+                \item The farmer creates a new forum discussion about a specific topic of its interest
+                \item The system publishes the thread on the farmer's forum
+                \item The PM notice the new thread in the discussions list
+                \item The PM opens the discussion and submits his answer
+                \item The farmer checks his discussion and reads the answer submitted
+                \item The farmer has solved his problem and closes the discussion
+                \item The system removes the thread from the forum
+            \end{enumerate} \\
+            \midrule
+            \textbf{Exit conditions} & The farmer closes the discussion after reading the answer\\
+            \midrule
+            \textbf{Exceptions} & 
+            \begin{itemize}
+                \item The farmer finds a solution to his problem by himself and closes the discussion 
+            \end{itemize} \\
+            \bottomrule
+            \caption{\emph{Creation of a forum discussion} use case description}
+        \end{longtable}
+    \newpage
 \end{enumerate}
 \subsubsection{Traceability matrix}
 \begin{figure}[h]
-    \includegraphics[scale=0.46]{trac_matrix-1.png} 
+    \includegraphics[scale=0.46]{trac_matrix.png} 
     \end{figure}
 \newpage
 \subsection{Performance Requirements}
