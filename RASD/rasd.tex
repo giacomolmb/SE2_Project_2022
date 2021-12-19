@@ -114,24 +114,13 @@ to farmer needs, increasing the visits whether a farmer performance is significa
 In this document, the agronomist perspective won't be analyzed in detail, but it will be considered only marginally and in those
 cases where there is a significant interaction between agronomists and the other actors.
 \subsubsection{Goals}
-    \begin{center}
-        \vspace{0.5cm}
-        \begin{tabular}{|c c|} 
-        \hline
-        Goal & Description \\ 
-        \hline\hline
-        G1 \label{goal:g1} & Allow Telangana's Policy Makers to monitor local agriculture\\ 
-        \hline
-        G2 \label{goal:g2} & Allow farmers to receive assistance or rewards based on their performance\\ 
-        \hline
-        G3 \label{goal:g3} & Allow farmers to request and receive help \\
-        \hline
-        G4 \label{goal:g4} & Create a farmer's network to promote collaboration and mutual aid \\ 
-        \hline
-        G5 & Improve farmer's productivity\\ 
-        \hline
-        \end{tabular}
-    \end{center}
+\begin{enumerate}[label=\textbf{G\arabic*}]
+    \item \label{goal:g1} Allow Telangana's Policy Makers to monitor local agriculture
+    \item \label{goal:g2} Allow farmers to receive assistance or rewards based on their performance
+    \item \label{goal:g3} Allow farmers to request and receive help
+    \item \label{goal:g4} Create a farmer's network to promote collaboration and mutual aid 
+    \item \label{goal:g5} Improve farmers' performance and productivit
+\end{enumerate}
 \subsubsection{World and Machine Phenomena}
 \begin{center}
     \vspace{0.5cm}
@@ -541,8 +530,8 @@ The communications between clients and sensors are made via a publish-subscribe 
 \end{description}
 \newpage
 \subsubsection{Use Cases}
-\begin{enumerate}
-    \item \textbf{Policy maker registration}
+\begin{enumerate}[label=\textbf{UC\arabic*}]
+    \item \label{uc:uc1} \textbf{Policy maker registration}
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
             \toprule
             \textbf{Name} & \textbf{Policy maker registration} \\
@@ -573,7 +562,7 @@ The communications between clients and sensors are made via a publish-subscribe 
             \caption{\emph{Policy maker registration} use case description}
         \end{longtable}
     \newpage
-    \item \textbf{Farmer Registration} 
+    \item \label{uc:uc2} \textbf{Farmer Registration} 
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
             \toprule
             \textbf{Name} & \textbf{Farmer Registration} \\
@@ -607,7 +596,7 @@ The communications between clients and sensors are made via a publish-subscribe 
             \caption{\emph{Farmer Registration} use case description}
         \end{longtable}
     \newpage
-    \item \textbf{User login} 
+    \item \label{uc:uc3} \textbf{User login} 
     \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
         \toprule
         \textbf{Name} & \textbf{Farmer Registration} \\
@@ -633,7 +622,7 @@ The communications between clients and sensors are made via a publish-subscribe 
         \caption{\emph{Farmer Registration} use case description}
     \end{longtable}
     \newpage
-    \item \textbf{Insertion of report}
+    \item \label{uc:uc4} \textbf{Insertion of report}
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
             \toprule
             \textbf{Name} & \textbf{Insertion of report} \\
@@ -667,7 +656,7 @@ The communications between clients and sensors are made via a publish-subscribe 
             \caption{\emph{Insertion of report} use case description}
         \end{longtable}
     \newpage
-    \item \textbf{Creation and handling of a help request}
+    \item \label{uc:uc5} \textbf{Creation and handling of a help request}
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
             \toprule
             \textbf{Name} & \textbf{Creation and handling of a help request} \\
@@ -705,7 +694,7 @@ The communications between clients and sensors are made via a publish-subscribe 
             \caption{\emph{Creation and handling of a help request} use case description}
         \end{longtable}
     \newpage
-    \item \textbf{Interview of a good-performing farmer}
+    \item \label{uc:uc6} \textbf{Interview of a good-performing farmer}
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
             \toprule
             \textbf{Name} & \textbf{Interview of a good-performing farmer} \\
@@ -739,7 +728,7 @@ The communications between clients and sensors are made via a publish-subscribe 
             \caption{\emph{Interview of a good-performing farmer} use case description}
         \end{longtable}
     \newpage
-    \item \textbf{Rewarding of good-performing farmers}
+    \item \label{uc:uc7} \textbf{Rewarding of good-performing farmers}
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
             \toprule
             \textbf{Name} & \textbf{Rewarding of good-performing farmers} \\
@@ -768,6 +757,44 @@ The communications between clients and sensors are made via a publish-subscribe 
     \newpage
 \end{enumerate}
 \subsubsection{Traceability matrix}
+\begin{table}[]
+    \begin{tabular}{l|lllll|llllllll}
+        & \ref{goal:g1} & \ref{goal:g2} & \ref{goal:g3} & \ref{goal:g4} & \ref{goal:g5} & \ref{uc:uc1} & \ref{uc:uc2} & \ref{uc:uc3} & \ref{uc:uc4} & \ref{uc:uc5} & \ref{uc:uc6} & \ref{uc:uc7} & UC8 \\ \hline
+    \ref{req:pmReg}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmLogin}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:farmerReg1}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:farmerCreds}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:farmerReg2}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:farmerLogin}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:farmerReport1}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:farmerReport2}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:farmerReport3}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:farmerReport4}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:farmerReport5} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:farmerWeather} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:farmerSensors} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:farmerForum} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:farmerHelp} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:farmerSugg} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmMonitor} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmParameters} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmGrades} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmFilter1} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmFilter2} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmSort1} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmSort2} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmRewards} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmWeather} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmHelp1} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmHelp2} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmHelp3} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmHelp4} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmInterview} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmVisits} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmForum} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmSuggestions} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \end{tabular}
+\end{table}
 \begin{figure}[h]
     \includegraphics[scale=0.46]{trac_matrix-1.png} 
     \end{figure}
