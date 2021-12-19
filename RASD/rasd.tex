@@ -758,41 +758,41 @@ The communications between clients and sensors are made via a publish-subscribe 
 \end{enumerate}
 \subsubsection{Traceability matrix}
 \begin{table}[]
-    \begin{tabular}{l|lllll|llllllll}
+    \begin{tabular}{c|ccccc|cccccccc}
         & \ref{goal:g1} & \ref{goal:g2} & \ref{goal:g3} & \ref{goal:g4} & \ref{goal:g5} & \ref{uc:uc1} & \ref{uc:uc2} & \ref{uc:uc3} & \ref{uc:uc4} & \ref{uc:uc5} & \ref{uc:uc6} & \ref{uc:uc7} & UC8 \\ \hline
-    \ref{req:pmReg}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmLogin}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:farmerReg1}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:farmerCreds}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:farmerReg2}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:farmerLogin}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:farmerReport1}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:farmerReport2}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:farmerReport3}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:farmerReport4}  &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:farmerReport5} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:farmerWeather} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:farmerSensors} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:farmerForum} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:farmerHelp} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:farmerSugg} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmMonitor} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmParameters} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmGrades} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmFilter1} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmFilter2} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmSort1} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmSort2} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmRewards} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmWeather} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmHelp1} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmHelp2} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmHelp3} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmHelp4} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmInterview} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmVisits} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmForum} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
-    \ref{req:pmSuggestions} &    &    &    &    &    &     &     &     &     &     &     &     &     \\
+    \ref{req:pmReg}  & X &  &  &  &  & X &  &  &  &  &  &  &  \\
+    \ref{req:pmLogin}  & X &  &  &  &  &  &  & X &  & X & X & X &  \\
+    \ref{req:farmerReg1}  &  & X & X & X & X &  & X &  &  &  &  &  &  \\
+    \ref{req:farmerCreds}  &  & X & X & X & X &  & X &  &  &  &  &  &  \\
+    \ref{req:farmerReg2}  &  & X & X & X & X &  & X &  &  &  &  &  &  \\
+    \ref{req:farmerLogin}  &  & X & X & X & X &  &  & X & X & X & X & X & X \\
+    \ref{req:farmerReport1}  &  & X &  &  &  &  &  &  & X &  &  &  &  \\
+    \ref{req:farmerReport2}  &  & X &  &  &  &  &  &  & X &  &  &  &  \\
+    \ref{req:farmerReport3}  &  & X &  &  &  &  &  &  & X &  &  &  &  \\
+    \ref{req:farmerReport4}  &  & X &  &  &  &  &  &  & X &  &  &  &  \\
+    \ref{req:farmerReport5}  &  & X &  &  &  &  &  &  & X &  &  &  &  \\
+    \ref{req:farmerWeather}  &  &  &  &  & X &  &  &  &  & X &  &  &  \\
+    \ref{req:farmerSensors}  &  &  &  &  & X &  &  &  &  & X &  &  &  \\
+    \ref{req:farmerForum}  &  &  &  & X &  &  &  &  &  &  &  &  & X \\
+    \ref{req:farmerHelp}  &  &  & X &  & X &  &  &  &  & X &  &  &  \\
+    \ref{req:farmerSugg}  &  &  & X &  & X &  &  &  &  & X &  &  &  \\
+    \ref{req:pmMonitor}  & X &  &  &  &  &  &  &  &  &  &  & X &  \\
+    \ref{req:pmParameters}  & X &  &  &  &  &  &  &  &  &  &  & X &  \\
+    \ref{req:pmGrades}  & X &  &  &  &  &  &  &  &  &  &  & X &  \\
+    \ref{req:pmFilter1}  & X &  &  &  &  &  &  &  &  &  &  & X &  \\
+    \ref{req:pmFilter2}  & X &  &  &  &  &  &  &  &  &  &  & X &  \\
+    \ref{req:pmSort1}  & X &  &  &  &  &  &  &  &  &  &  & X &  \\
+    \ref{req:pmSort2}  & X &  &  &  &  &  &  &  &  &  &  & X &  \\
+    \ref{req:pmRewards}  &  & X &  &  &  &  &  &  &  &  &  & X &  \\
+    \ref{req:pmWeather}  & X &  &  &  &  &  &  &  &  & X &  &  &  \\
+    \ref{req:pmHelp1}  &  &  & X &  &  &  &  &  &  & X &  &  &  \\
+    \ref{req:pmHelp2}  &  &  & X &  &  &  &  &  &  & X &  &  &  \\
+    \ref{req:pmHelp3}  &  &  & X &  &  &  &  &  &  & X &  &  &  \\
+    \ref{req:pmHelp4}  &  &  & X &  &  &  &  &  &  & X &  &  &  \\
+    \ref{req:pmInterview}  &  & X &  &  &  &  &  &  &  &  & X & X &  \\
+    \ref{req:pmVisits}  &  & X &  &  &  &  &  &  &  &  & X & X &  \\
+    \ref{req:pmForum}  &  &  &  & X &  &  &  &  &  &  &  &  & X \\
+    \ref{req:pmSuggestions}  &  &  & X &  & X &  &  &  &  & X &  &  &  \\
     \end{tabular}
 \end{table}
 \begin{figure}[h]
