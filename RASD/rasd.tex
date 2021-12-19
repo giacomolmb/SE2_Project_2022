@@ -461,6 +461,7 @@ The communications between clients and sensors are made via a publish-subscribe 
     \item \label{req:pmVisits} The system shall allow PMs to re-schedule agronommist's control visit plans.    
     \item \label{req:pmForum} The system shall allow PMs to create and contribute to forum discussions.    
     \item \label{req:pmSuggestions} The system shall allow PMs to create suggestions.
+    % IL SISTEMA PERMETTE AI FARMER/PMS DI RISPONDERE ALLE DISCUSSIONI SUL FORUM?
 \end{enumerate}
 \subsubsection{Goal Mapping on Requirements}
 \begin{description}
@@ -477,6 +478,16 @@ The communications between clients and sensors are made via a publish-subscribe 
             \item \ref{req:pmSort2} The system shall allow PMs to sort farmers based on their performance.
             \item \ref{req:pmWeather} The system shall allow PMs to visualize weather forecasts.
             \item \textbf{DA1} Each policy maker has one and one only area to monitor.
+            \item \textbf{DA2} Terrains cannot be shared: each terrain is associate with one and only farmer
+            \item \textbf{DA5} Farmers participating to the programme actively use the platform.
+            \item \textbf{DA6} Farmers' possessions are already registered at the local Ministry.
+            \item \textbf{DA8} Humidity soil sensors are already installed and cover the entire geographical area.
+            \item \textbf{DA9} Each farmer's terrain humidity data is provided by one and only sensor, associated accordingly to geographical distance from the center of the terrain.
+            \item \textbf{DA10} Data provided by humidity soil sensors is always correct.
+            \item \textbf{DA11} Each farmer has an automated irrigation system with a control unit.
+            \item \textbf{DA12} Each irrigation control unit supports the sensors provided by DREAM.
+            \item \textbf{DA13} Data provided by the irrigation sensors is always correct.
+            \item \textbf{DA14} The units of measurement used will always be consistent. 
         \end{description}
     \item \textbf{G2 Allow farmers to receive assistance or rewards based on their performance}
         \begin{description}
@@ -492,6 +503,19 @@ The communications between clients and sensors are made via a publish-subscribe 
             \item \ref{req:pmRewards} The system shall allow PMs to reward best performing farmers.
             \item \ref{req:pmInterview} The system shall allow PMs to file reports about farmers interviews.
             \item \ref{req:pmVisits} The system shall allow PMs to re-schedule agronommist's control visit plans.
+            % DA2?
+            \item \textbf{DA3} Farmers have a device able to access the platform
+            \item \textbf{DA4} Farmers always insert correct data in the system.
+            \item \textbf{DA5} Farmers participating to the programme actively use the platform.
+            \item \textbf{DA6} Farmers' possessions are already registered at the local Ministry.
+            \item \textbf{DA7} Policy makers' decisions are solely data-driven and are not affected by personal opinions.
+            \item \textbf{DA8} Humidity soil sensors are already installed and cover the entire geographical area.
+            \item \textbf{DA9} Each farmer's terrain humidity data is provided by one and only sensor, associated accordingly to geographical distance from the center of the terrain.
+            \item \textbf{DA10} Data provided by humidity soil sensors is always correct.
+            \item \textbf{DA11} Each farmer has an automated irrigation system with a control unit.
+            \item \textbf{DA12} Each irrigation control unit supports the sensors provided by DREAM.
+            \item \textbf{DA13} Data provided by the irrigation sensors is always correct.
+            \item \textbf{DA14} The units of measurement used will always be consistent.
         \end{description}
     \item \textbf{G3 Allow farmers to request and receive help}
         \begin{description}
@@ -506,6 +530,11 @@ The communications between clients and sensors are made via a publish-subscribe 
             \item \ref{req:pmHelp3} The system shall allow PMs to visualize farmers who have requested help and their performances.
             \item \ref{req:pmHelp4} The system shall allow PMs to close help requests.
             \item \ref{req:pmSuggestions} The system shall allow PMs to create suggestions.
+            \item \textbf{DA3} Farmers have a device able to access the platform
+            \item \textbf{DA4} Farmers always insert correct data in the system.
+            \item \textbf{DA6} Farmers' possessions are already registered at the local Ministry.
+            \item \textbf{DA7} Policy makers' decisions are solely data-driven and are not affected by personal opinions.
+            \item \textbf{DA14} The units of measurement used will always be consistent. 
         \end{description}
     \item \textbf{G4 Create a farmer's network to promote collaboration and mutual aid}
         \begin{description}
@@ -515,6 +544,16 @@ The communications between clients and sensors are made via a publish-subscribe 
             \item \ref{req:farmerLogin} The system shall allow farmers to log into the platform.
             \item \ref{req:farmerForum} The system shall allow farmers to create and contribute to forum discussions.
             \item \ref{req:pmForum} The system shall allow PMs to create and contribute to forum discussions.
+            \item \ref{req:farmerHelp} The system shall allow farmers to create help requests. %DA AGGIUNGERE
+            \item \ref{req:pmHelp1} The system shall allow PMs to visualize help requests.%DA AGGIUNGERE
+            \item \ref{req:pmHelp2} The system shall allow PMs to take charge of help requests.%DA AGGIUNGERE
+            \item \ref{req:pmHelp3} The system shall allow PMs to visualize farmers who have requested help and their performances.%DA AGGIUNGERE
+            \item \ref{req:pmHelp4} The system shall allow PMs to close help requests.%DA AGGIUNGERE
+            \item \textbf{DA3} Farmers have a device able to access the platform
+            \item \textbf{DA4} Farmers always insert correct data in the system.
+            \item \textbf{DA6} Farmers' possessions are already registered at the local Ministry.
+            \item \textbf{DA7} Policy makers' decisions are solely data-driven and are not affected by personal opinions.
+            \item \textbf{DA14} The units of measurement used will always be consistent. 
         \end{description}
         \item \textbf{G5 Improve farmer's productivity}
         \begin{description}
@@ -527,6 +566,18 @@ The communications between clients and sensors are made via a publish-subscribe 
             \item \ref{req:farmerHelp} The system shall allow farmers to create help requests.     
             \item \ref{req:farmerSugg} The system shall allow farmers to visualize personalized suggestions about goods and techniques.
             \item \ref{req:pmSuggestions} The system shall allow PMs to create suggestions.
+            \item \textbf{DA3} Farmers have a device able to access the platform
+            \item \textbf{DA4} Farmers always insert correct data in the system.
+            \item \textbf{DA5} Farmers participating to the programme actively use the platform.
+            \item \textbf{DA6} Farmers' possessions are already registered at the local Ministry.
+            \item \textbf{DA7} Policy makers' decisions are solely data-driven and are not affected by personal opinions.
+            \item \textbf{DA8} Humidity soil sensors are already installed and cover the entire geographical area.
+            \item \textbf{DA9} Each farmer's terrain humidity data is provided by one and only sensor, associated accordingly to geographical distance from the center of the terrain.
+            \item \textbf{DA10} Data provided by humidity soil sensors is always correct.
+            \item \textbf{DA11} Each farmer has an automated irrigation system with a control unit.
+            \item \textbf{DA12} Each irrigation control unit supports the sensors provided by DREAM.
+            \item \textbf{DA13} Data provided by the irrigation sensors is always correct.
+            \item \textbf{DA14} The units of measurement used will always be consistent. ] 
         \end{description}
 \end{description}
 \newpage
