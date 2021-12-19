@@ -756,36 +756,34 @@ The communications between clients and sensors are made via a publish-subscribe 
             \caption{\emph{Rewarding of good-performing farmers} use case description}
         \end{longtable}
     \newpage
-    \item \textbf{Creation of a forum discussion} 
+    \item \label{uc:uc8} \textbf{Creation of a forum discussion} 
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
             \toprule
             \textbf{Name} & \textbf{Creation of a forum discussion} \\
             \midrule
-            \textbf{Actors} & Farmer, Policy Maker \\
+            \textbf{Actors} & User \\
             \midrule
             \textbf{Entry conditions} & 
             \begin{itemize}
                 \item The platform is running
-                \item The policy maker has logged into the system
-                \item The farmer has logged into the system
+                \item The user
             \end{itemize}\\
             \midrule
             \textbf{Flow of events} & 
             \begin{enumerate}
-                \item The farmer creates a new forum discussion about a specific topic of its interest
+                \item The user creates a new forum discussion about a specific topic of its interest
                 \item The system publishes the thread on the farmer's forum
-                \item The PM notice the new thread in the discussions list
-                \item The PM opens the discussion and submits his answer
-                \item The farmer checks his discussion and reads the answer submitted
-                \item The farmer has solved his problem and closes the discussion
-                \item The system removes the thread from the forum
+                \item Another user notices the new thread in the discussions list
+                \item The interested user submits his answer
+                \item The user who has created the discussion checks his discussion and reads the answer submitted
+                \item The user has solved his problem and closes the discussion
             \end{enumerate} \\
             \midrule
-            \textbf{Exit conditions} & The farmer closes the discussion after reading the answer\\
+            \textbf{Exit conditions} & The user closes the discussion after reading the answer\\
             \midrule
             \textbf{Exceptions} & 
             \begin{itemize}
-                \item The farmer finds a solution to his problem by himself and closes the discussion 
+                \item The user finds a solution to his problem by himself and closes the discussion 
             \end{itemize} \\
             \bottomrule
             \caption{\emph{Creation of a forum discussion} use case description}
@@ -794,8 +792,10 @@ The communications between clients and sensors are made via a publish-subscribe 
 \end{enumerate}
 \subsubsection{Traceability matrix}
 \begin{table}[]
-    \begin{tabular}{c|ccccc|cccccccc}
-        & \ref{goal:g1} & \ref{goal:g2} & \ref{goal:g3} & \ref{goal:g4} & \ref{goal:g5} & \ref{uc:uc1} & \ref{uc:uc2} & \ref{uc:uc3} & \ref{uc:uc4} & \ref{uc:uc5} & \ref{uc:uc6} & \ref{uc:uc7} & UC8 \\ \hline
+    \begin{center}
+    \begin{tabular}{|c|ccccc|cccccccc|}
+    \hline
+        & \ref{goal:g1} & \ref{goal:g2} & \ref{goal:g3} & \ref{goal:g4} & \ref{goal:g5} & \ref{uc:uc1} & \ref{uc:uc2} & \ref{uc:uc3} & \ref{uc:uc4} & \ref{uc:uc5} & \ref{uc:uc6} & \ref{uc:uc7} & \ref{uc:uc8} \\ \hline
     \ref{req:pmReg}  & X &  &  &  &  & X &  &  &  &  &  &  &  \\
     \ref{req:pmLogin}  & X &  &  &  &  &  &  & X &  & X & X & X &  \\
     \ref{req:farmerReg1}  &  & X & X & X & X &  & X &  &  &  &  &  &  \\
@@ -829,11 +829,11 @@ The communications between clients and sensors are made via a publish-subscribe 
     \ref{req:pmVisits}  &  & X &  &  &  &  &  &  &  &  & X & X &  \\
     \ref{req:pmForum}  &  &  &  & X &  &  &  &  &  &  &  &  & X \\
     \ref{req:pmSuggestions}  &  &  & X &  & X &  &  &  &  & X &  &  &  \\
+    \hline
     \end{tabular}
+    \end{center}
+    \caption{Traceability matrix}
 \end{table}
-\begin{figure}[h]
-    \includegraphics[scale=0.46]{trac_matrix.png} 
-    \end{figure}
 \newpage
 \subsection{Performance Requirements}
 Since the system does not need immediate responsiveness, the latency between components can also be in the order of seconds (e.g. 1 to 20 sec).\\
