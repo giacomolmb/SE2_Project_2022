@@ -1,13 +1,14 @@
 ---------------------------------
 -- Signatures
 ---------------------------------
-
+sig StringVar {}
 sig Date {}
 sig Time {}
 sig DateTime {}
 sig Coordinates {}
 sig GeographicalExtension {}
 sig ForecastData {}
+sig SensorType {}
 sig SensorDataPayload {}
 
 sig UserID {}
@@ -21,13 +22,13 @@ sig SuggestionID {}
 
 sig HelpRequestID {}
 abstract sig HReqStatus {}
-one sig PENDING extends HReqStatus {}
-one sig OPEN extends HReqStatus {}
-one sig CLOSED extends HReqStatus {}
+sig PENDING extends HReqStatus {}
+sig OPEN extends HReqStatus {}
+sig CLOSED extends HReqStatus {}
 abstract sig HReqSeverity {}
-one sig LOW extends HReqSeverity {}
-one sig MEDIUM extends HReqSeverity {}
-one sig HIGH extends HReqSeverity {}
+sig LOW extends HReqSeverity {}
+sig MEDIUM extends HReqSeverity {}
+sig HIGH extends HReqSeverity {}
 
 sig TerrainID {}
 
@@ -39,29 +40,26 @@ sig ReportID {}
 
 sig SensorID {}
 
-sig Product {
+abstract sig Product {
 	productId: ProductID,
-	name: String,
-	description: String,
-	category: String
+	name: StringVar,
 }
+sig AgrProduct extends Product {}
+sig AuxProduct extends Product {}
 
 abstract sig User {
 	userID: UserID,
-	name: String,
-	surname: String,
-	email: Email,
+	email: one Email,
 	username: Username,
 	password: Password,
-	dateOfBirth: Date
 }
 
-one sig Farmer extends User {}
-one sig PolicyMaker extends User {}
+sig Farmer extends User {}
+sig PolicyMaker extends User {}
 
 sig Area {
 	areaID: AreaID,
-	name: String,
+	name: StringVar,
 	coordinates: Coordinates
 }
 
@@ -76,12 +74,12 @@ sig Terrain {
 sig Sensor {
 	sensorID: SensorID,
 	terrain: Terrain,
-	type: String
+	type: SensorType
 }
 
 sig SensorData {
 	sensor: Sensor,
-	date: Date,
+	date: one Date,
 	payload: SensorDataPayload
 }
 
@@ -89,20 +87,20 @@ sig WeatherForecast {
 	forecastID: ForecastID,
 	area: Area,
 	date: Date,
-	forecastData: ForecastData
+	forecastData: set ForecastData
 }
 
 sig Production {
-	product: Product,
+	product: AgrProduct,
 	quantity: Int,
-	auxiliaryProducts: some Product
+	auxiliaryProducts: some AuxProduct
 }
 
 sig Report {
 	reportID: ReportID,
-	date: Date,
+	date: one Date,
 	creator: Farmer,
-	problems: set String,
+	problems: set StringVar,
 	productions: some Production,
 	forecast: set ForecastID,
 	sensorData: set SensorData
@@ -114,14 +112,13 @@ sig HelpRequest {
 	managedBy: lone PolicyMaker,
 	severity: HReqSeverity,
 	status: HReqStatus,
-	creationDate: Date,
-	openingDate: Date,
-	closureDate: Date
+	creationDate: one Date,
+	openingDate: one Date,
+	closureDate: one Date
 }
 
 sig Suggestion {
 	suggestionId: SuggestionID,
-	description: String,
 	product: Product,
 	date: Date
 }
@@ -170,6 +167,10 @@ fact noTerrainIDWithoutTerrain {
 	all tid: TerrainID | one t: Terrain |  t.terrainID = tid
 }
 
+fact noExtWithoutTerrain {
+	all ge: GeographicalExtension | one t: Terrain | t.extension = ge
+}
+
 fact uniqueAreaIDs {
 	no disj a1, a2: Area | a1.areaID = a2.areaID
 }
@@ -186,12 +187,25 @@ fact noHReqIDWithoutHReq {
 	all hid: HelpRequestID | one h: HelpRequest |  h.helpRequestID = hid
 }
 
+
+fact noHreqStatusWithoutHReq{
+	all hS: HReqStatus | one h: HelpRequest |  h.status = hS
+}
+
+fact noSeverityWithoutHReq {
+	all hS: HReqSeverity | one h: HelpRequest | h.severity = hS
+}
+
 fact uniqueReportIDs {
 	no disj r1, r2: Report | r1.reportID = r2.reportID
 }
 
 fact noReportIDWithoutReport {
 	all rid: ReportID | one r: Report |  r.reportID = rid
+}
+
+fact noNegativeQuantity {
+	all p: Production | p.quantity > 0
 }
 
 fact uniqueUserEmail {
@@ -218,16 +232,28 @@ fact noFarmerWithoutTerrain {
 	all f: Farmer | one t: Terrain | t.owner = f
 }
 
-fact noAreaWithoutTerrains {
-	all a: Area | some t: Terrain | t.area = a
+fact noFIDWithoutForecast {
+	all fid: ForecastID | one f: WeatherForecast | f.forecastID = fid
+}
+
+fact noFDataWithoutForecast {
+	all fd: ForecastData | one f: WeatherForecast | f.forecastData = fd
+}
+
+fact noStypeWithoutSensor {
+	all stype: SensorType | one s: Sensor | s.type = stype
+}
+
+fact noPayloadWithoutSData {
+	all sdp: SensorDataPayload | one sd: SensorData | sd.payload = sdp
 }
 
 ---------------------------------
 -- Predicates
 ---------------------------------
 pred world1 {
-	#UserID = 1
-	#Email = 1
+	#PolicyMaker = 1
 	#Farmer = 1
+	#Report = 1
 }
 run world1 for 5
