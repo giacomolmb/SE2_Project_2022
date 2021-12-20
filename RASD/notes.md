@@ -71,3 +71,7 @@ https://www.fantasynamegenerators.com/hindi-names.php
 
 
 farmerweather e farmersensors non sono utilizzati, si potrebbe aggiungere un goal del tipo "aumentare la produttività dei farmers"
+
+Regulatory policies
+The email addresses provided for registration will not be used for commercial purposes or given to third parties.
+The phone interviews will be recorded: permission to record the interview will be asked to the farmer.
