@@ -213,7 +213,38 @@ The class diagram in \ref{fig:classDiagram} is a high-level representation of th
 \end{figure}
 \newpage
 \subsubsection{State diagrams}
-State diagrams describe the behaviour of the system while considering all possible states the objects can have when an event occurs. This analysis helps to clarify the most critical aspects of the system.
+State diagrams describe the behaviour of the system while considering all possible states the objects can have when an event occurs. This analysis helps to clarify the most critical aspects of the system.\\\\
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.48]{stateDiagrams/Registration.png}
+    \caption{State diagram: Registration}
+    \label{fig:sd1}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.48]{stateDiagrams/HelpRequest.png}
+    \caption{State diagram: Creation and handling of a help request}
+    \label{fig:sd2}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.48]{stateDiagrams/Interview.png}
+    \caption{State diagram: Interview of a good-performing farmer}
+    \label{fig:sd3}
+\end{figure}
+The state diagram in Figure \ref{fig:sd1} represents the farmer registration procedure: after receiving an invite via e-mail, if the farmer wants to
+join the DREAM programme responds to the invitation, accepting it. The policy maker then proceeds to create the farmer's profile and to insert his data into
+the system. The system then generates the login credentials and an e-mail containing them and instructions to login is sent to the farmer. The farmer proceeds
+to login and to complete his profile, then the registration is complete.\\\\
+The state diagram in Figure \ref{fig:sd2} represents the creation and handling of a help request. When a farmer needs help, creates a help request via the webapp.
+The system stores the request and when the policy maker visualizes it, he takes charge of the request. He then proceeds to evaluate the severity of the issue and to take
+the necessary actions. After that, the farmer's performance is monitored to verify whether the issue has been solved or not. If the performance improves, the help request is closed,
+if not, the request's severity is increased and new actions are taken.\\\\
+The state diagram in Figure \ref{fig:sd3} represents the interview of a good-performing farmer procedure: after identifying a good-performing farmer, the policy
+maker proceeds to send an e-mail to him/her, requesting if he/she is open to an interview. If the farmer agrees, a date is chosen and an interview is scheduled for that date.
+The interview consists in a phone call where the farmer is asked about his methods and techniques. Afterwards, the policy maker inserts into the system suggestions
+for other farmers based on the information obtained in the interview.
+\newpage
 \subsection{Product functions}
 This section will summarize the main functionalities of the system.
 \subsubsection{Farmers registration}
@@ -659,35 +690,35 @@ The communications between clients and sensors are made via a publish-subscribe 
         \end{figure}
     \newpage
     \item \label{uc:uc3} \textbf{User login} 
-    \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
-        \toprule
-        \textbf{Name} & \textbf{User login} \\
-        \midrule
-        \textbf{Actors} & Farmer, Policy Maker \\
-        \midrule
-        \textbf{Entry conditions} & The platform is running \\
-        \midrule
-        \textbf{Flow of events} & 
-        \begin{enumerate}
-            \item The user goes to the login page
-            \item The user inserts the login credentials
-            \item The user submits the form
-        \end{enumerate} \\
-        \midrule
-        \textbf{Exit conditions} & The user has successfully logged into the platform\\
-        \midrule
-        \textbf{Exceptions} & 
-        \begin{itemize}
-            \item If the login credentials are incorrect, the system notifies the user and the process is aborted.
-        \end{itemize} \\
-        \bottomrule
-        \caption{\emph{User login} use case description}
-    \end{longtable}
-    \begin{figure}[ht!]
-        \centering
-        \includegraphics[scale=0.45]{sequence/userlogin.png}
-        \caption{User login}
-    \end{figure}
+        \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
+            \toprule
+            \textbf{Name} & \textbf{User login} \\
+            \midrule
+            \textbf{Actors} & Farmer, Policy Maker \\
+            \midrule
+            \textbf{Entry conditions} & The platform is running \\
+            \midrule
+            \textbf{Flow of events} & 
+            \begin{enumerate}
+                \item The user goes to the login page
+                \item The user inserts the login credentials
+                \item The user submits the form
+            \end{enumerate} \\
+            \midrule
+            \textbf{Exit conditions} & The user has successfully logged into the platform\\
+            \midrule
+            \textbf{Exceptions} & 
+            \begin{itemize}
+                \item If the login credentials are incorrect, the system notifies the user and the process is aborted.
+            \end{itemize} \\
+            \bottomrule
+            \caption{\emph{User login} use case description}
+        \end{longtable}
+        \begin{figure}[ht!]
+            \centering
+            \includegraphics[scale=0.45]{sequence/userlogin.png}
+            \caption{User login}
+        \end{figure}
     \newpage
     \item \label{uc:uc4} \textbf{Insertion of report}
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
