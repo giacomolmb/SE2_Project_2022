@@ -22,6 +22,7 @@
 \usepackage{color}   %May be necessary if you want to color links
 \usepackage{hyperref}
 \usepackage{graphicx}
+\usepackage{adjustbox}
 \graphicspath{ {./images/} }
 \hypersetup{
     colorlinks=true, %set true if you want colored links
@@ -644,11 +645,7 @@ The communications between clients and sensors are made via a publish-subscribe 
             \bottomrule
             \caption{\emph{Policy maker registration} use case description}
         \end{longtable}
-        \begin{figure}[ht!]
-            \centering
-            \includegraphics[scale=0.45]{sequence/pmreg.png}
-            \caption{Policy maker registration}
-        \end{figure}
+
     \newpage
     \item \label{uc:uc2} \textbf{Farmer Registration} 
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
@@ -683,12 +680,8 @@ The communications between clients and sensors are made via a publish-subscribe 
             \bottomrule
             \caption{\emph{Farmer Registration} use case description}
         \end{longtable}
-        \begin{figure}[ht!]
-            \centering
-            \includegraphics[scale=0.45]{sequence/farmerReg.png}
-            \caption{Farmer Registration}
-        \end{figure}
-    \newpage
+        \newpage
+        
     \item \label{uc:uc3} \textbf{User login} 
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
             \toprule
@@ -714,11 +707,7 @@ The communications between clients and sensors are made via a publish-subscribe 
             \bottomrule
             \caption{\emph{User login} use case description}
         \end{longtable}
-        \begin{figure}[h]
-            \centering
-            \includegraphics[scale=0.45]{sequence/userlogin.png}
-            \caption{User login}
-        \end{figure}
+        
     \newpage
     \item \label{uc:uc4} \textbf{Insertion of report}
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
@@ -753,11 +742,7 @@ The communications between clients and sensors are made via a publish-subscribe 
             \bottomrule
             \caption{\emph{Insertion of report} use case description}
         \end{longtable}
-        \begin{figure}[ht!]
-            \centering
-            \includegraphics[scale=0.45]{sequence/report.png}
-            \caption{Insertion of report}
-        \end{figure}
+        
     \newpage
     \item \label{uc:uc5} \textbf{Creation and handling of a help request}
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
@@ -796,11 +781,7 @@ The communications between clients and sensors are made via a publish-subscribe 
             \bottomrule
             \caption{\emph{Creation and handling of a help request} use case description}
         \end{longtable}
-        \begin{figure}[ht!]
-            \centering
-            \includegraphics[scale=0.45]{sequence/helpRequest.png}
-            \caption{Creation and handling of a help request}
-        \end{figure}
+        
     \newpage
     \item \label{uc:uc6} \textbf{Interview of a good-performing farmer}
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
@@ -835,11 +816,7 @@ The communications between clients and sensors are made via a publish-subscribe 
             \bottomrule
             \caption{\emph{Interview of a good-performing farmer} use case description}
         \end{longtable}
-        \begin{figure}[ht!]
-            \centering
-            \includegraphics[scale=0.45]{sequence/interview.png}
-            \caption{Interview of a good-performing farmer}
-        \end{figure}
+        
     \newpage
     \item \label{uc:uc7} \textbf{Rewarding of good-performing farmers}
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
@@ -867,11 +844,7 @@ The communications between clients and sensors are made via a publish-subscribe 
             \bottomrule
             \caption{\emph{Rewarding of good-performing farmers} use case description}
         \end{longtable}
-        \begin{figure}[ht!]
-            \centering
-            \includegraphics[scale=0.45]{sequence/reward.png}
-            \caption{Rewarding of good-performing farmers}
-        \end{figure}
+        
     \newpage
     \item \label{uc:uc8} \textbf{Forum discussion} 
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
@@ -905,16 +878,62 @@ The communications between clients and sensors are made via a publish-subscribe 
             \bottomrule
             \caption{\emph{Creation of a forum discussion} use case description}
         \end{longtable}
-        \begin{figure}[ht!]
+    \end{enumerate}
+
+        % inizio figure
+
+        \begin{figure}[h!]
             \centering
-            \includegraphics[scale=0.45]{sequence/forum.png}
+            \includegraphics[scale=0.45]{sequence/pmreg.png}
+            \caption{Policy maker registration}
+        \end{figure}
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=0.45]{sequence/farmerReg.png}
+            \caption{Farmer Registration}
+        \end{figure}
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=0.45]{sequence/userlogin.png}
+            \caption{User login}
+        \end{figure}
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=0.45]{sequence/report.png}
+            \caption{Insertion of report}
+        \end{figure}
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=0.45]{sequence/helpRequest.png}
+            \caption{Creation and handling of a help request}
+        \end{figure}
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=0.45]{sequence/interview.png}
+            \caption{Interview of a good-performing farmer}
+        \end{figure}
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=0.45]{sequence/reward.png}
+            \caption{Rewarding of good-performing farmers}
+        \end{figure}
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=0.423]{sequence/forum.png}
             \caption{Forum discussion}
         \end{figure}
-    \newpage
-\end{enumerate}
+
 \subsubsection{Traceability matrix}
-\begin{table}[]
+\begin{table}[!]
     \begin{center}
+    \begin{adjustbox}{width=\columnwidth,center}
     \begin{tabular}{|c|ccccc|cccccccc|}
     \hline
         & \ref{goal:g1} & \ref{goal:g2} & \ref{goal:g3} & \ref{goal:g4} & \ref{goal:g5} & \ref{uc:uc1} & \ref{uc:uc2} & \ref{uc:uc3} & \ref{uc:uc4} & \ref{uc:uc5} & \ref{uc:uc6} & \ref{uc:uc7} & \ref{uc:uc8} \\ \hline
@@ -953,6 +972,7 @@ The communications between clients and sensors are made via a publish-subscribe 
     \ref{req:pmSuggestions}  &  &  & X &  & X &  &  &  &  & X &  &  &  \\
     \hline
     \end{tabular}
+    \end{adjustbox}
     \end{center}
     \caption{Traceability matrix}
 \end{table}
