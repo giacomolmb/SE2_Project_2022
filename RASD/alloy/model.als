@@ -55,18 +55,21 @@ abstract sig User {
 }
 
 sig Farmer extends User {}
-sig PolicyMaker extends User {}
+sig PolicyMaker extends User {} {
+	one this.~supervisor // each policy maker has one and one only area to monitor
+	}
 
 sig Area {
 	areaID: AreaID,
 	name: StringVar,
+	supervisor: one PolicyMaker,  // each area is monitored by one and one only policy maker
 	coordinates: Coordinates
 }
 
 sig Terrain {
 	terrainID: TerrainID,
 	area: Area,
-	owner: Farmer,
+	owner: one Farmer, // each terrain is associate with one and only farmer
 	coordinates: Coordinates,
 	extension: GeographicalExtension,
 }
@@ -99,7 +102,7 @@ sig Production {
 sig Report {
 	reportID: ReportID,
 	date: one Date,
-	creator: Farmer,
+	creator: one Farmer,
 	problems: set StringVar,
 	productions: some Production,
 	forecast: set ForecastID,
@@ -108,7 +111,7 @@ sig Report {
 
 sig HelpRequest {
 	helpRequestID: HelpRequestID,
-	creator: Farmer,
+	creator: one Farmer,
 	managedBy: lone PolicyMaker,
 	severity: HReqSeverity,
 	status: HReqStatus,
@@ -121,6 +124,18 @@ sig Suggestion {
 	suggestionId: SuggestionID,
 	product: Product,
 	date: Date
+}
+
+sig TopFarmers {
+	winners: some Farmer,
+	area: Area,
+	prize: some Prize
+}
+
+sig Prize {
+	amount: Int,
+	winner: one Farmer,
+	assignee: one PolicyMaker
 }
 
 ---------------------------------
@@ -187,7 +202,6 @@ fact noHReqIDWithoutHReq {
 	all hid: HelpRequestID | one h: HelpRequest |  h.helpRequestID = hid
 }
 
-
 fact noHreqStatusWithoutHReq{
 	all hS: HReqStatus | one h: HelpRequest |  h.status = hS
 }
@@ -246,6 +260,12 @@ fact noStypeWithoutSensor {
 
 fact noPayloadWithoutSData {
 	all sdp: SensorDataPayload | one sd: SensorData | sd.payload = sdp
+}
+
+// se il farmer è nella top 10 dell'area, allora un premio sarà assegnato a farmer dal policy maker dell'area
+fact farmerAwarding {
+	all farmer: Farmer, top: TopFarmers, prize: Prize |
+	(farmer in top.winners) implies ((farmer in top.prize.winner) and (prize.assignee in top.area.supervisor))
 }
 
 ---------------------------------
