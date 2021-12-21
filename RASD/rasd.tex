@@ -213,35 +213,45 @@ The class diagram in \ref{fig:classDiagram} is a high-level representation of th
     \label{fig:classDiagram}
 \end{figure}
 \newpage
-\subsubsection{State diagrams}
-State diagrams describe the behaviour of the system while considering all possible states the objects can have when an event occurs. This analysis helps to clarify the most critical aspects of the system.\\\\
+\subsubsection{Activity and State diagrams}
+Activity diagrams describe main activities and their flow, highlighting the responsibilities of the various actors involved in the process.
+State diagrams describe the behaviour of the system while considering all possible states the objects can have when an event occurs. 
+This analysis helps to clarify the most critical aspects of the system.\\\\
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.48]{stateDiagrams/Registration.png}
-    \caption{State diagram: Registration}
+    \caption{Activity diagram: Registration}
     \label{fig:sd1}
 \end{figure}
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.48]{stateDiagrams/HelpRequest.png}
-    \caption{State diagram: Creation and handling of a help request}
+    \includegraphics[scale=0.48]{stateDiagrams/helpActivity.png}
+    \caption{Activity diagram: Creation and handling of a help request}
     \label{fig:sd2}
 \end{figure}
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.48]{stateDiagrams/Interview.png}
-    \caption{State diagram: Interview of a good-performing farmer}
+    \includegraphics[scale=0.48]{stateDiagrams/helpState.png}
+    \caption{State diagram: Help request object}
     \label{fig:sd3}
 \end{figure}
-The state diagram in Figure \ref{fig:sd1} represents the farmer registration procedure: after receiving an invite via e-mail, if the farmer wants to
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.48]{stateDiagrams/Interview.png}
+    \caption{Activity diagram: Interview of a good-performing farmer}
+    \label{fig:sd4}
+\end{figure}
+The activity diagram in Figure \ref{fig:sd1} represents the farmer registration procedure: after receiving an invite via e-mail, if the farmer wants to
 join the DREAM programme responds to the invitation, accepting it. The policy maker then proceeds to create the farmer's profile and to insert his data into
 the system. The system then generates the login credentials and an e-mail containing them and instructions to login is sent to the farmer. The farmer proceeds
 to login and to complete his profile, then the registration is complete.\\\\
-The state diagram in Figure \ref{fig:sd2} represents the creation and handling of a help request. When a farmer needs help, creates a help request via the webapp.
+The activity diagram in Figure \ref{fig:sd2} represents the creation and handling of a help request. When a farmer needs help, creates a help request via the webapp.
 The system stores the request and when the policy maker visualizes it, he takes charge of the request. He then proceeds to evaluate the severity of the issue and to take
 the necessary actions. After that, the farmer's performance is monitored to verify whether the issue has been solved or not. If the performance improves, the help request is closed,
-if not, the request's severity is increased and new actions are taken.\\\\
-The state diagram in Figure \ref{fig:sd3} represents the interview of a good-performing farmer procedure: after identifying a good-performing farmer, the policy
+if not, the request's severity is increased and new actions are taken.\\
+The state diagram in Figure \ref{fig:sd3} represents the states of an instance of a help request object. More specifically, a help request is \textit{Pending} when created by the farmer.
+When a Policy Maker takes charge of the request, it becomes \textit{Open} and finally, when the problem is solved and the farmer's performances are back to normal, the request becomes \textit{Closed}.\\\\
+The state diagram in Figure \ref{fig:sd4} represents the interview of a good-performing farmer procedure: after identifying a good-performing farmer, the policy
 maker proceeds to send an e-mail to him/her, requesting if he/she is open to an interview. If the farmer agrees, a date is chosen and an interview is scheduled for that date.
 The interview consists in a phone call where the farmer is asked about his methods and techniques. Afterwards, the policy maker inserts into the system suggestions
 for other farmers based on the information obtained in the interview.
@@ -609,7 +619,7 @@ The communications between clients and sensors are made via a publish-subscribe 
             \item \textbf{DA11} Each farmer has an automated irrigation system with a control unit.
             \item \textbf{DA12} Each irrigation control unit supports the sensors provided by DREAM.
             \item \textbf{DA13} Data provided by the irrigation sensors is always correct.
-            \item \textbf{DA14} The units of measurement used will always be consistent. ] 
+            \item \textbf{DA14} The units of measurement used will always be consistent. 
         \end{description}
 \end{description}
 \newpage
@@ -645,7 +655,12 @@ The communications between clients and sensors are made via a publish-subscribe 
             \bottomrule
             \caption{\emph{Policy maker registration} use case description}
         \end{longtable}
-
+    \newpage
+        \begin{figure}[ht!]
+            \centering
+            \includegraphics[scale=0.45]{sequence/pmreg.png}
+            \caption{Policy maker registration}
+        \end{figure}
     \newpage
     \item \label{uc:uc2} \textbf{Farmer Registration} 
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
@@ -680,8 +695,13 @@ The communications between clients and sensors are made via a publish-subscribe 
             \bottomrule
             \caption{\emph{Farmer Registration} use case description}
         \end{longtable}
-        \newpage
-        
+    \newpage
+        \begin{figure}[ht!]
+            \centering
+            \includegraphics[scale=0.45]{sequence/farmerReg.png}
+            \caption{Farmer Registration}
+        \end{figure}
+    \newpage
     \item \label{uc:uc3} \textbf{User login} 
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
             \toprule
@@ -742,7 +762,12 @@ The communications between clients and sensors are made via a publish-subscribe 
             \bottomrule
             \caption{\emph{Insertion of report} use case description}
         \end{longtable}
-        
+    \newpage
+        \begin{figure}[ht!]
+            \centering
+            \includegraphics[scale=0.45]{sequence/report.png}
+            \caption{Insertion of report}
+        \end{figure}
     \newpage
     \item \label{uc:uc5} \textbf{Creation and handling of a help request}
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
@@ -781,7 +806,12 @@ The communications between clients and sensors are made via a publish-subscribe 
             \bottomrule
             \caption{\emph{Creation and handling of a help request} use case description}
         \end{longtable}
-        
+    \newpage
+        \begin{figure}[ht!]
+            \centering
+            \includegraphics[scale=0.45]{sequence/helpRequest.png}
+            \caption{Creation and handling of a help request}
+        \end{figure}
     \newpage
     \item \label{uc:uc6} \textbf{Interview of a good-performing farmer}
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
@@ -816,7 +846,12 @@ The communications between clients and sensors are made via a publish-subscribe 
             \bottomrule
             \caption{\emph{Interview of a good-performing farmer} use case description}
         \end{longtable}
-        
+    \newpage
+        \begin{figure}[ht!]
+            \centering
+            \includegraphics[scale=0.45]{sequence/interview.png}
+            \caption{Interview of a good-performing farmer}
+        \end{figure}
     \newpage
     \item \label{uc:uc7} \textbf{Rewarding of good-performing farmers}
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
@@ -844,7 +879,12 @@ The communications between clients and sensors are made via a publish-subscribe 
             \bottomrule
             \caption{\emph{Rewarding of good-performing farmers} use case description}
         \end{longtable}
-        
+    \newpage
+        \begin{figure}[ht!]
+            \centering
+            \includegraphics[scale=0.45]{sequence/reward.png}
+            \caption{Rewarding of good-performing farmers}
+        \end{figure}
     \newpage
     \item \label{uc:uc8} \textbf{Forum discussion} 
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
@@ -878,29 +918,8 @@ The communications between clients and sensors are made via a publish-subscribe 
             \bottomrule
             \caption{\emph{Creation of a forum discussion} use case description}
         \end{longtable}
-    \end{enumerate}
-
-        % inizio figure
-
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[scale=0.45]{sequence/pmreg.png}
-            \caption{Policy maker registration}
-        \end{figure}
-
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[scale=0.45]{sequence/farmerReg.png}
-            \caption{Farmer Registration}
-        \end{figure}
-
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[scale=0.45]{sequence/userlogin.png}
-            \caption{User login}
-        \end{figure}
-
-        \begin{figure}[h!]
+    \newpage
+        \begin{figure}[ht!]
             \centering
             \includegraphics[scale=0.45]{sequence/report.png}
             \caption{Insertion of report}
