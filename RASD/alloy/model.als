@@ -56,7 +56,7 @@ abstract sig User {
 sig Farmer extends User {}
 sig PolicyMaker extends User {} {
 	one this.~supervisor // each policy maker has one and one only area to monitor
-	}
+}
 
 sig Area {
 	areaID: AreaID,
@@ -68,7 +68,7 @@ sig Area {
 sig Terrain {
 	terrainID: TerrainID,
 	area: Area,
-	owner: one Farmer, // each terrain is associate with one and only farmer
+	owner: one Farmer, // each terrain is associated to one and only farmer
 	coordinates: Coordinates,
 	extension: GeographicalExtension,
 }
@@ -89,7 +89,7 @@ sig WeatherForecast {
 	forecastID: ForecastID,
 	area: Area,
 	date: one Date,
-	forecastData: set ForecastData
+	forecastData: one ForecastData
 }
 
 sig Production {
@@ -104,14 +104,14 @@ sig Report {
 	creator: one Farmer,
 	problems: set StringVar,
 	productions: some Production,
-	forecast: set ForecastID,
+	forecast: set WeatherForecast,
 	sensorData: set SensorData
 }
 
 sig HelpRequest {
 	helpRequestID: HelpRequestID,
 	creator: one Farmer,
-	managedBy: lone PolicyMaker,
+	managedBy: one PolicyMaker,
 	severity: HReqSeverity,
 	status: HReqStatus,
 	creationDate: one Date,
@@ -241,6 +241,10 @@ fact noFDataWithoutForecast {
 	all fd: ForecastData | one f: WeatherForecast | f.forecastData = fd
 }
 
+fact noDuplicateForecast { //no weather forecasts for the same area and for the same date
+	no disj wf1, wf2: WeatherForecast | (wf1.area = wf2.area) and (wf1.date = wf2.date)
+}
+
 fact noStypeWithoutSensor {
 	all stype: SensorType | one s: Sensor | s.type = stype
 }
@@ -287,30 +291,30 @@ fact sensedHelpRequest { // an help request can be created and opened the same d
 -- Predicates
 ---------------------------------
 
-pred world1 { //focus on reports
+pred world1 { //focus on sensors
+	#Sensor = 3
+	#Terrain = 2
+	#WeatherForecast = 2
+	#Report = 0
+	#HelpRequest = 0
+}
+run world1 for 5
+
+pred world2 { //focus on reports
 	#PolicyMaker = 1
 	#Farmer = 1
 	#Report = 1
 	#Production = 2
-	#WeatherForecast = 0
+	#ForecastData = 1
 	#Suggestion = 0
 	#HelpRequest = 0
-	#Sensor = 0
+	#SensorData = 1
 }
-//run world1 for 5
-
-pred world2 { //focus on sensors
-	#Sensor = 3
-	#Terrain = 2
-	#Report = 0
-	#HelpRequest = 0
-	#Date = 0
-}
-//run world2 for 5
+run world2 for 5
 
 pred world3 { //focus on help requests
 	#HelpRequest = 2
-	#Date = 2
+	#Date = 5
 	#Report = 0
 	#Suggestion = 0
 	#WeatherForecast = 0
