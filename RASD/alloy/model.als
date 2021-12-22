@@ -42,7 +42,6 @@ sig SensorID {}
 
 abstract sig Product {
 	productId: ProductID,
-	name: StringVar,
 }
 sig AgrProduct extends Product {}
 sig AuxProduct extends Product {}
@@ -89,7 +88,7 @@ sig SensorData {
 sig WeatherForecast {
 	forecastID: ForecastID,
 	area: Area,
-	date: Date,
+	date: one Date,
 	forecastData: set ForecastData
 }
 
@@ -123,19 +122,7 @@ sig HelpRequest {
 sig Suggestion {
 	suggestionId: SuggestionID,
 	product: Product,
-	date: Date
-}
-
-sig TopFarmers {
-	winners: some Farmer,
-	area: Area,
-	prize: some Prize
-}
-
-sig Prize {
-	amount: Int,
-	winner: one Farmer,
-	assignee: one PolicyMaker
+	date: one Date
 }
 
 ---------------------------------
@@ -262,18 +249,66 @@ fact noPayloadWithoutSData {
 	all sdp: SensorDataPayload | one sd: SensorData | sd.payload = sdp
 }
 
-// se il farmer è nella top 10 dell'area, allora un premio sarà assegnato a farmer dal policy maker dell'area
-fact farmerAwarding {
-	all farmer: Farmer, top: TopFarmers, prize: Prize |
-	(farmer in top.winners) implies ((farmer in top.prize.winner) and (prize.assignee in top.area.supervisor))
+fact noProductionWithoutReport {
+	all p: Production | one r: Report | p in r.productions
+}
+
+fact noProductWithoutProduction {
+	all p: Product | one prod: Production | ((prod.product = p) or (p in prod.auxiliaryProducts))
+}
+
+fact noTerrainsWithSameCoordinates {
+	no disj t1, t2: Terrain | t1.coordinates = t2.coordinates
+}
+
+fact noAreaWithSameCoordinates {
+	no disj a1, a2: Area | a1.coordinates = a2.coordinates
+}
+
+fact noTerrainWithAreaCoordinates {
+	no disj t: Terrain, a: Area | t.coordinates = a.coordinates
+}
+
+fact noStandaloneDate {
+	(all d: Date | one h: HelpRequest | h.creationDate = d) or
+	(all d: Date | one h: HelpRequest | h.openingDate = d) or
+	(all d: Date | one h: HelpRequest | h.closureDate = d) or
+	(all d: Date | one f: WeatherForecast | f.date = d) or
+	(all d: Date | one s: SensorData | s.date = d) or
+	(all d: Date | one sug: Suggestion | sug.date = d) or
+	(all d: Date | one r: Report | r.date = d)
 }
 
 ---------------------------------
 -- Predicates
 ---------------------------------
-pred world1 {
+
+pred world1 { //focus on reports
 	#PolicyMaker = 1
 	#Farmer = 1
 	#Report = 1
+	#Production = 2
+	#WeatherForecast = 0
+	#Suggestion = 0
+	#HelpRequest = 0
+	#Sensor = 0
 }
-run world1 for 5
+//run world1 for 5
+
+pred world2 { //focus on sensors
+	#Sensor = 3
+	#Terrain = 2
+	#Report = 0
+	#HelpRequest = 0
+	#Date = 0
+}
+//run world2 for 5
+
+pred world3 { //focus on help requests
+	#HelpRequest = 2
+	#Report = 0
+	#Suggestion = 0
+	#WeatherForecast = 0
+	#SensorData = 0
+}
+run world3 for 5
