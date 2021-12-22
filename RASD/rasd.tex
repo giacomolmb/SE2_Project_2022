@@ -210,11 +210,11 @@ cases where there is a significant interaction between agronomists and the other
 \end{itemize}
 \subsection{Softwares and tools used}
 \begin{itemize}
-    \item \href{https://visualstudio.microsoft.com/it/}{\textbf{Visual Studio Code}} and {\textbf{\LaTeX}}
-    \item \href{https://github.com}{\textbf{GitHub}}
-    \item \href{https://balsamiq.com}{\textbf{balsamiq}}
-    \item \href{https://www.lucidchart.com}{\textbf{Lucidchart}}
-    \item \href{https://alloytools.org/}{\textbf{Alloy Analyzer}}
+    \item \href{https://visualstudio.microsoft.com/it/}{\textbf{Visual Studio Code}} and {\textbf{\LaTeX}} to model the document;
+    \item \href{https://github.com}{\textbf{GitHub}} for version control;
+    \item \href{https://balsamiq.com}{\textbf{balsamiq}} to realize the UI mockups;
+    \item \href{https://www.lucidchart.com}{\textbf{Lucidchart}} for diagrams;
+    \item \href{https://alloytools.org/}{\textbf{Alloy Analyzer}} for the Alloy analysis.
 \end{itemize}
 \subsection{Document Structure}
 The document is presented as it follows:
@@ -363,7 +363,6 @@ The system will then process the collected data, calculating parameters used to 
     irrigation. In the meantime the policy maker inserts into the DREAM database the information about Santosh. When Santosh receives the login credentials, he is 
     ready to access to the system and start participating to the project.
     \item \textit{Insertion of crop collection data into the system.}\\ 
-    % specificare anche che il farmer inserisce i problemi che ha affrontato
     Rajesh is an experienced farmer who owns some land in the Telangana region. He was very excited to access the agriculture development program offered by the government, 
     and made sure to get access to the DREAM platform as quickly as possible.\\
     For Rajesh, harvest time has finally arrived, his rice fields have yielded well, and after several days dedicated to harvesting the entire crop, it is time to report 
@@ -372,9 +371,6 @@ The system will then process the collected data, calculating parameters used to 
     writes a complete and detailed description inserting also some inconveniences he has faced. After reviewing the data entered, he clicks on the buttons that retrieve the data from 
     the sensors in the period of interest, waits about a minute before the procedure is completed and is ready to submit his report.
     \item \textit{Awarding of the best performing farmer}\\
-    % Assunzioni che ho fatto: ogni policy maker ha un'area di competenza; ogni trimestre sono selezionati
-    % 10 agricoltori in base a degli indici definiti dall'alto; a seguito della chiusura del trimestre il sistema
-    % memorizza i dati relativi al semestre appena passato e fa partire l'inizializzazione del nuovo trimestre.
     Guepequesh works as PM at the Ministry of Agriculture, Food and Forestry of Telengana. Like every end of the quarter,
      it's time to designate who the top performing farmers of the period were. Guepequesh logs in with his credentials to
       the DREAM portal and goes to his area of expertise, the dashboard shows the ranking of farmers sorted according to 
@@ -387,18 +383,18 @@ The system will then process the collected data, calculating parameters used to 
       following the interviews, the PM will enter all data related to the best practices followed by the farmer in the system, 
       and they will be forwarded to all farmers in the area who grow the same type of product. 
       \item \textit{Farmers request for help and suggestions by other farmers}\\
-      Marrakesh is a young farmer from Telengana. He has recently decided to strike out on his own in the world of agriculture 
-      and knows that he will face many challenges. During a normal day's work, Marrakesh notices that even several hours after irrigation, 
+      Vinay is a young farmer from Telengana. He has recently decided to strike out on his own in the world of agriculture 
+      and knows that he will face many challenges. During a normal day's work, Vinay notices that even several hours after irrigation, 
       his soil remains very wet and even puddles form. He had never encountered this problem before and decides to rely on the 
-      farmers' forum provided by the DREAM platform to which he is subscribed. Marrakesh logs in and goes to the "Problems and Help Requests" 
+      farmers' forum provided by the DREAM platform to which he is subscribed. Vinay logs in and goes to the "Problems and Help Requests" 
       section of the forum, creates a new thread and prepares to fill in the required fields for the submission of the request. 
       The young farmer enters a short title, his working area, the type of shoot with which he encountered the problem and an accurate description 
       of the problem he had. All farmers receive a notification on the platform that a new application has been entered, the notification includes 
       the title and type of sprout so that a farmer can immediately determine if he or she considers themselves competent in the field or not. 
-      In particular, an experienced farmer named Rastykilo pauses to read the full description of the problem and enters a very accurate 
-      response to the problem. All of the farmers who read the response enter positive feedback, and Marrakesh, the next day, feels confident 
-      in following Rastykilo's advice, given the many positive feedbacks.
-      \item \textit{Identify those farmers who need to be helped as they are performing particularly badly}
+      In particular, an experienced farmer named Amrit pauses to read the full description of the problem and enters a very accurate 
+      response to the problem. All of the farmers who read the response enter positive feedback, and Vinay, the next day, feels confident 
+      in following Amrit's advice, given the many positive feedbacks.
+      \item \textit{Identify those farmers who need to be helped}\\
       Om Ashgabash is a Telangana Policy maker. At the end of the quarter, he checks as usual the performances of farmers. He notices that Vidit Parkamush, a local
       farmer of his area of competence, has produced goods for a significantly lower amount than the other farmers over the same periods. He then decides that Vidit might
       need some help in order to perform better in the next period. To help him, first of all he schedules a call with Vidit to understand his situation and evaluate which
@@ -780,7 +776,12 @@ The communications between clients and sensors are made via a publish-subscribe 
             \bottomrule
             \caption{\emph{User login} use case description}
         \end{longtable}
-        
+    \newpage
+        \begin{figure}[ht!]
+            \centering
+            \includegraphics[scale=0.45]{sequence/userlogin.png}
+            \caption{User login}
+        \end{figure}
     \newpage
     \item \label{uc:uc4} \textbf{Insertion of report}
         \begin{longtable}{p{0.26\linewidth}p{0.75\linewidth}}
