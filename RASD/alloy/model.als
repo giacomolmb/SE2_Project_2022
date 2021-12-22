@@ -270,13 +270,17 @@ fact noTerrainWithAreaCoordinates {
 }
 
 fact noStandaloneDate {
-	(all d: Date | one h: HelpRequest | h.creationDate = d) or
-	(all d: Date | one h: HelpRequest | h.openingDate = d) or
-	(all d: Date | one h: HelpRequest | h.closureDate = d) or
-	(all d: Date | one f: WeatherForecast | f.date = d) or
-	(all d: Date | one s: SensorData | s.date = d) or
-	(all d: Date | one sug: Suggestion | sug.date = d) or
-	(all d: Date | one r: Report | r.date = d)
+	all d: Date | (some h: HelpRequest | h.creationDate = d) or
+	 (some h: HelpRequest | h.openingDate = d) or
+	 (some h: HelpRequest | h.closureDate = d) or
+	 (some f: WeatherForecast | f.date = d) or
+	 (some s: SensorData | s.date = d) or
+	 (some sug: Suggestion | sug.date = d) or
+	 (some r: Report | r.date = d)
+}
+
+fact sensedHelpRequest { // an help request can be created and opened the same day, but not closed
+	no hp: HelpRequest | hp.creationDate = hp.closureDate or hp.openingDate = hp.closureDate
 }
 
 ---------------------------------
@@ -306,6 +310,7 @@ pred world2 { //focus on sensors
 
 pred world3 { //focus on help requests
 	#HelpRequest = 2
+	#Date = 2
 	#Report = 0
 	#Suggestion = 0
 	#WeatherForecast = 0
