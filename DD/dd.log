@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.11.17)  27 DEC 2021 14:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.11.17)  27 DEC 2021 15:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -359,7 +359,7 @@ LaTeX Info: Redefining \nameref on input line 61.
 \@outlinefile=\write3
 \openout3 = `dd.out'.
 
-<./images//polimi.png, id=8, 642.4pt x 401.5pt>
+<./images//polimi.png, id=80, 642.4pt x 401.5pt>
 File: ./images//polimi.png Graphic file (type png)
 <use ./images//polimi.png>
 Package pdftex.def Info: ./images//polimi.png  used on input line 66.
@@ -378,23 +378,27 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
 <to be read again> 
                    \relax 
 l.91 \newpage
-              [1] [2] (/home/maurofama/Documenti/Uni/1st_sem/Software Engineering 2/Project/FamaLombardo/DD/dd.aux)
+              [1] (/home/maurofama/Documenti/Uni/1st_sem/Software Engineering 2/Project/FamaLombardo/DD/dd.bbl
+
+LaTeX Warning: Empty `thebibliography' environment on input line 3.
+
+) [2] (/home/maurofama/Documenti/Uni/1st_sem/Software Engineering 2/Project/FamaLombardo/DD/dd.aux)
 Package rerunfilecheck Info: File `dd.out' has not changed.
-(rerunfilecheck)             Checksum: A02D95553E30B97FF125B1AA17CF9044;47.
+(rerunfilecheck)             Checksum: CF84FEE264C03D55279B003F5D516E7A;1222.
  ) 
 Here is how much of TeX's memory you used:
- 9794 strings out of 479304
- 156720 string characters out of 5869778
- 464964 words of memory out of 5000000
- 26836 multiletter control sequences out of 15000+600000
- 406796 words of font info for 38 fonts, out of 8000000 for 9000
+ 9836 strings out of 479304
+ 157427 string characters out of 5869778
+ 469964 words of memory out of 5000000
+ 26856 multiletter control sequences out of 15000+600000
+ 407103 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,5n,77p,385b,393s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on "/home/maurofama/Documenti/Uni/1st_sem/Software Engineering 2/Project/FamaLombardo/DD/dd.pdf" (3 pages, 257314 bytes).
+Output written on "/home/maurofama/Documenti/Uni/1st_sem/Software Engineering 2/Project/FamaLombardo/DD/dd.pdf" (3 pages, 280885 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
- 5 named destinations out of 1000 (max. 500000)
- 14 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 173 PDF objects out of 1000 (max. 8388607)
+ 157 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
+ 158 words of extra memory for PDF output out of 10000 (max. 10000000)
 
