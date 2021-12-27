@@ -82,7 +82,7 @@
         \end{flushleft}
     \end{minipage}\\[2cm]
 
-    {\large December 23, 2021}\\[2cm]
+    {\large January 9, 2022}\\[2cm]
     
     \vfill
 \end{titlepage}
@@ -91,7 +91,38 @@
 \newpage
 \section{Introduction}
 \subsection{Purpose}
+The purpose of this document is to comprehensively describe the design of the DREAM platform. %(reference to rasd or assignment)
+It will be described the architecture of the system and its characteristics, 
+moreover will be analyzed its components explaining their functionalities.\\
+This document was written following the RASD of the same project, 
+in fact the assumptions and design choices are based on the assumptions already explained, 
+however maintaining independence between the documents. This document focuses on the explanation 
+about the S2B, its modules, its interfaces and its implementation.
 \subsection{Scope}
+The main objective of the platform is to create a support tool and communication channel for farmers in Telangana, 
+leveraging the IT infrastructure of government resources. The platform also aims to be a 
+supervisory and control system for the authorities of the Ministry of Agriculture in Telangana, 
+providing accurate and bulk data of farmers' performance, reducing the overhead due to manual retrieval of this information.\\
+The system will have two separate and exclusive interfaces, one dedicated to PMs in Telangana 
+and one dedicated to farmers in the region. Farmers will be provided with a browser 
+executable web application, it will provide a dashboard to monitor the sensors embedded 
+in their fields, weather forecasts for the local area and summarize the resources 
+obtained and consumed by the plantations. In addition to the monitoring functionality, 
+from the farmer's dashboard it will be possible to compile reports to be sent to the PM 
+responsible for the area, combining data entered manually by the farmer, data created by 
+IoT devices and data retrieved from the internet.\\
+The web application also provides access to the forum dedicated to the Telangana farming community, 
+connecting all participants in the DREAM program through its threads.
+Farmers will also be able to submit their help requests into the system, which will be automatically forwarded 
+to the PM responsible for the area, who in turn will have a dedicated dashboard exclusively for the administrative side.
+From his application, the PM will be able to forward responses to help requests, monitor the performance of 
+farmers in his area, all while viewing data from sensors and weather forecasts.
+From his dashboard, the PM will have the tools to perform end-of-quarter performance evaluations, 
+including direct communication channels to affected farmers.\\
+There is no platform that currently provides these functions, in fact this document refers to the design of a system 
+created from scratch, without any integration of existing systems, but exploiting the IT infrastructure 
+already physically installed in the Telangana region.
+
 \subsection{Definitions, Acronyms, Abbreviations}
 \subsection{Revision History}
 \subsection{Reference Documents}
