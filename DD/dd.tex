@@ -127,9 +127,21 @@ already physically installed in the Telangana region.
 \subsection{Revision History}
 \subsection{Reference Documents}
 \subsection{Document Structure}
-
 \section{Architectural Design}
 \subsection{Overview}
+\begin{figure}[h]
+    \centering
+    \includegraphics{images/overview_architecture.png}
+    \caption{System architecture}
+    \label{fig:overview}
+\end{figure}
+The DREAM application is designed with a multiter architecture, the overall system is split into multiple pieces where 
+the database and data management is separate from the application server. We have a three-tier application with web servers, 
+application server, and a database functioning as the three tiers of the application.
+This application has both external (Farmers) and internal (PMs) users which use a web-based application. 
+This web-based component then communicates back to a common application server. 
+Finally, the application server communicate with a database through a Database Management System.\\
+A full description of each component will be given in the following sections.
 \subsection{Component view}
 \subsection{Deployment view}
 \subsection{Runtime view}
