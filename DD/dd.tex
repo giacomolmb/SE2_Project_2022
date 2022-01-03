@@ -97,7 +97,7 @@ moreover will be analyzed its components explaining their functionalities.\\
 This document was written following the RASD of the same project, 
 in fact the assumptions and design choices are based on the assumptions already explained, 
 however maintaining independence between the documents. This document focuses on the explanation 
-about the S2B, its modules, its interfaces and its implementation.
+about the Software-To-Be, its modules, its interfaces and its implementation.
 \subsection{Scope}
 The main objective of the platform is to create a support tool and communication channel for farmers in Telangana, 
 leveraging the IT infrastructure of government resources. The platform also aims to be a 
@@ -138,8 +138,9 @@ already physically installed in the Telangana region.
 The DREAM application is designed with a multiter architecture, the overall system is split into multiple pieces where 
 the database and data management is separate from the application server. We have a three-tier application with web servers, 
 application server, and a database functioning as the three tiers of the application.
-This application has both external (Farmers) and internal (PMs) users which use a web-based application. 
-This web-based component then communicates back to a common application server. 
+This application has both external (Farmers) and internal (PMs) users which use a web-based application.
+This web-based component then communicates back to a common application server. IoT sensors are connected to the internet in order to
+communicate with the web servers. All the weather informations are taken from the weather forecast of Telangana through the system'a APIs.
 Finally, the application server communicate with a database through a Database Management System.\\
 A full description of each component will be given in the following sections.
 \subsection{Component view}
