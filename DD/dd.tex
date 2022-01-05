@@ -191,10 +191,11 @@ A full description of each component will be given in the following sections.
     \item 3 tier client-server
     \item middleware based
     \item rest api  
+    \item \textbf{Event based communication for sensors}\\The communication protocol chosen to retrieve data created by IoT sensors is Message Queue Telemetry Transport (MQTT), a standard messaging protocol for the Internet of Things that is extremely lightweight and ideal for connecting remote devices with a small code footprint and minimal network bandwidth. MQTT is a publish/subscribe protocol: the MQTT broker will reside directly in the Farmer Client and each farmer's set of sensors will have an exclusive topic. The sensors will publish messages containing data about the measurement only on the topic of their interest, i.e. the one to which the farmer owning the sensors will be subscribed. The data received on the Farmer Client will be available for use on the DREAM platform.
 \end{itemize}
 \subsection{Other design decisions}
 \begin{itemize}
-    \item event based communication for sensor
+    \item thin client
 \end{itemize}
 \section{User Interface Desgin}
 
