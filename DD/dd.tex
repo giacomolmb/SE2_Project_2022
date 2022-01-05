@@ -131,7 +131,7 @@ already physically installed in the Telangana region.
 \subsection{Overview}
 \begin{figure}[h]
     \centering
-    \includegraphics{images/overview_architecture.png}
+    \includegraphics[scale=0.7]{images/overview_architecture.png}
     \caption{System architecture}
     \label{fig:overview}
 \end{figure}
@@ -147,7 +147,7 @@ A full description of each component will be given in the following sections.
 \subsection{Component view}
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.44]{images/hl_component.png}
+    \includegraphics[scale=0.5]{images/hl_component.png}
     \caption{High Level Component Diagram}
     \label{fig:hl_component}
 \end{figure}
@@ -169,6 +169,151 @@ A full description of each component will be given in the following sections.
 \end{itemize}
 \section{User Interface Desgin}
 
+\section{User Interface Desgin} %l'impaginazione la facciamo alla fine
+The following section describes the user interface of the DREAM webapp. Its goal is to motivate design choices, 
+describe each mockup, its content and the flow between the various pages of the application.
+The section is divided in three subsections: the first one focuses on the farmer's webapp, the second one on the Policy Maker's webapp
+and the third on the flow of the webapp.\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/login.png}
+    \caption{Login page}
+    \label{fig:ui_login}
+\end{figure}
+The first page for both farmers and policy makers will always be the login page, requiring e-mail and password to login into the platform.
+For farmers, this page will be accessible from any web browser and will also show an option to request an invitation: a simple popup will open up requesting
+the user to insert his e-mail address, which will be then submitted to the policy makers who will handle the registration request and procedure.
+
+\subsection{Farmers User Interface}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/f_homepage.png}
+    \caption{Farmer homepage}
+    \label{fig:ui_f_homepage}
+\end{figure}
+The first page visualized by the farmer once logged in the platform is the homepage. The farmer's homepage contains a brief overview of weather forecasts
+and sensor data, and allows users to keep track of their crop in a table containing information about crop's type, eta and comments. The user can add crops 
+to the table by clicking "Add crop", which will open a popup to insert the new crop and its info. The page then allows to navigate to the pages for creating reports
+and help request, to the forum or to a specific product page by searching the product by its name.\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/f_report.png}
+    \caption{Farmer's report creation page}
+    \label{fig:ui_f_report}
+\end{figure}
+The report creation page consists of a simple form to insert the harvested products and their quantity. Each product added to the report is visualized 
+on a table, that also allows to edit or delete previously added products. To add a product, the user selects the type of product by an interactive dropdown
+menu that also allows searching the product, then adds seeds and produced quantity. Clicking on "Auxiliary Products" will open a popup showing the auxiliary
+products used in the harvesting process, allowing the user to add, edit or remove them. Once the user has inserted all the necessary information, by clicking on "Add product"
+the product will be added to the report's products. The page also contains a text area where the user can insert the problems encountered during the harvesting process. 
+Once the report is fully compiled, clicking on "Submit" will create the report and send it to the DREAM server. The webapp will then rediredt the user to the homepage. \\
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/f_helprequest.png}
+    \caption{Farmer's help request creation page}
+    \label{fig:ui_f_helprequest}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/f_forum.png}
+    \caption{Farmer's forum page}
+    \label{fig:ui_f_forum}
+\end{figure}
+The forum page shows all the open threads, allowing the user to open them and visualize the discussion.
+A farmer can also create a new thread by clicking "Create thread", which will redirect the user to the thread creation page.\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/f_forumcreatethread.png}
+    \caption{Farmer's thread creation page}
+    \label{fig:ui_f_forumcreatethread}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/f_forumthread.png}
+    \caption{Farmer's thread page}
+    \label{fig:ui_f_forumthread}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/f_product.png}
+    \caption{Farmer's product page}
+    \label{fig:ui_f_product}
+\end{figure}
+
+\subsection{Policy maker User Interface}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/pm_farmers.png}
+    \caption{Policy maker's farmers page}
+    \label{fig:ui_pm_farmers}
+\end{figure}
+The first page visualized by the policy maker once logged into the platform lists the farmers and the latest reports submitted, allowing the
+user to search farmers/reports. The user can then navigate to the farmer/report details. On the top of the page there is a navigation bar that
+allows the user to switch dashboard page.\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/pm_farmerdetails.png}
+    \caption{Policy maker's farmer detail page}
+    \label{fig:ui_pm_farmerdetails}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/pm_reports.png}
+    \caption{Policy maker's report page}
+    \label{fig:ui_pm_reports}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/pm_reportproductdetail.png}
+    \caption{Policy maker's report production detail page}
+    \label{fig:ui_pm_reportproductdetail}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/pm_forecasts.png}
+    \caption{Policy maker's forecasts page}
+    \label{fig:ui_pm_forecasts}
+\end{figure}
+The forecast page contains basic information about the future weather forecasts. Production forecasts are calculated and then shown to the user through
+graphs.\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/pm_helprequests.png}
+    \caption{Policy maker's help requests page}
+    \label{fig:ui_pm_helprequests}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/pm_helprequestdetail.png}
+    \caption{Policy maker's help request detail page}
+    \label{fig:ui_pm_helprequestdetail}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/pm_forum.png}
+    \caption{Policy maker's forum page}
+    \label{fig:ui_pm_forum}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/pm_products.png}
+    \caption{Policy maker's products page}
+    \label{fig:ui_pm_products}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/uimockups/pm_productdetail.png}
+    \caption{Policy maker's product detail page}
+    \label{fig:ui_pm_productdetail}
+\end{figure}
+
+\subsection{Flow of the User Interface}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{images/uimockups/ui_flow.png}
+    \caption{User interface flow}
+    \label{fig:ui_flow}
+\end{figure}
 \section{Requirements Traceability}
 
 \section{Implementation, integration and test plan}
