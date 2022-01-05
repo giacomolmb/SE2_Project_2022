@@ -152,8 +152,26 @@ A full description of each component will be given in the following sections.
     \label{fig:hl_component}
 \end{figure}
 \begin{itemize}
-    \item Data
+    \item \textbf{Database server}\\This component is responsible for data management, 
+    it provides the interaface of the Database Management System to the Application Server, in order to 
+    deal with the data management, storing and modification process.
+    \item \textbf{Mail server}\\This component allows the Application Server to create and manage email accounts, 
+    send and receive email using standard email protocols. The SMTP protocol is used to send messages and handle outgoing mail requests, 
+    The IMAP protocol is used to receive messages and to process incoming mail.
+    \item \textbf{Application server}\\It's the main component of the system, all the business logic 
+    resides in it.
+    \item Farmer client
+    \item PM client
+    \item Soil Humidity sensor
+    \item Irrigation sensor
 \end{itemize}
+\subsubsection{Application Server}
+\begin{figure}[h]
+    \centering 
+    \includegraphics[scale=0.3]{images/app_server_component.png}
+    \caption{High Level Component Diagram}
+    \label{fig:app_component}
+\end{figure}
 \subsection{Deployment view}
 \subsection{Runtime view}
 \subsection{Component Interfaces}
