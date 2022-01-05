@@ -159,17 +159,28 @@ A full description of each component will be given in the following sections.
     send and receive email using standard email protocols. The SMTP protocol is used to send messages and handle outgoing mail requests, 
     The IMAP protocol is used to receive messages and to process incoming mail.
     \item \textbf{Application server}\\It's the main component of the system, all the business logic 
-    resides in it.
-    \item Farmer client
-    \item PM client
-    \item Soil Humidity sensor
-    \item Irrigation sensor
+    resides in it. This component offers both functionality dedicated to farmers and PMs, 
+    interfacing directly with clients. It receives the data entered by the users and sent 
+    by the weather forecast system, cross-referencing them and providing for processing, 
+    back forwarding and transferring them to the data management system. Its components are 
+    described in detail in the following sections.
+    \item \textbf{Farmer client}\\It is the component thanks to which the farmers can interface 
+    with the Application Server. It represents the web application dedicated to farmers that allows 
+    them to access the services of DREAM. This component also receives data from the IoT sensors that 
+    monitor the farmer's possessions, making them available for sending to the Application Server.
+    \item \textbf{PM client}\\This is the component thanks to which the Policy Makers can interface 
+    with the Application Server. It represents the web application dedicated to them that allows 
+    them to take advantage of the services offered by DREAM to monitor and manage agriculture in 
+    Telangana. All the functions are accessible thanks to the PM Interface exposed by the Application Server.
+    \item \textbf{Soil Humidity and Irrigation sensors}\\Sensors for measuring soil moisture and irrigation are 
+    internet-connected components responsible for creating and sending data to the Farmer Client. 
+    They both expose their own interface, through which clients can retrieve the data of interest.
 \end{itemize}
 \subsubsection{Application Server}
 \begin{figure}[h]
     \centering 
     \includegraphics[scale=0.3]{images/app_server_component.png}
-    \caption{High Level Component Diagram}
+    \caption{Application Server Component Diagram}
     \label{fig:app_component}
 \end{figure}
 \subsection{Deployment view}
