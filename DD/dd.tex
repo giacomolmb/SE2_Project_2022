@@ -179,12 +179,30 @@ A more detailed description of the components will be given in the following sec
     They both expose their own interface, through which clients can retrieve the data of interest.
 \end{itemize}
 \subsubsection{Application Server}
+The application server contains the business logic of the application. The following diagram describe its internal structure:
 \begin{figure}[h]
     \centering 
     \includegraphics[scale=0.38]{images/app_server_component.png}
     \caption{Application Server Component Diagram}
     \label{fig:app_component}
 \end{figure}
+The components of the application server are:
+\begin{itemize}
+    \item \textbf{Database Manager}: deals with management of the data model and data operations, working as a bridge between the physical database 
+    and the other components of the server.
+    \item \textbf{Mail Manager}: interfaces between the server components and the mail server in order to provide mailing services.
+    \item \textbf{Weather Manager}: interfaces between the external weather forecasting API and the other server components.
+    \item \textbf{Access Manager}: handles the authentication procedure of the application's users. It is also responsible for the generation of access credentials.
+    \item \textbf{Sensor Manager}: handles the communications between the application and the sensors installed in the Telangana territory. Manages the retrieving of 
+        collected data from the sensors and its processing and storing procedure.
+    \item \textbf{Report Manager}: handles the creation and the visualization of reports.
+    \item \textbf{Help Request Manager}: handles the creation, the handling and the visualization of help requests.
+    \item \textbf{Forum Manager}: handles forum operations such as creation of threads, answering, visualization and moderation.
+    \item \textbf{User Manager}: manages the retrieving of user information from the database.
+    \item \textbf{Dashboard Manager}: manages the process of generation of web pages, retrieving the necessary data from the other interfaces, and the handling of user requests. 
+        This component will be further analyzed in the following part of the document.
+    \item \textbf{Client Handler}: handles clients' connection, interfacing between the application server and the clients.
+\end{itemize}
 \subsubsection{Client Handler}
 \begin{figure}[h]
     \centering 
@@ -219,8 +237,6 @@ A more detailed description of the components will be given in the following sec
 \begin{itemize}
     \item thin client
 \end{itemize}
-\section{User Interface Desgin}
-
 \section{User Interface Desgin} %l'impaginazione la facciamo alla fine
 The following section describes the user interface of the DREAM webapp. Its goal is to motivate design choices, 
 describe each mockup, its content and the flow between the various pages of the application.
