@@ -135,15 +135,16 @@ already physically installed in the Telangana region.
     \caption{System architecture}
     \label{fig:overview}
 \end{figure}
-The DREAM application is designed with a multiter architecture, the overall system is split into multiple pieces where 
-the database and data management is separate from the application server. 
-We have a three-tier application with web servers, application server, and a database functioning as the three tiers of the application.
-This application has both external (Farmers) and internal (PMs) users which use a web-based application provided by web servers.
-This web-based component then communicates back to a common application server. 
-IoT sensors are connected to the internet in order to communicate with the farmers' application, indeed, MQTT communication protocol is used to retrieve sensor data by the farmers' machine.
-All the weather informations are taken from the weather forecast of Telangana through the system'a APIs.
+The system will be developed from scratch and it will entirely replace the legacy system.
+The DREAM application is designed with as a three-tier application with web servers, application server, and a database functioning as the three tiers of the application.
+The application can be accessed via a webapp provided both to internal and external users. The internal users of the application are the policy maker, that will log into and use the platform
+from their workstation, connected to an internal web server. The external users are the farmer, connected to the webapp from their personal computer. This separation between internal and external 
+users is meant first and foremost for security requirements, in order not to expose sensitive data to potential risks.\\
+Other significant components in the DREAM ecosystem are the IoT sensors, crucial to automatically retrieve and collect data from local farmers and to better evaluate their performances.
+IoT sensors are connected to the internet in order to communicate with the farmers' application, indeed, MQTT communication protocol is used to retrieve sensor data by the farmers' machine.\\
+All the weather informations are taken from the weather forecasting system of Telangana through its APIs.\\
 Finally, the application server communicate with a database through a Database Management System.\\
-A full description of each component will be given in the following sections.
+A more detailed description of the components will be given in the following sections.
 \subsection{Component view}
 \begin{figure}[h]
     \centering
@@ -153,12 +154,12 @@ A full description of each component will be given in the following sections.
 \end{figure}
 \begin{itemize}
     \item \textbf{Database server}\\This component is responsible for data management, 
-    it provides the interaface of the Database Management System to the Application Server, in order to 
+    it provides the interface of the Database Management System to the Application Server, in order to 
     deal with the data management, storing and modification process.
     \item \textbf{Mail server}\\This component allows the Application Server to create and manage email accounts, 
     send and receive email using standard email protocols. The SMTP protocol is used to send messages and handle outgoing mail requests, 
     The IMAP protocol is used to receive messages and to process incoming mail.
-    \item \textbf{Application server}\\It's the main component of the system, all the business logic 
+    \item \textbf{Application server}\\It is the main component of the system, all the business logic 
     resides in it. This component offers both functionality dedicated to farmers and PMs, 
     interfacing directly with clients. It receives the data entered by the users and sent 
     by the weather forecast system, cross-referencing them and providing for processing, 
@@ -167,12 +168,13 @@ A full description of each component will be given in the following sections.
     \item \textbf{Farmer client}\\It is the component thanks to which the farmers can interface 
     with the Application Server. It represents the web application dedicated to farmers that allows 
     them to access the services of DREAM. This component also receives data from the IoT sensors that 
-    monitor the farmer's possessions, making them available for sending to the Application Server.
+    monitor the farmer's possessions, making them available to be retrieved from to the Application Server.
     \item \textbf{PM client}\\This is the component thanks to which the Policy Makers can interface 
     with the Application Server. It represents the web application dedicated to them that allows 
     them to take advantage of the services offered by DREAM to monitor and manage agriculture in 
     Telangana. All the functions are accessible thanks to the PM Interface exposed by the Application Server.
-    \item \textbf{Soil Humidity and Irrigation sensors}\\Sensors for measuring soil moisture and irrigation are 
+    \item \textbf{Soil Humidity and Irrigation sensors}\\
+    Sensors for measuring soil moisture and irrigation are 
     internet-connected components responsible for creating and sending data to the Farmer Client. 
     They both expose their own interface, through which clients can retrieve the data of interest.
 \end{itemize}
@@ -198,6 +200,12 @@ A full description of each component will be given in the following sections.
     \label{fig:dashboard_manager}
 \end{figure}
 \subsection{Deployment view}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.43]{images/deployment.png}
+    \caption{Deployment Diagram}
+    \label{fig:deployment}
+\end{figure}
 \subsection{Runtime view}
 \subsection{Component Interfaces}
 \subsection{Selected Architectural styles and patterns}
