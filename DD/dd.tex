@@ -141,7 +141,7 @@ The application can be accessed via a webapp provided both to internal and exter
 from their workstation, connected to an internal web server. The external users are the farmer, connected to the webapp from their personal computer. This separation between internal and external 
 users is meant first and foremost for security requirements, in order not to expose sensitive data to potential risks.\\
 Other significant components in the DREAM ecosystem are the IoT sensors, crucial to automatically retrieve and collect data from local farmers and to better evaluate their performances.
-IoT sensors are connected to the internet in order to communicate with the farmers' application, indeed, MQTT communication protocol is used to retrieve sensor data by the farmers' machine.\\
+IoT sensors are connected via MQTT protocol to a MQTT broker which periodically retrieves the data collected by sensors.\\
 All the weather informations are taken from the weather forecasting system of Telangana through its APIs.\\
 Finally, the application server communicate with a database through a Database Management System.\\
 A more detailed description of the components will be given in the following sections.
