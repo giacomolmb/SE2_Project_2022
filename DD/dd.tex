@@ -141,7 +141,7 @@ The application can be accessed via a webapp provided both to internal and exter
 from their workstation, connected to an internal web server. The external users are the farmer, connected to the webapp from their personal computer. This separation between internal and external 
 users is meant first and foremost for security requirements, in order not to expose sensitive data to potential risks.\\
 Other significant components in the DREAM ecosystem are the IoT sensors, crucial to automatically retrieve and collect data from local farmers and to better evaluate their performances.
-IoT sensors are connected via MQTT protocol to a MQTT broker which periodically retrieves the data collected by sensors.\\
+IoT sensors are connected via MQTT protocol to a MQTT Broker Cluster which periodically retrieves the data collected by sensors.\\
 All the weather informations are taken from the weather forecasting system of Telangana through its APIs.\\
 Finally, the application server communicate with a database through a Database Management System.\\
 A more detailed description of the components will be given in the following sections.
@@ -231,7 +231,26 @@ The components of the application server are:
     \item 3 tier client-server
     \item middleware based
     \item rest api  
-    \item \textbf{Event based communication for sensors}\\The communication protocol chosen to retrieve data created by IoT sensors is Message Queue Telemetry Transport (MQTT), a standard messaging protocol for the Internet of Things that is extremely lightweight and ideal for connecting remote devices with a small code footprint and minimal network bandwidth. MQTT is a publish/subscribe protocol: the MQTT broker will reside directly in the Farmer Client and each farmer's set of sensors will have an exclusive topic. The sensors will publish messages containing data about the measurement only on the topic of their interest, i.e. the one to which the farmer owning the sensors will be subscribed. The data received on the Farmer Client will be available for use on the DREAM platform.
+    \item \textbf{Event based communication for sensors}\\The communication protocol chosen to retrieve 
+    data created by IoT sensors is Message Queue Telemetry Transport (MQTT), a standard messaging 
+    protocol for the Internet of Things that is extremely lightweight and ideal for connecting remote 
+    devices with a small code footprint and minimal network bandwidth. MQTT is a publish/subscribe 
+    communication protocol: A topic will be created for each farmer, then the sensors, depending on 
+    their geographical location, will publish data to the topics corresponding to the farmers of 
+    their interest. In this way it will be possible to access the data created by the sensors divided 
+    by each farmer. A MQTT Broker Cluster distributed in the region of Telangana, will take care of 
+    the management of sensor data. The application server will be subscribed to all topics and will 
+    receive periodically the data, it will then store them in the database to make them always 
+    accessible for processing.
+    This design provides high scalability because, if we had to resort to replication of the 
+    application server, it will be enough to subscribe to all topics the new server to receive 
+    all sensor data.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.5]{images/mqtt.png}
+        \caption{Distributed MQTT Broker System}
+        \label{fig:ui_login}
+    \end{figure}
 \end{itemize}
 \subsection{Other design decisions}
 \begin{itemize}
