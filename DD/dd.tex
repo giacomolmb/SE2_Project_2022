@@ -226,6 +226,89 @@ The components of the application server are:
 \end{figure}
 \subsection{Runtime view}
 \subsection{Component Interfaces}
+\begin{itemize}
+    \item \textbf{Access Manager Interface}
+        \begin{itemize}
+            \item addnewCredentials(data: JSON)
+        \end{itemize}
+
+    \item \textbf{Database Manager Interface}
+    \begin{itemize}
+        \item addCredentials(String query)
+        \item addReport(query: String)
+        \item getUserSensorData(farmerID: String)
+        \item saveIrrigationData(query: String)
+        \item getFarmerPerformance(query: String)
+        \item setHelpRequestStatus(requestID: String, status: String)
+        \item setHelpRequestSeverity(requestID: String, severity: String)
+    \end{itemize}
+
+    \item \textbf{Mail Manager Interface}
+        \begin{itemize}
+           \item sendEmail(String receiver, JSON data)
+        \end{itemize}
+
+    \item \textbf{Mail Server Interface}
+        \begin{itemize}
+            \item sendEmail(receiver: String, obj: String, text: String)
+        \end{itemize}
+    
+    \item \textbf{Dashboard Interface}   
+    \begin{itemize}
+        \item newReport()
+        \item addReport(data: JSON)
+        \item newHelpRequest()
+        \item getHelpRequest(String query)
+        \item scheduleVisit(famerID: String, visitData: JSON)
+        \item sendSuggestion(famerID: String, suggestion: JSON)
+        \item getFarmerPerformance(farmerID)
+        \item closeHelpRequest(requestID: String)
+        \item setHelpRequestSeverity(requestID: String, severity: String
+    \end{itemize}
+
+    \item \textbf{Report Manager Interface}
+    \begin{itemize}
+        \item fetchReport()
+        \item newReport(data: JSON)
+    \end{itemize}
+
+    \item \textbf{Sensor Manager Interface}
+    \begin{itemize}
+        \item fetchUserData(farmerID: String)
+    \end{itemize}
+
+    \item \textbf{Weather Manager Interface}
+    \begin{itemize}
+        \item fetchWeatherUserData(farmerID: String)
+    \end{itemize}
+
+    \item \textbf{Irrigation Interface}
+    \begin{itemize}
+        \item getData(topic: String)
+    \end{itemize}
+
+    \item \textbf{SH Interface}
+    \begin{itemize}
+        \item getData(topic: String)
+    \end{itemize}
+
+    \item \textbf{HR Interface}
+    \begin{itemize}
+        \item fetchHelpRequestForm()
+        \item fetchHelpRequests()
+        \item forwardVisitScheduling(farmerID: String, visitData: JSON)
+        \item forwardSuggestion(farmerID: String, suggestion: JSON)
+        \item closeHelpRequest(requestID: String)
+        \item setHelpRequestSeverity(requestID: String, severity: String)
+    \end{itemize}
+
+    \item \textbf{User Manager Interface}
+    \begin{itemize}
+        \item fetchFarmerPerformance(farmerID)
+    \end{itemize}
+
+
+\end{itemize}
 \subsection{Selected Architectural styles and patterns}
 \begin{itemize}
     \item 3 tier client-server
