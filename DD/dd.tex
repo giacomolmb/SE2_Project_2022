@@ -226,17 +226,18 @@ The components of the application server are:
 \end{figure}
 \subsection{Runtime view}
 \subsection{Component Interfaces}
-<<<<<<< HEAD
 This section lists all the methods exposed by each interface to the external components. Only internal components of the application server are described.
-For each method, its parameters and its return value are only meant to give an idea of its behaviour.
+For each method, its parameters and its return value are only meant to give an idea of its behaviour. The list of methods may not comprehend every method
+used by each interface at the end of the implementation, but should give an overall description of the main functionalities of the interfaces. Additional methods
+may be added, if necessary, during the implementation phase.
 \begin{itemize}
     \item \textbf{Farmer Interface}
     \begin{itemize}
-        \item handleRequest(httpRequest): HttpResponse
+        \item clientRequest(httpRequest): HttpResponse
     \end{itemize}
     \item \textbf{PM Interface}
     \begin{itemize}
-        \item handleRequest(httpRequest): HttpResponse
+        \item clientRequest(httpRequest): HttpResponse
     \end{itemize}
     \item \textbf{SH Interface}
     \begin{itemize}
@@ -245,138 +246,92 @@ For each method, its parameters and its return value are only meant to give an i
     \item \textbf{Irrigation Interface}
     \begin{itemize}
         \item postSensorData(sensorData): void
+    \end{itemize}
+    \item \textbf{Sensor Manager Interface}
+    \begin{itemize}
+        \item fetchUserData(farmerID, date): List$<$SensorData$>$
+        \item storeSensorData(sensorData): void
     \end{itemize}
     \item \textbf{Access Manager Interface}
     \begin{itemize}
         \item authUser(email, password): User
         \item getAuthenticatedUser(): User
+        \item addnewCredentials(data): void
     \end{itemize}
     \item \textbf{Dashboard Interface}
     \begin{itemize}
+        \item getLoginPage(loginFailed): DashboardPage
         \item getHomepage(): DashboardPage
+        \item buildHomepage(): DashboardPage
         \item getReportPage(): DashboardPage
-        \item getReportCreationPage(): DashboardPage
+        \item getReportForm(): DashboardPage
+        \item addReport(data): DashboardPage
         \item getProductListPage(): DashboardPage
         \item getProductPage(): DashboardPage
         \item getForumPage(): DashboardPage
-        \item getThreadPage(): DashboardPage
-        \item getFarmerPage(): DashboardPage
+        \item getForumThreadPage(): DashboardPage
+        \item createThread(data): DashboardPage
+        \item commentThread(threadId, data): DashboardPage 
+        \item getFarmerPage(farmerId): DashboardPage
         \item getHelpRequestListPage(): DashboardPage
-        \item getHelpRequestPage(): DashboardPage
-        \item getHelpRequestCreationPage(): DashboardPage
+        \item getHelpRequestPage(helpId): DashboardPage
+        \item getHelpRequestForm(): DashboardPage
         \item getForecastPage(): DashboardPage
-        \item getLoginPage(): DashboardPage
-        \item setObject(object): void
+        \item createHelpRequest(data): DashboardPage
     \end{itemize}
     \item \textbf{User Manager Interface}
     \begin{itemize}
         \item getUser(userId): User
         \item getUserList(limit): List$<$User$>$ 
+        \item fetchFarmerPerformance(farmerID)
     \end{itemize}
     \item \textbf{Forum Interface}
     \begin{itemize}
-        \item 
+        \item getForum(): Forum
+        \item getThread(threadId): Thread 
+        \item commentThread(threadId, comment): Thread
     \end{itemize}
     \item \textbf{HR Interface}
     \begin{itemize}
-        \item 
+        \item newHelpRequest(data): HelpRequest
+        \item fetchHelpRequests(): List$<$HelpRequest$>$
+        \item forwardVisitScheduling(farmerID, visitData): Date
+        \item forwardSuggestion(farmerID, suggestion)
+        \item closeHelpRequest(requestID)
+        \item openHelpRequest(requestId): HelpRequest
+        \item closeHelpRequest(requestID): HelpRequest
+        \item setSeverity(requestID, severity): HelpRequest
+        \item increaseSeverity(requestID): HelpRequest
     \end{itemize}
     \item \textbf{Report Interface}
     \begin{itemize}
-        \item 
+        \item newReport(data): Report
+        \item crossData(farmerId): Report
     \end{itemize}
     \item \textbf{Weather Interface}
     \begin{itemize}
-        \item 
+        \item fetchWeatherData(locationId): WeatherData
+    \end{itemize}
+    \item \textbf{Mail Manager Interface}
+    \begin{itemize}
+        \item sendEmail(emailAddress, mailData): JSONObject
     \end{itemize}
     \item \textbf{DBM Interface}
     \begin{itemize}
-        \item 
+        \item addCredentials(String query): void
+        \item checkCredentials(email, password): boolean
+        \item addReport(query): Report
+        \item getUserSensorData(farmerID): List$<$SensorData$>$
+        \item saveIrrigationData(query): SensorData
+        \item getFarmerPerformance(query): List$<$FarmerPerformance$>$
+        \item getHelpRequests(): List$<$HelpRequest$>$
+        \item addHelpRequest(query): HelpRequest
+        \item setHelpRequestStatus(query): HelpRequest
+        \item setHelpRequestSeverity(query): HelpRequest
+        \item getThreadList(): List$<$Thread$>$
+        \item getThread(threadId): Thread
+        \item updateThread(threadId, comment): Thread
     \end{itemize}
-=======
-\begin{itemize}
-    \item \textbf{Access Manager Interface}
-        \begin{itemize}
-            \item addnewCredentials(data: JSON)
-        \end{itemize}
-
-    \item \textbf{Database Manager Interface}
-    \begin{itemize}
-        \item addCredentials(String query)
-        \item addReport(query: String)
-        \item getUserSensorData(farmerID: String)
-        \item saveIrrigationData(query: String)
-        \item getFarmerPerformance(query: String)
-        \item setHelpRequestStatus(requestID: String, status: String)
-        \item setHelpRequestSeverity(requestID: String, severity: String)
-    \end{itemize}
-
-    \item \textbf{Mail Manager Interface}
-        \begin{itemize}
-           \item sendEmail(String receiver, JSON data)
-        \end{itemize}
-
-    \item \textbf{Mail Server Interface}
-        \begin{itemize}
-            \item sendEmail(receiver: String, obj: String, text: String)
-        \end{itemize}
-    
-    \item \textbf{Dashboard Interface}   
-    \begin{itemize}
-        \item newReport()
-        \item addReport(data: JSON)
-        \item newHelpRequest()
-        \item getHelpRequest(String query)
-        \item scheduleVisit(famerID: String, visitData: JSON)
-        \item sendSuggestion(famerID: String, suggestion: JSON)
-        \item getFarmerPerformance(farmerID)
-        \item closeHelpRequest(requestID: String)
-        \item setHelpRequestSeverity(requestID: String, severity: String
-    \end{itemize}
-
-    \item \textbf{Report Manager Interface}
-    \begin{itemize}
-        \item fetchReport()
-        \item newReport(data: JSON)
-    \end{itemize}
-
-    \item \textbf{Sensor Manager Interface}
-    \begin{itemize}
-        \item fetchUserData(farmerID: String)
-    \end{itemize}
-
-    \item \textbf{Weather Manager Interface}
-    \begin{itemize}
-        \item fetchWeatherUserData(farmerID: String)
-    \end{itemize}
-
-    \item \textbf{Irrigation Interface}
-    \begin{itemize}
-        \item getData(topic: String)
-    \end{itemize}
-
-    \item \textbf{SH Interface}
-    \begin{itemize}
-        \item getData(topic: String)
-    \end{itemize}
-
-    \item \textbf{HR Interface}
-    \begin{itemize}
-        \item fetchHelpRequestForm()
-        \item fetchHelpRequests()
-        \item forwardVisitScheduling(farmerID: String, visitData: JSON)
-        \item forwardSuggestion(farmerID: String, suggestion: JSON)
-        \item closeHelpRequest(requestID: String)
-        \item setHelpRequestSeverity(requestID: String, severity: String)
-    \end{itemize}
-
-    \item \textbf{User Manager Interface}
-    \begin{itemize}
-        \item fetchFarmerPerformance(farmerID)
-    \end{itemize}
-
-
->>>>>>> 26623c94e07355ea2b2fd4c6c91d36f310810f1a
 \end{itemize}
 \subsection{Selected Architectural styles and patterns}
 \begin{itemize}
