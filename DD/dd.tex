@@ -226,6 +226,73 @@ The components of the application server are:
 \end{figure}
 \subsection{Runtime view}
 \subsection{Component Interfaces}
+This section lists all the methods exposed by each interface to the external components. Only internal components of the application server are described.
+For each method, its parameters and its return value are only meant to give an idea of its behaviour.
+\begin{itemize}
+    \item \textbf{Farmer Interface}
+    \begin{itemize}
+        \item handleRequest(httpRequest): HttpResponse
+    \end{itemize}
+    \item \textbf{PM Interface}
+    \begin{itemize}
+        \item handleRequest(httpRequest): HttpResponse
+    \end{itemize}
+    \item \textbf{SH Interface}
+    \begin{itemize}
+        \item postSensorData(sensorData): void
+    \end{itemize}
+    \item \textbf{Irrigation Interface}
+    \begin{itemize}
+        \item postSensorData(sensorData): void
+    \end{itemize}
+    \item \textbf{Access Manager Interface}
+    \begin{itemize}
+        \item authUser(email, password): User
+        \item getAuthenticatedUser(): User
+    \end{itemize}
+    \item \textbf{Dashboard Interface}
+    \begin{itemize}
+        \item getHomepage(): DashboardPage
+        \item getReportPage(): DashboardPage
+        \item getReportCreationPage(): DashboardPage
+        \item getProductListPage(): DashboardPage
+        \item getProductPage(): DashboardPage
+        \item getForumPage(): DashboardPage
+        \item getThreadPage(): DashboardPage
+        \item getFarmerPage(): DashboardPage
+        \item getHelpRequestListPage(): DashboardPage
+        \item getHelpRequestPage(): DashboardPage
+        \item getHelpRequestCreationPage(): DashboardPage
+        \item getForecastPage(): DashboardPage
+        \item getLoginPage(): DashboardPage
+        \item setObject(object): void
+    \end{itemize}
+    \item \textbf{User Manager Interface}
+    \begin{itemize}
+        \item getUser(userId): User
+        \item getUserList(limit): List$<$User$>$ 
+    \end{itemize}
+    \item \textbf{Forum Interface}
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    \item \textbf{HR Interface}
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    \item \textbf{Report Interface}
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    \item \textbf{Weather Interface}
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    \item \textbf{DBM Interface}
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{itemize}
 \subsection{Selected Architectural styles and patterns}
 \begin{itemize}
     \item 3 tier client-server
