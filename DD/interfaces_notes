@@ -1,0 +1,39 @@
+client handler
+createNewFarmer(JSON data)
+insertReport()
+fillReport(JSON data)
+
+access manager
+addnewCredentials(JSON data)
+
+database manager
+addCredentials(String query)
+addReport(query: String)
+getUserSensorData(farmerID: String)
+saveIrrigationData(query: String)
+
+mail manager
+sendEmail(String receiver, JSON data)
+
+mail server
+sendEmail(receiver: String, obj: String, text: String)
+
+dashboard manager
+newReport()
+addReport(data: JSON)
+
+ReportManager
+fetchReport()
+newReport(data: JSON)
+
+SensorManager
+fetchUserData(farmerID: String)
+
+WeatherManager
+fetchWeatherUserData(farmerID: String)
+
+Irrigation Interface
+getData(topic: String)
+
+SH Interface
+getData(topic: String)
