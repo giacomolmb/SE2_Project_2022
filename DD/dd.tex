@@ -698,7 +698,98 @@ Please note that, for each requirement, only the main components designed to sat
 \end{enumerate}
 
 \section{Implementation, integration and test plan}
-\subsection{System Testing}
+After giving a complete and detailed description of the system, its structure and its functionalities, this section provides a complete plan to develop, implement and test the application.\\
+The implementation, integration and testing of the system will follow a bottom-up approach, keeping track of the dependencies between components and their interactions.
+Since the proposed solution involves a thin client, the main focus of this section will be on the application server and its sub-components. External services will not be analyzed and do not
+require unit testing.
+\subsection{Plan definition}
+In this section is described the implementation plan of the server-side of the application. The server implementation is divided into stages to facilitate the testing of the implemented components, and the 
+testing of the server in its totality will be only done after the last stage of the implementation plan.\\\\
+The following table presents the development stages, summarizing the development process and the execution order. For each step, a forecast of development difficulties has also been noted.\\
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{cll}
+    \textbf{Order} & \textbf{Development stage}                             & \textbf{Dev. difficulty} \\ \hline
+    1              & Database Manager                                       & High                     \\ \hline
+    2              & Access Manager and User Manager                        & Low                      \\ \hline
+    3              & Sensor Manager                                         & Medium                   \\ \hline
+    4              & Weather Manager                                        & Low                      \\ \hline
+    5              & Mail Manager                                           & Low                      \\ \hline
+    6              & Report Manager, Help Request Manager and Forum Manager & Medium                   \\ \hline
+    7              & Dashboard Manager                                      & High                     \\ \hline
+    8              & Client Handler                                         & Medium                   \\ \hline
+    9              & Client-side and Server-side integration                & Low                      \\ \hline
+    \end{tabular}
+    \caption{Development stages}
+    \label{tab:devstages}
+\end{table}
+The first step (Figure \ref{fig:impl1}) is the implementation of the Database Manager. It is crucial to implement this component as soon as possible
+since it is responsible for every operation involving the database.\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/impl/step1.png}
+    \caption{Development stage 1}
+    \label{fig:impl1}
+\end{figure}
+The second step (Figure \ref{fig:impl2}) is the implementation of Access Manager and User Manager. These components do not require any dependencies if not 
+the database manager already implemented. The same can be said for the next 3 implementation stages (Figure \ref{fig:impl3}, Figure \ref{fig:impl4}, Figure \ref{fig:impl5}), which involve
+the implementation of Sensor Manager, Weather Manager and Mail Manager.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.4]{images/impl/step2.png}
+    \caption{Development stage 2}
+    \label{fig:impl2}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.4]{images/impl/step3.png}
+    \caption{Development stage 3}
+    \label{fig:impl3}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.3]{images/impl/step4.png}
+    \caption{Development stage 4}
+    \label{fig:impl4}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.28]{images/impl/step5.png}
+    \caption{Development stage 5}
+    \label{fig:impl5}
+\end{figure}
+The sixth step (Figure \ref{fig:impl6}) consists of the implementation of the main controllers of the system: Report Manager, Help Request Manager and Forum Manager.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.3]{images/impl/step6.png}
+    \caption{Development stage 6}
+    \label{fig:impl6}
+\end{figure}
+Once the controllers have been implemented, it is possible to start implementing the components responsible for the user interaction (M\textbf{V}C): 
+in the seventh step (Figure \ref{fig:impl7}) the Dashboard Manager is implemented, and after that it is possible to implement also the Client Handler (Figure \ref{fig:impl8}).\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.3]{images/impl/step7.png}
+    \caption{Development stage 7}
+    \label{fig:impl7}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.3]{images/impl/step8.png}
+    \caption{Development stage 8}
+    \label{fig:impl8}
+\end{figure}
+After every server component has been implemented, it is possible to integrate the client-side and the server-side.
+\subsection{Development tools}
+The main language chosen for the implementation of the back-end of the application is \textbf{Java}. Other programming languages are also worth considering,
+but the decision to use Java is based on the popularity and the reliability of Java applications. Furthermore, one of Java main strengths is the support for
+database interaction: tools such as \textbf{JPA} allow an easy and reliable database-application interaction.\\
+Java is a viable option for the realization of the application front-end aswell, but given its actual popularity for this kind of softwares, the chosen language
+is \textbf{JavaScript} with the \textbf{Angular} framework. This grants an up-to-date solution, a modern framework studied for modern web applications but with enough
+support to be considered reliable.\\
+The communication between back-end and front-end will be implemented via \textbf{JSON}, already implemented in JavaScript and heavily supported in Java through libraries
+such as Google's \textit{GSON}.  
+\subsection{System testing}
 During implementation, the developed software must be tested step-by-step with unit tests before 
 being incorporated into the system. After the entire system has been properly developed and integrated, 
 testing of the entire infrastructure will be required to verify its integrity and correctness. 
