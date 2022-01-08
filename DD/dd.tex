@@ -425,9 +425,20 @@ may be added, if necessary, during the implementation phase.
 \end{itemize}
 \subsection{Selected Architectural styles and patterns}
 \begin{itemize}
-    \item 3 tier client-server
-    \item middleware based
-    \item rest api  
+    \item \textbf{Three-Tier Architecture}\\A three-tier architecture was chosen for the 
+    implementation of the DREAM platform: presentation, application, and data tier. 
+    The key three-tier benefit is improved scalability, since each element
+    can scale horizontally and the application servers can be deployed on many machines. 
+    Also, the database does not make connections with every client, it only requires 
+    connections from a smaller number of application servers. This architecture also leads to 
+    implement thin clients. \\
+    Change management is easier and faster to execute, because program logic
+     is implemented on the centralized server, so the modularity makes it easier to modify 
+     or replace one tier without affecting the other tier.
+    \item \textbf{REST API}\\It was decided to implement the interfaces intended for web services 
+    following the standards imposed by the REST architectural style. This choice was made for ease 
+    of development and increased scalability of the system, in fact, thanks to the flexibility of 
+    RESTful APIs, it will be possible to add components to the system or modify them easily.   
     \item \textbf{Event based communication for sensors}\\The communication protocol chosen to retrieve 
     data created by IoT sensors is Message Queue Telemetry Transport (MQTT), a standard messaging 
     protocol for the Internet of Things that is extremely lightweight and ideal for connecting remote 
@@ -451,7 +462,11 @@ may be added, if necessary, during the implementation phase.
 \end{itemize}
 \subsection{Other design decisions}
 \begin{itemize}
-    \item thin client
+    \item \textbf{Thin Clients}\\The architecture has been designed so that the end-points of the system 
+    are thin clients, i.e. they use resources hosted within a central server, which therefore do not need an high 
+    computational power. A thin client connects to a server-based environment that hosts the majority of 
+    applications, memory, and sensitive data the user needs. It was decided to undertake this solution 
+    to ensure that farmers who do not have powerful devices can use the platform without complications.
 \end{itemize}
 \section{User Interface Desgin} %l'impaginazione la facciamo alla fine
 The following section describes the user interface of the DREAM webapp. Its goal is to motivate design choices, 
@@ -599,6 +614,76 @@ graphs.\\
     \label{fig:ui_flow}
 \end{figure}
 \section{Requirements Traceability}
+This section associates the requirements set forth in the DREAM RASD document with the components designed to meet them.\\
+Please note that, for each requirement, only the main components designed to satisfy it have been indicated, in fact the auxiliary components (e.g. Client Handler, Farmer Client, ...) and the sub-components are omitted since they are already described in the previous sections.
+\begin{enumerate}[label=\textbf{R\arabic*}]
+    \item \label{req:pmReg} The system shall allow system admins to register policy maker.
+    \\\textbf{Access Manager, Mail Manager}    
+    \item \label{req:pmLogin} The system shall allow policy makers to login. 
+    \\\textbf{Access Manager}    
+    \item \label{req:farmerReg1} The system shall allow policy makers to register farmers.    
+    \\\textbf{Access Manager} 
+    \item \label{req:farmerCreds} The system shall provide farmers credentials to log in.    
+    \\\textbf{Access Manager, Mail Manager} 
+    \item \label{req:farmerReg2} The system shall allow farmers to complete their profile information.    
+    \\\textbf{Access Manager} 
+    \item \label{req:farmerLogin} The system shall allow farmers to log into the platform.      
+    \\\textbf{Access Manager} 
+    \item \label{req:farmerReport1} The system shall allow farmers to fill reports with data about goods production.    
+    \\\textbf{Report Manager} 
+    \item \label{req:farmerReport2} The system shall allow farmers to fill reports with data about auxiliary products used for goods production.    
+    \\\textbf{Report Manager} 
+    \item \label{req:farmerReport3} The system shall allow farmers to fill reports with problems faced during goods production.     
+    \\\textbf{Report Manager} 
+    \item \label{req:farmerReport4} The system shall retrieve data from sensors and attach it to reports.     
+    \\\textbf{Report Manager, Sensor Manager, Soil Humidity Sensor, Irrigation Sensor} 
+    \item \label{req:farmerReport5} The system shall retrieve data from weather stations and attach it to reports.     
+    \\\textbf{Report Manager, Weather Manager} 
+    \item \label{req:farmerWeather} The system shall allow farmers to visualize weather forecasts.
+    \\\textbf{Weather Manager} 
+    \item \label{req:farmerSensors} The system shall allow farmers to visualize data retrieved from humidity and irrigation sensors.
+    \\\textbf{Sensor Manager, Soil Humidity Sensor, Irrigation Sensor} 
+    \item \label{req:farmerForum} The system shall allow farmers to create and contribute to forum discussions.    
+    \\\textbf{Forum Manager} 
+    \item \label{req:farmerHelp} The system shall allow farmers to create help requests.     
+    \\\textbf{Help Request Manager} 
+    \item \label{req:farmerSugg} The system shall allow farmers to visualize personalized suggestions about goods and techniques.    
+    \\\textbf{Help Request Manager} 
+    \item \label{req:pmMonitor} The system shall allow PMs to monitor farmers' performances.    
+    \\\textbf{User Manager} 
+    \item \label{req:pmParameters} The system shall provide PMs parameters to evaluate farmers' performances.   
+    \\\textbf{User Manager} 
+    \item \label{req:pmGrades} The system shall allow PMs to compare and aggregate farmers' performances.    
+    \\\textbf{User Manager, Dashboard Manager} 
+    \item \label{req:pmFilter1} The system shall allow PMs to filter farmers based on their information.    
+    \\\textbf{User Manager, Dashboard Manager} 
+    \item \label{req:pmFilter2} The system shall allow PMs to filter farmers based on their performance.    
+    \\\textbf{User Manager, Dashboard Manager} 
+    \item \label{req:pmSort1} The system shall allow PMs to sort farmers based on their information.    
+    \\\textbf{User Manager, Dashboard Manager} 
+    \item \label{req:pmSort2} The system shall allow PMs to sort farmers based on their performance.     
+    \\\textbf{User Manager, Dashboard Manager} 
+    \item \label{req:pmRewards} The system shall allow PMs to reward best performing farmers.    
+    \\\textbf{User Manager, Dashboard Manager, Mail Manager, Mail Server} 
+    \item \label{req:pmWeather} The system shall allow PMs to visualize weather forecasts.    
+    \\\textbf{Weather Manager} 
+    \item \label{req:pmHelp1} The system shall allow PMs to visualize help requests.
+    \\\textbf{Help Request Manager} 
+    \item \label{req:pmHelp2} The system shall allow PMs to take charge of help requests.
+    \\\textbf{Help Request Manager} 
+    \item \label{req:pmHelp3} The system shall allow PMs to visualize farmers who have requested help and their performances.
+    \\\textbf{Help Request Manager, User Manager} 
+    \item \label{req:pmHelp4} The system shall allow PMs to close help requests.
+    \\\textbf{Help Request Manager}
+    \item \label{req:pmInterview} The system shall allow PMs to fill reports about farmers interviews.    
+    \\\textbf{User Manager}
+    \item \label{req:pmVisits} The system shall allow PMs to re-schedule agronommist's control visit plans.    
+    \\\textbf{Help Request Manager}
+    \item \label{req:pmForum} The system shall allow PMs to create and contribute to forum discussions.    
+    \\\textbf{Forum Manager}
+    \item \label{req:pmSuggestions} The system shall allow PMs to create suggestions.
+    \\\textbf{Help Request Manager}
+\end{enumerate}
 
 \section{Implementation, integration and test plan}
 
