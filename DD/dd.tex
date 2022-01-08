@@ -746,6 +746,7 @@ Please note that, for each requirement, only the main components designed to sat
     \item \label{req:pmSuggestions} The system shall allow PMs to create suggestions.
     \\\textbf{Help Request Manager}
 \end{enumerate}
+\newpage
 
 \section{Implementation, integration and test plan}
 After giving a complete and detailed description of the system, its structure and its functionalities, this section provides a complete plan to develop, implement and test the application.\\
@@ -757,7 +758,7 @@ In this section is described the implementation plan of the server-side of the a
 testing of the server in its totality will be only done after the last stage of the implementation plan.\\\\
 The following table presents the development stages, summarizing the development process and the execution order. For each step, a forecast of development difficulties has also been noted.\\
 \begin{table}[h!]
-    \centering
+    \centering\centerline{
     \begin{tabular}{cll}
     \textbf{Order} & \textbf{Development stage}                             & \textbf{Dev. difficulty} \\ \hline
     1              & Database Manager                                       & High                     \\ \hline
@@ -769,66 +770,77 @@ The following table presents the development stages, summarizing the development
     7              & Dashboard Manager                                      & High                     \\ \hline
     8              & Client Handler                                         & Medium                   \\ \hline
     9              & Client-side and Server-side integration                & Low                      \\ \hline
-    \end{tabular}
+    \end{tabular}}
     \caption{Development stages}
     \label{tab:devstages}
 \end{table}
+\newpage
+
 The first step (Figure \ref{fig:impl1}) is the implementation of the Database Manager. It is crucial to implement this component as soon as possible
-since it is responsible for every operation involving the database.\\
-\begin{figure}[h]
+since it is responsible for every operation involving the database.
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.4]{images/impl/step1.png}
     \caption{Development stage 1}
     \label{fig:impl1}
 \end{figure}
+
 The second step (Figure \ref{fig:impl2}) is the implementation of Access Manager and User Manager. These components do not require any dependencies if not 
 the database manager already implemented. The same can be said for the next 3 implementation stages (Figure \ref{fig:impl3}, Figure \ref{fig:impl4}, Figure \ref{fig:impl5}), which involve
-the implementation of Sensor Manager, Weather Manager and Mail Manager.\\
+the implementation of Sensor Manager, Weather Manager and Mail Manager.
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.4]{images/impl/step2.png}
     \caption{Development stage 2}
     \label{fig:impl2}
 \end{figure}
+\newpage
+
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/impl/step3.png}
+    \includegraphics[scale=0.45]{images/impl/step3.png}
     \caption{Development stage 3}
     \label{fig:impl3}
 \end{figure}
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.3]{images/impl/step4.png}
+    \centerline{\includegraphics[scale=0.45]{images/impl/step4.png}}
     \caption{Development stage 4}
     \label{fig:impl4}
 \end{figure}
+\newpage
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.28]{images/impl/step5.png}
+    \centerline{\includegraphics[scale=0.4]{images/impl/step5.png}}
     \caption{Development stage 5}
     \label{fig:impl5}
 \end{figure}
-The sixth step (Figure \ref{fig:impl6}) consists of the implementation of the main controllers of the system: Report Manager, Help Request Manager and Forum Manager.\\
+
+
+The sixth step (Figure \ref{fig:impl6}) consists of the implementation of the main controllers of the system: Report Manager, Help Request Manager and Forum Manager.
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.3]{images/impl/step6.png}
+    \centerline{\includegraphics[scale=0.4]{images/impl/step6.png}}
     \caption{Development stage 6}
     \label{fig:impl6}
 \end{figure}
+\newpage
+
 Once the controllers have been implemented, it is possible to start implementing the components responsible for the user interaction (M\textbf{V}C): 
-in the seventh step (Figure \ref{fig:impl7}) the Dashboard Manager is implemented, and after that it is possible to implement also the Client Handler (Figure \ref{fig:impl8}).\\
+in the seventh step (Figure \ref{fig:impl7}) the Dashboard Manager is implemented, and after that it is possible to implement also the Client Handler (Figure \ref{fig:impl8}).
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.3]{images/impl/step7.png}
+    \centerline{\includegraphics[scale=0.4]{images/impl/step7.png}}
     \caption{Development stage 7}
     \label{fig:impl7}
 \end{figure}
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.3]{images/impl/step8.png}
+    \centerline{\includegraphics[scale=0.4]{images/impl/step8.png}}
     \caption{Development stage 8}
     \label{fig:impl8}
 \end{figure}
+
 After every server component has been implemented, it is possible to integrate the client-side and the server-side.
 \subsection{Development tools}
 The main language chosen for the implementation of the back-end of the application is \textbf{Java}. Other programming languages are also worth considering,
