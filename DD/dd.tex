@@ -131,7 +131,7 @@ already physically installed in the Telangana region.
 \subsection{Overview}
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.7]{images/overview_architecture.png}
+    \centerline{\includegraphics[scale=0.9]{images/overview_architecture.png}}
     \caption{System architecture}
     \label{fig:overview}
 \end{figure}
@@ -148,7 +148,7 @@ A more detailed description of the components will be given in the following sec
 \subsection{Component view}
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.43]{images/hl_component.png}
+    \includegraphics[scale=0.58]{images/hl_component.png}
     \caption{High Level Component Diagram}
     \label{fig:hl_component}
 \end{figure}
@@ -180,9 +180,9 @@ A more detailed description of the components will be given in the following sec
 \end{itemize}
 \subsubsection{Application Server}
 The application server contains the business logic of the application. The following diagram describe its internal structure:
-\begin{figure}[h]
+\begin{figure}[t!]
     \centering 
-    \includegraphics[scale=0.38]{images/app_server_component.png}
+    \includegraphics[scale=0.415]{images/app_server_component.png}
     \caption{Application Server Component Diagram}
     \label{fig:app_component}
 \end{figure}
@@ -209,10 +209,11 @@ Dashboard Manager or to the Access Manager, accordingly to the type of request. 
 and calls the corresponding method provided by the Dashboard Interface or the Access Manager Interface. 
 \begin{figure}[h]
     \centering 
-    \includegraphics[scale=0.5]{images/clientHandler.png}
+    \includegraphics[scale=0.42]{images/clientHandler.png}
     \caption{Client Handler Component Diagram}
     \label{fig:client_handler}
 \end{figure}
+\newpage
 \subsubsection{Dashboard Manager}
 Figure \ref{fig:dashboard_manager} describes the internal structure of the Dashboard Manager component. The Dashboard Manager works as a provider of webpages, forwarded then to 
 the user by the Client Handler. Since each webpage is dinamically built by fetching data from the model, this component is interfaced with the various controller components such as Report and Help Request Managers through
@@ -220,10 +221,11 @@ their external interfaces. Once a webpage is requested through the Dashboard Int
 and once the page has been built it is returned from the interface.
 \begin{figure}[h]
     \centering 
-    \includegraphics[scale=0.4]{images/dashboardManager.png}
+    \centerline{\includegraphics[scale=0.55]{images/dashboardManager.png}}
     \caption{Dashboard Manager Component Diagram}
     \label{fig:dashboard_manager}
 \end{figure}
+\newpage
 \subsection{Deployment view}
 Figure \ref{fig:deployment} describes the deployment components of the application. The system is implemented as a three-tier architecture,
 a standard software application architecture dividing the application into three logical and physical tiers that is present in most of client-server applications.
@@ -238,12 +240,13 @@ The three tiers of the architecture consist in:
     \item \textbf{Tier 3: Data tier}: the data management tier provides database services accessed by the application tier and the presentation tier. The DREAM data management tier is installed on a dedicated
         MySQL server and accessed via JDBC and JPA.
 \end{itemize}
-\begin{figure}[h]
+\begin{figure}[b!]
     \centering
-    \includegraphics[scale=0.43]{images/deployment.png}
+    \centerline{\includegraphics[scale=0.093]{images/deployment.png}}
     \caption{Deployment Diagram}
     \label{fig:deployment}
 \end{figure}
+\newpage
 \subsection{Runtime view}
 This section aims to describe the interactions between components and their interfaces at runtime, detailing some crucial operations such as login and report insertion.
 It should be noted that these diagrams are meant to give an idea of the behaviour of the system and to provide a blueprint for the implementation of these processes. 
@@ -254,9 +257,9 @@ is similar. For what concerns the farmer registration process, it begins with a 
 the database and sent via e-mail by the Mail Manager component to the farmer. The policy maker registration process is almost the same, with the only difference being that the 
 registration procedure is started by a system admin, requesting directly to the Access Manager to generate credentials for the PM. The generated credentials are then stored in the DB and
 sent via e-mail to the policy maker.
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.25]{images/rv/registration.png}
+    \centerline{\includegraphics[scale=0.375]{images/rv/registration.png}}
     \caption{Registration runtime diagram}
     \label{fig:r_registration}
 \end{figure}
@@ -266,7 +269,7 @@ with the page, it enters his login credentials and the login request is then for
 if the credentials are correct, the user is redirected to his homepage, otherwise the login page gets newly displayed, this time with an error message.
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.3]{images/rv/login.png}
+    \centerline{\includegraphics[scale=0.49]{images/rv/login.png}}
     \caption{Login runtime diagram}
     \label{fig:r_login}
 \end{figure}
@@ -277,18 +280,19 @@ and weather data are retrieved from the database through the respective Sensor a
 Once this operation succeeds, the report is stored into the database via the Database Manager and the user is acknowledged of the success of the operation.
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.25]{images/rv/insertReport.png}
+    \centerline{\includegraphics[scale=0.41]{images/rv/insertReport.png}}
     \caption{Report insertion runtime diagram}
     \label{fig:r_report}
 \end{figure}
+\newpage
 \subsubsection{Creation and handling of a help request}
 In Figure \ref{fig:r_hr1} and Figure \ref{fig:r_hr2} is described the process of creation and handling of a help request.\\
 Figure \ref{fig:r_hr1} describes the creation process, which starts with a request from the farmer to get the report creation form webpage, provided by the Dashboard Manager.
 Once the form is compiled, the help request is submitted and handled by the Help Request Manager, which stores it into the database. The user is then acknowledged of the success
 of the operation.\\
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.3]{images/rv/helpRequestCreation.png}
+    \centerline{\includegraphics[scale=0.45]{images/rv/helpRequestCreation.png}}
     \caption{Help request creation runtime diagram}
     \label{fig:r_hr1}
 \end{figure}
@@ -298,9 +302,9 @@ Once a help request is selected, the first operation is to open it. After that, 
 fetches from the database suggestions related to the help request farmer, and these suggestions are automatically sent to the farmer via e-mail by the Mail Manager.
 If the severity is high, control visits to the farmer are newly scheduled and the farmer is notified via e-mail.\\
 The process ends with an evaluation of the farmer performances: if they are improved the help request is closed, otherwise its severity is increased and new actions are taken.
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.22]{images/rv/helpRequestHandling.png}
+    \centerline{\includegraphics[scale=0.272]{images/rv/helpRequestHandling.png}}
     \caption{Help request handling runtime diagram}
     \label{fig:r_hr2}
 \end{figure}
@@ -309,9 +313,9 @@ Figure \ref{fig:r_forum} describes a user interaction with the DREAM forum. A ty
 where threads fetched by the Forum Manager are displayed. The next step is to open a thread discussion, which consists in a similar interaction as the previous one. If then the user intends to contribute
 to the discussion by posting an answer, the user request is handled by the Forum Manager, updating the thread and storing the contribution into the database. Once the operation has succeeded, the user
 is provided with the updated thread discussion webpage.
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.3]{images/rv/answerForum.png}
+    \centerline{\includegraphics[scale=0.4]{images/rv/answerForum.png}}
     \caption{Forum interaction runtime diagram}
     \label{fig:r_forum}
 \end{figure}
@@ -465,13 +469,14 @@ may be added, if necessary, during the implementation phase.
     This design provides high scalability because, if we had to resort to replication of the 
     application server, it will be enough to subscribe to all topics the new server to receive 
     all sensor data.
-    \begin{figure}[h]
+    \begin{figure}[t]
         \centering
         \includegraphics[scale=0.68]{images/mqtt.png}
         \caption{Distributed MQTT Broker System}
         \label{fig:mqtt}
     \end{figure}
 \end{itemize}
+\newpage
 \subsection{Other design decisions}
 \begin{itemize}
     \item \textbf{Thin Clients}\\The architecture has been designed so that the end-points of the system 
@@ -480,38 +485,47 @@ may be added, if necessary, during the implementation phase.
     applications, memory, and sensitive data the user needs. It was decided to undertake this solution 
     to ensure that farmers who do not have powerful devices can use the platform without complications.
 \end{itemize}
-\section{User Interface Desgin} %l'impaginazione la facciamo alla fine
+\newpage
+\section{User Interface Desgin} 
 The following section describes the user interface of the DREAM webapp. Its goal is to motivate design choices, 
 describe each mockup, its content and the flow between the various pages of the application.
 The section is divided in three subsections: the first one focuses on the farmer's webapp, the second one on the Policy Maker's webapp
 and the third on the flow of the webapp.\\
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.4]{images/uimockups/login.png}
-    \caption{Login page}
-    \label{fig:ui_login}
-\end{figure}
+\subsubsection{Login}
 The first page for both farmers and policy makers will always be the login page, requiring e-mail and password to login into the platform.
 For farmers, this page will be accessible from any web browser and will also show an option to request an invitation: a simple popup will open up requesting
 the user to insert his e-mail address, which will be then submitted to the policy makers who will handle the registration request and procedure.
-
-\subsection{Farmers User Interface}
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/uimockups/f_homepage.png}
-    \caption{Farmer homepage}
-    \label{fig:ui_f_homepage}
+    \centerline{\includegraphics[scale=0.5]{images/uimockups/login.png}}
+    \caption{Login page}
+    \label{fig:ui_login}
 \end{figure}
+
+\newpage
+\subsection{Farmers User Interface}
+\subsubsection{Homepage}
 The first page visualized by the farmer once logged in the platform is the homepage. The farmer's homepage contains a brief overview of weather forecasts
 and sensor data, and allows users to keep track of their crop in a table containing information about crop's type, eta and comments. The user can add crops 
 to the table by clicking "Add crop", which will open a popup to insert the new crop and its info. The page then allows to navigate to the pages for creating reports
 and help request, to the forum or to a specific product page by searching the product by its name.\\
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/uimockups/f_report.png}
-    \caption{Farmer's report creation page}
-    \label{fig:ui_f_report}
+    \includegraphics[scale=0.54]{images/uimockups/f_homepage.png}
+    \caption{Farmer homepage}
+    \label{fig:ui_f_homepage}
 \end{figure}
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \centerline{\includegraphics[scale=0.54]{images/uimockups/f_product.png}}
+    \caption{Farmer's product page}
+    \label{fig:ui_f_product}
+\end{figure}
+\newpage
+
+\subsubsection{Report submission}
 The report creation page consists of a simple form to insert the harvested products and their quantity. Each product added to the report is visualized 
 on a table, that also allows to edit or delete previously added products. To add a product, the user selects the type of product by an interactive dropdown
 menu that also allows searching the product, then adds seeds and produced quantity. Clicking on "Auxiliary Products" will open a popup showing the auxiliary
@@ -520,111 +534,147 @@ the product will be added to the report's products. The page also contains a tex
 Once the report is fully compiled, clicking on "Submit" will create the report and send it to the DREAM server. The webapp will then rediredt the user to the homepage. \\
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.4]{images/uimockups/f_helprequest.png}
-    \caption{Farmer's help request creation page}
-    \label{fig:ui_f_helprequest}
+    \centerline{\includegraphics[scale=0.54]{images/uimockups/f_report.png}}
+    \caption{Farmer's report creation page}
+    \label{fig:ui_f_report}
 \end{figure}
-\begin{figure}[h]
+\newpage
+
+\subsubsection{Forum}
+The forum page shows all the open threads, allowing the user to open them and visualize the discussion.
+A farmer can also create a new thread by clicking "Create thread", which will redirect the user to the thread creation page.\\
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/uimockups/f_forum.png}
+    \centerline{\includegraphics[scale=0.54]{images/uimockups/f_forum.png}}
     \caption{Farmer's forum page}
     \label{fig:ui_f_forum}
 \end{figure}
-The forum page shows all the open threads, allowing the user to open them and visualize the discussion.
-A farmer can also create a new thread by clicking "Create thread", which will redirect the user to the thread creation page.\\
-\begin{figure}[h]
+\newpage
+
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/uimockups/f_forumcreatethread.png}
+    \centerline{\includegraphics[scale=0.54]{images/uimockups/f_forumcreatethread.png}}
     \caption{Farmer's thread creation page}
     \label{fig:ui_f_forumcreatethread}
 \end{figure}
-\begin{figure}[h]
+\newpage
+
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/uimockups/f_forumthread.png}
+    \centerline{\includegraphics[scale=0.54]{images/uimockups/f_forumthread.png}}
     \caption{Farmer's thread page}
     \label{fig:ui_f_forumthread}
 \end{figure}
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.4]{images/uimockups/f_product.png}
-    \caption{Farmer's product page}
-    \label{fig:ui_f_product}
-\end{figure}
+\newpage
 
-\subsection{Policy maker User Interface}
-\begin{figure}[h]
+\subsubsection{Help Requests}
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/uimockups/pm_farmers.png}
-    \caption{Policy maker's farmers page}
-    \label{fig:ui_pm_farmers}
+    \centerline{\includegraphics[scale=0.54]{images/uimockups/f_helprequest.png}}
+    \caption{Farmer's help request creation page}
+    \label{fig:ui_f_helprequest}
 \end{figure}
+\newpage
+
+\newpage
+\subsection{Policy maker User Interface}
+\subsubsection{Homepage}
 The first page visualized by the policy maker once logged into the platform lists the farmers and the latest reports submitted, allowing the
 user to search farmers/reports. The user can then navigate to the farmer/report details. On the top of the page there is a navigation bar that
 allows the user to switch dashboard page.\\
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/uimockups/pm_farmerdetails.png}
+    \centerline{\includegraphics[scale=0.54]{images/uimockups/pm_farmers.png}}
+    \caption{Policy maker's farmers page}
+    \label{fig:ui_pm_farmers}
+\end{figure}\
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \centerline{\includegraphics[scale=0.54]{images/uimockups/pm_farmerdetails.png}}
     \caption{Policy maker's farmer detail page}
     \label{fig:ui_pm_farmerdetails}
 \end{figure}
-\begin{figure}[h]
+\newpage
+
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/uimockups/pm_reports.png}
+    \centerline{\includegraphics[scale=0.54]{images/uimockups/pm_reports.png}}
     \caption{Policy maker's report page}
     \label{fig:ui_pm_reports}
 \end{figure}
-\begin{figure}[h]
+\newpage
+
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/uimockups/pm_reportproductdetail.png}
+    \centerline{\includegraphics[scale=0.54]{images/uimockups/pm_reportproductdetail.png}}
     \caption{Policy maker's report production detail page}
     \label{fig:ui_pm_reportproductdetail}
 \end{figure}
-\begin{figure}[h]
+\newpage
+
+The forecast page contains basic information about the future weather forecasts. Production forecasts are calculated and then shown to the user through
+graphs.\\
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/uimockups/pm_forecasts.png}
+    \centerline{\includegraphics[scale=0.54]{images/uimockups/pm_forecasts.png}}
     \caption{Policy maker's forecasts page}
     \label{fig:ui_pm_forecasts}
 \end{figure}
-The forecast page contains basic information about the future weather forecasts. Production forecasts are calculated and then shown to the user through
-graphs.\\
-\begin{figure}[h]
+\newpage
+
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/uimockups/pm_helprequests.png}
-    \caption{Policy maker's help requests page}
-    \label{fig:ui_pm_helprequests}
-\end{figure}
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.4]{images/uimockups/pm_helprequestdetail.png}
-    \caption{Policy maker's help request detail page}
-    \label{fig:ui_pm_helprequestdetail}
-\end{figure}
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.4]{images/uimockups/pm_forum.png}
-    \caption{Policy maker's forum page}
-    \label{fig:ui_pm_forum}
-\end{figure}
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.4]{images/uimockups/pm_products.png}
+    \centerline{\includegraphics[scale=0.54]{images/uimockups/pm_products.png}}
     \caption{Policy maker's products page}
     \label{fig:ui_pm_products}
 \end{figure}
-\begin{figure}[h]
+\newpage
+
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/uimockups/pm_productdetail.png}
+    \centerline{\includegraphics[scale=0.54]{images/uimockups/pm_productdetail.png}}
     \caption{Policy maker's product detail page}
     \label{fig:ui_pm_productdetail}
 \end{figure}
+\newpage
+
+\subsubsection{Help Requests}
+\begin{figure}[h!]
+    \centering
+    \centerline{\includegraphics[scale=0.54]{images/uimockups/pm_helprequests.png}}
+    \caption{Policy maker's help requests page}
+    \label{fig:ui_pm_helprequests}
+\end{figure}
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \centerline{\includegraphics[scale=0.54]{images/uimockups/pm_helprequestdetail.png}}
+    \caption{Policy maker's help request detail page}
+    \label{fig:ui_pm_helprequestdetail}
+\end{figure}
+\newpage
+
+\subsubsection{Forum}
+\begin{figure}[h!]
+    \centering
+    \centerline{\includegraphics[scale=0.54]{images/uimockups/pm_forum.png}}
+    \caption{Policy maker's forum page}
+    \label{fig:ui_pm_forum}
+\end{figure}
+\newpage
 
 \subsection{Flow of the User Interface}
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.6]{images/uimockups/ui_flow.png}
+    \centerline{\includegraphics[scale=0.15]{images/uimockups/ui_flow.png}}
     \caption{User interface flow}
     \label{fig:ui_flow}
 \end{figure}
+\newpage
+
 \section{Requirements Traceability}
 This section associates the requirements set forth in the DREAM RASD document with the components designed to meet them.\\
 Please note that, for each requirement, only the main components designed to satisfy it have been indicated, in fact the auxiliary components (e.g. Client Handler, Farmer Client, ...) and the sub-components are omitted since they are already described in the previous sections.
