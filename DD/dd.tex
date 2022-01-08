@@ -204,6 +204,9 @@ The components of the application server are:
     \item \textbf{Client Handler}: handles clients' connection, interfacing between the application server and the clients.
 \end{itemize}
 \subsubsection{Client Handler}
+Figure \ref{fig:client_handler} describes the internal structure of the Client Handler component. This component receives requests from clients and forwards them to the 
+Dashboard Manager or to the Access Manager, accordingly to the type of request. The internal component that is key to this operation is the Request Handler, which unpacks the client request 
+and calls the corresponding method provided by the Dashboard Interface or the Access Manager Interface. 
 \begin{figure}[h]
     \centering 
     \includegraphics[scale=0.5]{images/clientHandler.png}
@@ -211,6 +214,10 @@ The components of the application server are:
     \label{fig:client_handler}
 \end{figure}
 \subsubsection{Dashboard Manager}
+Figure \ref{fig:dashboard_manager} describes the internal structure of the Dashboard Manager component. The Dashboard Manager works as a provider of webpages, forwarded then to 
+the user by the Client Handler. Since each webpage is dinamically built by fetching data from the model, this component is interfaced with the various controller components such as Report and Help Request Managers through
+their external interfaces. Once a webpage is requested through the Dashboard Interface, the Dashboard Manager internal components proceed to build the webpage by making requests to various components
+and once the page has been built it is returned from the interface.
 \begin{figure}[h]
     \centering 
     \includegraphics[scale=0.4]{images/dashboardManager.png}
@@ -218,6 +225,19 @@ The components of the application server are:
     \label{fig:dashboard_manager}
 \end{figure}
 \subsection{Deployment view}
+Figure \ref{fig:deployment} describes the deployment components of the application. The system is implemented as a three-tier architecture,
+a standard software application architecture dividing the application into three logical and physical tiers that is present in most of client-server applications.
+The three tiers of the architecture consist in:
+\begin{itemize}
+    \item \textbf{Tier 1: Presentation tier}: the presentation tier comprises the user interfaces and the communication layers, providing services to display data to end users and allowing
+        them to interact with the application. In the DREAM deployment, this tier is composed of a web server installed on a dedicated server instance with Apache TomEE 8, responsible for the interaction with end users, and an MQTT broker that periodically 
+        interacts with the sensors installed on a dedicated broker server.
+    \item \textbf{Tier 2: Application tier}: the application tier implements the business logic of the application, providing the necessary back-end services.
+        This tier collects information from the presentation tier and interacts with the data tier through CRUD operations. The DREAM application server is installed on a dedicated 
+        server instance, running a Java Virtual Machine.
+    \item \textbf{Tier 3: Data tier}: the data management tier provides database services accessed by the application tier and the presentation tier. The DREAM data management tier is installed on a dedicated
+        MySQL server and accessed via JDBC and JPA.
+\end{itemize}
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.43]{images/deployment.png}
@@ -225,6 +245,76 @@ The components of the application server are:
     \label{fig:deployment}
 \end{figure}
 \subsection{Runtime view}
+This section aims to describe the interactions between components and their interfaces at runtime, detailing some crucial operations such as login and report insertion.
+It should be noted that these diagrams are meant to give an idea of the behaviour of the system and to provide a blueprint for the implementation of these processes. 
+The methods used in the diagrams are the ones provided by each component's interface. Internal methods of a component are only shown if particularly relevant to the operation.
+\subsubsection{Registration}
+Figure \ref{fig:r_registration} shows the registration procedure for both farmers and policy makers. These procedures differs in some points but the overall system behaviour
+is similar. For what concerns the farmer registration process, it begins with a request from the policy maker handled by the Access Manager: new credentials are generated, stored into 
+the database and sent via e-mail by the Mail Manager component to the farmer. The policy maker registration process is almost the same, with the only difference being that the 
+registration procedure is started by a system admin, requesting directly to the Access Manager to generate credentials for the PM. The generated credentials are then stored in the DB and
+sent via e-mail to the policy maker.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{images/rv/registration.png}
+    \caption{Registration runtime diagram}
+    \label{fig:r_registration}
+\end{figure}
+\subsubsection{Login}
+Figure \ref{fig:r_login} describes the login procedure: the first request to the system is to get the login page, generated by the Dashboard Manager. Once the client has been provided
+with the page, it enters his login credentials and the login request is then forwarded to the Access Manager, that verifies the credentials through a DB query and returns the outcome of the request:
+if the credentials are correct, the user is redirected to his homepage, otherwise the login page gets newly displayed, this time with an error message.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.3]{images/rv/login.png}
+    \caption{Login runtime diagram}
+    \label{fig:r_login}
+\end{figure}
+\subsubsection{Report insertion}
+In Figure \ref{fig:r_report} is described the report insertion procedure. Such as almost every other process, it starts with a request to the Dashboard Manager to get
+the webpage containing the form to insert a report. Once the user has compiled such form, the report is submitted and handled by the Report Manager. In this phase sensor data 
+and weather data are retrieved from the database through the respective Sensor and Weather Managers and, through the crossData() operation, are binded to the farmer's report.
+Once this operation succeeds, the report is stored into the database via the Database Manager and the user is acknowledged of the success of the operation.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{images/rv/insertReport.png}
+    \caption{Report insertion runtime diagram}
+    \label{fig:r_report}
+\end{figure}
+\subsubsection{Creation and handling of a help request}
+In Figure \ref{fig:r_hr1} and Figure \ref{fig:r_hr2} is described the process of creation and handling of a help request.\\
+Figure \ref{fig:r_hr1} describes the creation process, which starts with a request from the farmer to get the report creation form webpage, provided by the Dashboard Manager.
+Once the form is compiled, the help request is submitted and handled by the Help Request Manager, which stores it into the database. The user is then acknowledged of the success
+of the operation.\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.3]{images/rv/helpRequestCreation.png}
+    \caption{Help request creation runtime diagram}
+    \label{fig:r_hr1}
+\end{figure}
+Figure \ref{fig:r_hr2} describes the handling of a newly created help request by the policy makers. This process starts by getting the list of help requests, provided as a webpage
+by the Dashboard Manager after fetching help requests from the database through the Help Request Manager.
+Once a help request is selected, the first operation is to open it. After that, the policy maker proceeds to evaluate its severity. If the severity is low, the Help Request Manager
+fetches from the database suggestions related to the help request farmer, and these suggestions are automatically sent to the farmer via e-mail by the Mail Manager.
+If the severity is high, control visits to the farmer are newly scheduled and the farmer is notified via e-mail.\\
+The process ends with an evaluation of the farmer performances: if they are improved the help request is closed, otherwise its severity is increased and new actions are taken.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.22]{images/rv/helpRequestHandling.png}
+    \caption{Help request handling runtime diagram}
+    \label{fig:r_hr2}
+\end{figure}
+\subsubsection{Forum interaction}
+Figure \ref{fig:r_forum} describes a user interaction with the DREAM forum. A typical user/forum interaction would start with the opening of the forum webpage, provided by the Dashboard Manager,
+where threads fetched by the Forum Manager are displayed. The next step is to open a thread discussion, which consists in a similar interaction as the previous one. If then the user intends to contribute
+to the discussion by posting an answer, the user request is handled by the Forum Manager, updating the thread and storing the contribution into the database. Once the operation has succeeded, the user
+is provided with the updated thread discussion webpage.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.3]{images/rv/answerForum.png}
+    \caption{Forum interaction runtime diagram}
+    \label{fig:r_forum}
+\end{figure}
 \subsection{Component Interfaces}
 This section lists all the methods exposed by each interface to the external components. Only internal components of the application server are described.
 For each method, its parameters and its return value are only meant to give an idea of its behaviour. The list of methods may not comprehend every method
