@@ -698,6 +698,36 @@ Please note that, for each requirement, only the main components designed to sat
 \end{enumerate}
 
 \section{Implementation, integration and test plan}
+\subsection{System Testing}
+During implementation, the developed software must be tested step-by-step with unit tests before 
+being incorporated into the system. After the entire system has been properly developed and integrated, 
+testing of the entire infrastructure will be required to verify its integrity and correctness. 
+At this point the test environment should be as close to the production environment as possible, 
+the system tests to be performed are:
+\begin{itemize}
+    \item \textbf{Functional Testing}\\The application is tested to verify that it meets all 
+    requirements, i.e., that it is able to function properly under certain conditions. 
+    This is a black-box testing methodology, i.e., the internal workings of the tested code 
+    are not taken into account, nor are the steps that lead to the result, but only the final result is focused on.\\
+    The tool used for this phase must support running scripted test automation, simulating the 
+    behavior of farmers and PMs in all scenarios. %selenium per il test scripting 
+    \item \textbf{Performance and Load Testing}\\This testing phase is needed to identify bottlenecks affecting response time, utilization,
+    throughput and to do benchmarking, in order to establish a baseline thanks to which it will be 
+    possible to make comparisons for possible future integrations.\\
+    Using the data available to the Telangana Minister of Agriculture, an expected workload will be calculated 
+    and acceptable performance will be formulated based on it. The whole system will be under this load, increasing it 
+    periodically in order to calculate load treshold and the maximum time the system can be exposed to it. %loadninja
+    \item \textbf{Stress Testing}\\After calculating a solid performance baseline, the system will be subjected to 
+    loads well beyond expectations to evaluate response and make sure that the system recovers gracefully after failure.
+\end{itemize}
+\subsection{Testing tools}
+\begin{itemize}
+    \item \textbf{JUnit}\\Unit testing framework for the Java programming language.
+    \item \textbf{TestComplete}\\GUI test automation tool that tests every desktop and web application. Integrates tightly with 
+    the tools in your ecosystems, giving you a complete testing lifecycle.
+    \item \textbf{LoadNinja}\\LoadNinja allows you to build scriptless load tests. It replaces load emulators with real browsers and generating actionable metrics.
+\end{itemize}
+
 
 \section{Effort spent}
 
