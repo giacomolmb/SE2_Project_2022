@@ -82,7 +82,7 @@
         \end{flushleft}
     \end{minipage}\\[2cm]
 
-    {\large January 9, 2022}\\[2cm]
+    {\large January 10, 2022}\\[2cm]
     
     \vfill
 \end{titlepage}
@@ -92,20 +92,20 @@
 \section{Introduction}
 \subsection{Purpose}
 The purpose of this document is to comprehensively describe the design of the DREAM platform. %(reference to rasd or assignment)
-It will be described the architecture of the system and its characteristics, 
-moreover will be analyzed its components explaining their functionalities.\\
+This document will describe the architecture of the system and its characteristics, 
+analyzing its components explaining their functionalities.\\
 This document was written following the RASD of the same project, 
 in fact the assumptions and design choices are based on the assumptions already explained, 
 however maintaining independence between the documents. This document focuses on the explanation 
 about the Software-To-Be, its modules, its interfaces and its implementation.
 \subsection{Scope}
-The main objective of the platform is to create a support tool and communication channel for farmers in Telangana, 
+The main goal of the platform is to create a support tool and communication channel for farmers in Telangana, 
 leveraging the IT infrastructure of government resources. The platform also aims to be a 
 supervisory and control system for the authorities of the Ministry of Agriculture in Telangana, 
 providing accurate and bulk data of farmers' performance, reducing the overhead due to manual retrieval of this information.\\
 The system will have two separate and exclusive interfaces, one dedicated to PMs in Telangana 
 and one dedicated to farmers in the region. Farmers will be provided with a browser 
-executable web application, it will provide a dashboard to monitor the sensors embedded 
+executable web application which provides a dashboard to monitor the sensors embedded 
 in their fields, weather forecasts for the local area and summarize the resources 
 obtained and consumed by the plantations. In addition to the monitoring functionality, 
 from the farmer's dashboard it will be possible to compile reports to be sent to the PM 
@@ -124,9 +124,49 @@ created from scratch, without any integration of existing systems, but exploitin
 already physically installed in the Telangana region.
 
 \subsection{Definitions, Acronyms, Abbreviations}
+\begin{itemize}
+    \item \textbf{DREAM}: Data-dRiven PrEdictive FArMing
+    \item \textbf{DD}: Design Document
+    \item \textbf{RASD}: Requirements and Specification Document
+    \item \textbf{IT}: Information Technologies
+    \item \textbf{PM/TPM}: Policy Maker or Telangana Policy Maker
+    \item \textbf{HR}: Help Request
+    \item \textbf{DMZ}: De-Militarized Zone
+    \item \textbf{UI}: User Interface
+    \item \textbf{GUI}: Graphical User Interface
+    \item \textbf{REST}: REpresentational State Transfer
+    \item \textbf{API}: Application Programming Interface
+    \item \textbf{MVC}: Model View Controller
+    \item \textbf{R}: Requirements
+    \item \textbf{HTTPS}: HyperText Transfer Protocol over Secure Socket Layer
+    \item \textbf{MQTT}: Message Queue Telemetry Transport
+    \item \textbf{IMAP}: Internet Message Access Protocol
+    \item \textbf{SMTP}: Simple Mail Transfer Protocol
+    \item \textbf{JSON}: JavaScript Object Notation
+    \item \textbf{IoT}: Internet of Things
+    \item \textbf{DBMS}: Database Management System
+    \item \textbf{CRUD}: Create Read Update Delete
+    \item \textbf{JDBC}: Java DataBase Connectivity
+    \item \textbf{JPA}: Java Persistence API
+\end{itemize}
 \subsection{Revision History}
+\begin{itemize}
+    \item \textbf{Version 1.0} January 10, 2021
+    \begin{itemize}
+        First version of the complete DD document
+    \end{itemize} 
+\end{itemize}
 \subsection{Reference Documents}
 \subsection{Document Structure}
+\begin{enumerate}
+    \item \textbf{Introduction}: a brief introduction to the document, the analyzed problem and the proposed solution.
+    \item \textbf{Architectural Design}: overview of the system architecture and analysis of its design, components, deployment and runtime behaviour.
+    \item \textbf{User Interface Design}: overview of the system's User Interface.
+    \item \textbf{Requirements Traceability}: mapping of the requirements defined in the RASD document to the design elements defined in this document.
+    \item \textbf{Implementation, Integration and Test Plan}: description of the implementation procedure of the system's subcomponents, detailing their order and the testing procedure.
+    \item \textbf{Effort Spent}: a brief recap of the time spent to complete this document.
+\end{enumerate}
+\newpage
 \section{Architectural Design}
 \subsection{Overview}
 \begin{figure}[h]
@@ -748,7 +788,7 @@ Please note that, for each requirement, only the main components designed to sat
 \end{enumerate}
 \newpage
 
-\section{Implementation, integration and test plan}
+\section{Implementation, Integration and Test Plan}
 After giving a complete and detailed description of the system, its structure and its functionalities, this section provides a complete plan to develop, implement and test the application.\\
 The implementation, integration and testing of the system will follow a bottom-up approach, keeping track of the dependencies between components and their interactions.
 Since the proposed solution involves a thin client, the main focus of this section will be on the application server and its sub-components. External services will not be analyzed and do not
@@ -880,9 +920,77 @@ the system tests to be performed are:
     the tools in your ecosystems, giving you a complete testing lifecycle.
     \item \textbf{LoadNinja}\\LoadNinja allows you to build scriptless load tests. It replaces load emulators with real browsers and generating actionable metrics.
 \end{itemize}
-
-
+\newpage
 \section{Effort spent}
+This section keeps track of team and personal effort spent to produce the DD document and its sections. The activities that involved crucial decisions such as design choices were
+performed in group, while the individual work mainly consists in activities that do not involve decision-making and team discussions.
+\subsection{Team Effort}
+\begin{table}[h!]
+    \begin{center}
+    \begin{tabular}{|l|c|}
+    \hline
+    \textbf{Task} & \textbf{Hours} \\
+    \hline
+    Initial briefing & 2 \\
+    Architectural design briefing & 1 \\
+    Component View & 2 \\
+    Deployment View & 1 \\
+    Implementation, integration and test plan & 1 \\
+    Document Revisioning & 1 \\
+    \hline
+    \hline
+    \textbf{Total} & 8 \\
+    \hline
+    \end{tabular}
+    \end{center}
+    \caption{Team effort}
+\end{table}
+\subsection{Mauro's Effort}
+\begin{table}[h!]
+    \begin{center}
+    \begin{tabular}{|l|c|}
+    \hline
+    \textbf{Task} & \textbf{Hours} \\
+    \hline
+    Introduction & 3 \\
+    Architectural overview & 5 \\
+    Runtime view & 3 \\
+    Component interfaces & 1 \\
+    Architectural \& Design decisions & 2 \\
+    Requirements Traceability & 3 \\
+    System testing & 1 \\
+    Document revisioning & 2 \\
+    \hline
+    \hline
+    \textbf{Total} & 20 \\
+    \hline
+    \end{tabular}
+    \end{center}
+    \caption{Mauro's effort}
+\end{table}
+\subsection{Giacomo's Effort}
+\begin{table}[h!]
+    \begin{center}
+    \begin{tabular}{|l|c|}
+    \hline
+    \textbf{Task} & \textbf{Hours} \\
+    \hline
+    Introduction & 1 \\
+    Component Views & 3 \\
+    Deployment View & 2 \\
+    Runtime View & 3 \\
+    Component interfaces & 2 \\
+    User interface design & 4 \\
+    Implementation and integration & 3 \\
+    Document revisioning & 1 \\
+    \hline
+    \hline
+    \textbf{Total} & 19 \\
+    \hline
+    \end{tabular}
+    \end{center}
+    \caption{Giacomo's effort}
+\end{table}
 
 \bibliography{main.bib}
 
