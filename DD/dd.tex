@@ -467,6 +467,16 @@ may be added, if necessary, during the implementation phase.
         \item updateThread(threadId, comment): Thread
     \end{itemize}
 \end{itemize}
+\newpage
+\subsection{Database structure}
+In figure \ref{fig:er} is shown the logical description of data by providing the ER Diagram of the infrastructure's database.
+\begin{figure}[h!]
+    \centering
+    \centerline{\includegraphics[scale=0.5]{images/er.png}}
+    \caption{Database ER Diagram}
+    \label{fig:er}
+\end{figure}
+\newpage
 \subsection{Selected Architectural styles and patterns}
 \begin{itemize}
     \item \textbf{Three-Tier Architecture}\\A three-tier architecture was chosen for the 
@@ -495,6 +505,7 @@ may be added, if necessary, during the implementation phase.
         \caption{Cocoa Model-View-Controller}
         \label{fig:mvc}
     \end{figure}
+    \newpage
     \item \textbf{Event based communication for sensors}\\The communication protocol chosen to retrieve 
     data created by IoT sensors is Message Queue Telemetry Transport (MQTT), a standard messaging 
     protocol for the Internet of Things that is extremely lightweight and ideal for connecting remote 
@@ -509,7 +520,7 @@ may be added, if necessary, during the implementation phase.
     This design provides high scalability because, if we had to resort to replication of the 
     application server, it will be enough to subscribe to all topics the new server to receive 
     all sensor data.
-    \begin{figure}[t]
+    \begin{figure}[h!]
         \centering
         \includegraphics[scale=0.68]{images/mqtt.png}
         \caption{Distributed MQTT Broker System}
