@@ -91,10 +91,10 @@
 \newpage
 \section{Introduction}
 \subsection{Purpose}
-The purpose of this document is to comprehensively describe the design of the DREAM platform. %(reference to rasd or assignment)
+The purpose of this document is to comprehensively describe the design of the DREAM platform\cite{assignment}. %(reference to rasd or assignment)
 This document will describe the architecture of the system and its characteristics, 
 analyzing its components explaining their functionalities.\\
-This document was written following the RASD of the same project, 
+This document was written following the RASD\cite{rasd} of the same project, 
 in fact the assumptions and design choices are based on the assumptions already explained, 
 however maintaining independence between the documents. This document focuses on the explanation 
 about the Software-To-Be, its modules, its interfaces and its implementation.
@@ -896,20 +896,20 @@ During implementation, the developed software must be tested step-by-step with u
 being incorporated into the system. After the entire system has been properly developed and integrated, 
 testing of the entire infrastructure will be required to verify its integrity and correctness. 
 At this point the test environment should be as close to the production environment as possible, 
-the system tests to be performed are:
+the system tests to be performed are\cite{slides}:
 \begin{itemize}
     \item \textbf{Functional Testing}\\The application is tested to verify that it meets all 
     requirements, i.e., that it is able to function properly under certain conditions. 
     This is a black-box testing methodology, i.e., the internal workings of the tested code 
     are not taken into account, nor are the steps that lead to the result, but only the final result is focused on.\\
     The tool used for this phase must support running scripted test automation, simulating the 
-    behavior of farmers and PMs in all scenarios. %selenium per il test scripting 
+    behavior of farmers and PMs in all scenarios. 
     \item \textbf{Performance and Load Testing}\\This testing phase is needed to identify bottlenecks affecting response time, utilization,
     throughput and to do benchmarking, in order to establish a baseline thanks to which it will be 
     possible to make comparisons for possible future integrations.\\
     Using the data available to the Telangana Minister of Agriculture, an expected workload will be calculated 
     and acceptable performance will be formulated based on it. The whole system will be under this load, increasing it 
-    periodically in order to calculate load treshold and the maximum time the system can be exposed to it. %loadninja
+    periodically in order to calculate load treshold and the maximum time the system can be exposed to it. 
     \item \textbf{Stress Testing}\\After calculating a solid performance baseline, the system will be subjected to 
     loads well beyond expectations to evaluate response and make sure that the system recovers gracefully after failure.
 \end{itemize}
@@ -968,6 +968,7 @@ performed in group, while the individual work mainly consists in activities that
     \end{center}
     \caption{Mauro's effort}
 \end{table}
+\newpage
 \subsection{Giacomo's Effort}
 \begin{table}[h!]
     \begin{center}
@@ -992,6 +993,7 @@ performed in group, while the individual work mainly consists in activities that
     \caption{Giacomo's effort}
 \end{table}
 
+\newpage
 \bibliography{main.bib}
 
 \end{document}
