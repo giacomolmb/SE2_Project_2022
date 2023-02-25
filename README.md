@@ -1,5 +1,11 @@
 # Software Engineering 2 Project - R&DD
 
+Software Engineering 2 Project - A.Y. 2021/22 - Politecnico di Milano
+
+## Authors
+- [Mauro Famà](https://github.com/maurofama99)
+- [Giacomo Lombardo](https://github.com/giacomolmb)
+
 ## Goal
 The objective of this project is to apply in practice what has been learned during lectures with the purpose of becoming familiar with software engineering practices and able to address new software engineering issues in a rigorous way. The project includes two assignments:
 - The preparation of a Requirement Analysis and Specification Document (RASD) for a provided problem.
@@ -21,6 +27,4 @@ This repository contains all the files that we created in order to realize the f
 - `DD`: contains all the Tex files used to realize the final DD pdf.
 - `RASD`:contains all the Tex files used to realize the final RASD pdf.
 
-## Authors
-- [Mauro Famà](https://github.com/maurofama99)
-- [Giacomo Lombardo](https://github.com/giacomolmb)
+
